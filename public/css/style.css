@@ -820,6 +820,9 @@
       }
       background-image: linear-gradient(var(--tw-gradient-stops));
     }
+    .bg-\[url\(\.\.\/img\/assets\/kontak\/phone_035\.png\)\] {
+      background-image: url(../img/assets/kontak/phone_035.png);
+    }
     .bg-\[url\(\/public\/img\/kontak\/Whatsapp-light\.png\)\] {
       background-image: url(/public/img/kontak/Whatsapp-light.png);
     }
@@ -2056,7 +2059,7 @@ main > section {
   rotate: 45deg;
 }
 .toggle-day {
-  background-image: url(public/img/assets/dark-toggle/day-sky.jpg);
+  background-image: url(../img/assets/dark-toggle/day-sky.jpg);
 }
 .toggle-circle {
   --tw-gradient-position: to right in oklab;
@@ -2067,7 +2070,7 @@ main > section {
   --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
 }
 #dark-toggle:checked ~ label div.toggle-day {
-  background-image: url(public/img/assets/dark-toggle/night-sky.jpg);
+  background-image: url(../img/assets/dark-toggle/night-sky.jpg);
 }
 #dark-toggle:checked ~ label div.toggle-circle {
   --tw-translate-x: 23.5px;
@@ -2086,16 +2089,16 @@ main > section {
   box-shadow: 0.75px 0 1px 0.5px rgba(229, 231, 235, 0.3), 0 0 1px 0.25px rgba(229, 231, 235, 0.3), 0.75px 0 1px 0.5px rgba(229, 231, 235, 0.3), 0px 0 0.25px 0.5px rgba(229, 231, 235, 0.3);
 }
 #dark-toggle:checked ~ #whatsapp {
-  background-image: url(public/img/assets/kontak/Whatsapp-dark.png);
+  background-image: url(../img/assets/kontak/Whatsapp-dark.png);
 }
 #whatsapp {
-  background-image: url(public/img/assets/kontak/Whatsapp-light.png);
+  background-image: url(../img/assets/kontak/Whatsapp-light.png);
 }
 .bg-lang-id {
-  background-image: url(public/img/assets/lang/id.svg.png);
+  background-image: url(../img/assets/lang/id.svg.png);
 }
 .bg-lang-en {
-  background-image: url(public/img/assets/lang/en.svg.png);
+  background-image: url(../img/assets/lang/en.svg.png);
 }
 .nav-lang {
   background-color: transparent;
