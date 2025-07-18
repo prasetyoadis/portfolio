@@ -820,14 +820,14 @@
       }
       background-image: linear-gradient(var(--tw-gradient-stops));
     }
-    .bg-\[url\(\/public\/img\/assets\/kontak\/phone_035\.png\)\] {
-      background-image: url(/public/img/assets/kontak/phone_035.png);
-    }
     .bg-\[url\(\/public\/img\/kontak\/Whatsapp-light\.png\)\] {
       background-image: url(/public/img/kontak/Whatsapp-light.png);
     }
     .bg-\[url\(\/public\/img\/kontak\/phone_035\.png\)\] {
       background-image: url(/public/img/kontak/phone_035.png);
+    }
+    .bg-\[url\(public\/img\/assets\/kontak\/phone_035\.png\)\] {
+      background-image: url(public/img/assets/kontak/phone_035.png);
     }
     .from-neutral-800\/45 {
       --tw-gradient-from: color-mix(in srgb, oklch(26.9% 0 0) 45%, transparent);
