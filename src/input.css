@@ -1,0 +1,380 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap')
+layer(utilities);
+
+@theme {
+  --animate-loop-scroll: loop-scroll 30s linear infinite;
+  --animate-slide-in: slide-in 0.5s ease-in-out;
+  --animate-slide-in-up: slide-in-up 1s ease-in-out 0.25s 1;
+  --animate-fade-in: fade-in 1s ease-in-out forwards;
+  --animate-fade-out: fade-in 1s ease-in-out forwards;
+  --animate-fade-in-left: fade-in-left 1s ease-out forwards;
+  --animate-fade-out-left: fade-out-left 1s ease-out forwards;
+  --animate-zoom-in: zoom-in 450ms linear 0.25s 1;
+
+  --color-github: #181717;
+  --color-youtube: #ff0000;
+  --color-instagram: #ff0069;
+  --color-linkedin: #0a66c2;
+ 
+  --color-light: #dad7cd;
+  --color-light-900: #312e24;
+  --color-light-800: #615b48;
+  --color-light-700: #92896c;
+  --color-light-600: #b6b09c;
+  --color-light-500: #dad7cd;
+  --color-light-400: #e2dfd7;
+  --color-light-300: #e9e7e1;
+  --color-light-200: #f0efeb;
+  --color-light-100: #f8f7f5;
+
+  --color-tertiary: #a3b18a;
+  --color-tertiary-900: #212619;
+  --color-tertiary-800: #434c33;
+  --color-tertiary-700: #64724c;
+  --color-tertiary-600: #859865;
+  --color-tertiary-500: #a3b18a;
+  --color-tertiary-400: #b6c1a2;
+  --color-tertiary-300: #c8d0b9;
+  --color-tertiary-200: #dae0d0;
+  --color-tertiary-100: #edefe8;
+
+  --color-secondary: #588157;
+  --color-secondary-900: #111911;
+  --color-secondary-800: #233323;
+  --color-secondary-700: #344c34;
+  --color-secondary-600: #466645;
+  --color-secondary-500: #588157;
+  --color-secondary-400: #739f72;
+  --color-secondary-300: #96b795;
+  --color-secondary-200: #b9cfb9;
+  --color-secondary-100: #dce7dc;
+
+  --color-primary: #3a5a40; 
+  --color-primary-900: #0c120d;
+  --color-primary-800: #172419;
+  --color-primary-700: #233626;
+  --color-primary-600: #2e4833;
+  --color-primary-500: #3a5a40;
+  --color-primary-400: #56865f;
+  --color-primary-300: #7aaa83; 
+  --color-primary-200: #a7c7ac;
+  --color-primary-100: #d3e3d6;
+
+  --color-dark: #344e41;
+  --color-dark-900: #0a0f0d;
+  --color-dark-800: #141f1a;
+  --color-dark-700: #1f2e26;
+  --color-dark-600: #293d33;
+  --color-dark-500: #344e41;
+  --color-dark-400: #527a66;
+  --color-dark-300: #75a38c;
+  --color-dark-200: #a3c2b3;
+  --color-dark-100: #d1e0d9;
+
+  --color-pasdev-surface-a00: #121212;
+  --color-pasdev-surface-a10: #282828;
+  --color-pasdev-surface-a20: #3f3f3f;
+  --color-pasdev-surface-a30: #575757;
+  --color-pasdev-surface-a40: #717171;
+  --color-pasdev-surface-a40: #8b8b8b;
+  
+  @keyframes loop-scroll {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-up {
+    0% {
+      visibility: "visible";
+      transform: "translate3d(0, 100%, 0)";
+    }
+    100% {
+      transform: "translate3d(0, 0, 0)";
+    }
+  }
+  @keyframes fade-in {
+      0% {
+          opacity: 0;
+      }
+      100% {
+          opacity: 1;
+      }
+  }
+  @keyframes fade-out {
+      0% {
+          opacity: 1;
+      }
+      100% {
+          opacity: 0;
+      }
+  }
+  @keyframes fade-in-left {
+      0% {
+          opacity: 0;
+          transform: translateX(-50px);
+      }
+      100% {
+          opacity: 1;
+          transform: translateX(0);
+      }
+  }
+  @keyframes fade-out-left {
+      0% {
+          opacity: 1;
+      }
+      100% {
+          opacity: 0;
+          transform: translateX(-50px);
+      }
+  }
+  @keyframes zoom-in {
+      0% {
+          opacity: 0;
+          transform: scale3d(0.3, 0.3, 0.3);
+        }
+      80% {
+          opacity: 0.8;
+          transform: scale3d(1, 1, 1);
+      }
+      100% {
+          opacity: 1;
+      }
+  }
+/* end @theme */
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility paused {
+  animation-play-state: paused;
+}
+
+/* html{
+    scroll-behavior: smooth;
+} */
+
+body {
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    overflow: overlay;
+}
+
+main{
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scrollbar-color: oklch(70.5% 0.015 286.067) oklch(30.1% 0 0);
+}
+
+main > section{
+    min-height: 100vh;
+    display: flex;
+}
+
+
+.navbar-fixed {
+    @apply fixed z-10 bg-white/50 backdrop-blur-xs dark:bg-pasdev-surface-a10/50;
+    box-shadow: inset 0 -1px 0 0 rgb(144, 161, 185, 0.25);
+}
+.humberger-line {
+    @apply w-[30px] h-[3px] my-2 block bg-dark rounded-md dark:bg-tertiary;
+}
+
+.hamburger-active > span:nth-child(1){
+    @apply -rotate-45;
+}
+
+.hamburger-active > span:nth-child(2){
+    @apply scale-0;
+}
+
+.hamburger-active > span:nth-child(3){
+    @apply rotate-45;
+}
+.toggle-day{
+    @apply bg-[url(/public/img/assets/dark-toggle/day-sky.jpg)];
+}
+
+.toggle-circle{
+    @apply bg-gradient-to-r from-yellow-200 to-yellow-500;
+}
+
+#dark-toggle:checked ~ label div.toggle-day{
+    @apply bg-[url(/public/img/assets/dark-toggle/night-sky.jpg)];
+}
+
+#dark-toggle:checked ~ label div.toggle-circle{
+    @apply translate-x-[23.5px] shadow-xs bg-gradient-to-br from-gray-200 via-gray-400 to-gray-600;
+    box-shadow: 0.75px 0 1px 0.5px rgba(229, 231, 235, 0.3),
+                0 0 1px 0.25px rgba(229, 231, 235, 0.3),
+                0.75px 0 1px 0.5px rgba(229, 231, 235, 0.3),
+                0px 0 0.25px 0.5px rgba(229, 231, 235, 0.3);
+}
+#dark-toggle:checked ~ #whatsapp{
+    @apply bg-[url(/public/img/assets/kontak/Whatsapp-dark.png)]
+}
+
+#whatsapp{
+    @apply bg-[url(/public/img/assets/kontak/Whatsapp-light.png)]
+}
+
+.bg-lang-id{
+    @apply bg-[url(/public/img/assets/lang/id.svg.png)];
+}
+
+.bg-lang-en{
+    @apply bg-[url(/public/img/assets/lang/en.svg.png)];
+}
+
+.nav-lang{
+    @apply bg-transparent;
+}
+
+.nav-lang > a {
+    @apply text-primary hover:text-dark dark:text-light dark:hover:text-tertiary
+}
+
+.nav-lang:hover{
+    @apply bg-gray-400/25 dark:bg-pasdev-surface-a20;
+}
+
+.nav-lang.lang-active{
+    @apply bg-primary! dark:bg-tertiary!;
+}
+
+.nav-lang.lang-active > a {
+    @apply text-light hover:text-white dark:text-dark dark:hover:text-dark-700;
+}
+
+.bubble-chat > #chat-me::before {
+    background: linear-gradient(120deg, #dcf8c6 0%, #dcf8c6 50%, transparent 50%, transparent);
+}
+
+.bubble-chat > #chat-you::before {
+    background: linear-gradient(240deg, oklch(98.5% 0 0) 0%, oklch(98.5% 0 0) 50%, transparent 50%, transparent);
+}
+
+[data-popper-arrow],
+[data-popper-arrow]:before {
+    background: inherit;
+    width: 8px;
+    height: 8px;
+    position: absolute
+}
+
+[data-popper-arrow] {
+    visibility: hidden
+}
+
+[data-popper-arrow]:before {
+    content: "";
+    visibility: visible;
+    transform: rotate(45deg)
+}
+
+[data-popper-arrow]:after {
+    content: "";
+    visibility: visible;
+    background: inherit;
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    transform: rotate(45deg)
+}
+
+[role=tooltip]>[data-popper-arrow]:before {
+    border-style: solid;
+    border-color: var(--color-gray-200)
+}
+
+.dark [role=tooltip]>[data-popper-arrow]:before {
+    border-style: solid;
+    border-color: var(--color-gray-600)
+}
+
+[role=tooltip]>[data-popper-arrow]:after {
+    border-style: solid;
+    border-color: var(--color-gray-200)
+}
+
+.dark [role=tooltip]>[data-popper-arrow]:after {
+    border-style: solid;
+    border-color: var(--color-gray-600)
+}
+
+[data-popover][role=tooltip][data-popper-placement^=top]>[data-popper-arrow]:before,
+[data-popover][role=tooltip][data-popper-placement^=top]>[data-popper-arrow]:after {
+    border-bottom-width: 1px;
+    border-right-width: 1px
+}
+
+[data-popover][role=tooltip][data-popper-placement^=right]>[data-popper-arrow]:before,
+[data-popover][role=tooltip][data-popper-placement^=right]>[data-popper-arrow]:after {
+    border-bottom-width: 1px;
+    border-left-width: 1px
+}
+
+[data-popover][role=tooltip][data-popper-placement^=bottom]>[data-popper-arrow]:before,
+[data-popover][role=tooltip][data-popper-placement^=bottom]>[data-popper-arrow]:after {
+    border-top-width: 1px;
+    border-left-width: 1px
+}
+
+[data-popover][role=tooltip][data-popper-placement^=left]>[data-popper-arrow]:before,
+[data-popover][role=tooltip][data-popper-placement^=left]>[data-popper-arrow]:after {
+    border-top-width: 1px;
+    border-right-width: 1px
+}
+
+[data-popover][role=tooltip][data-popper-placement^=top]>[data-popper-arrow] {
+    bottom: -5px
+}
+
+[data-popover][role=tooltip][data-popper-placement^=bottom]>[data-popper-arrow] {
+    top: -5px
+}
+
+[data-popover][role=tooltip][data-popper-placement^=left]>[data-popper-arrow] {
+    right: -5px
+}
+
+[data-popover][role=tooltip][data-popper-placement^=right]>[data-popper-arrow] {
+    left: -5px
+}
+
+[role=tooltip].invisible>[data-popper-arrow]:before,
+[role=tooltip].invisible>[data-popper-arrow]:after {
+    visibility: hidden
+}
