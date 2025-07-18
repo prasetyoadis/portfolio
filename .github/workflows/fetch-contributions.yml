@@ -1,0 +1,33 @@
+name: Fetch GitHub Contributions
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Jalankan tiap hari jam 00:00 UTC
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Fetch contributions via GraphQL API
+        run: |
+          curl -H "Authorization: bearer ${{ secrets.GH_TOKEN }}" \
+               -X POST \
+               -H "Content-Type: application/json" \
+               -d '{
+                    "query": "query { user(login: \"prasetyoadis\") { contributionsCollection { contributionCalendar { totalContributions weeks { contributionDays { color contributionCount date } } } } } }"
+                  }' \
+               https://api.github.com/graphql \
+               | jq '.data.user.contributionsCollection.contributionCalendar' \
+               > public/contributions.json
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add public/contributions.json
+          git commit -m "Update contributions" || echo "No changes to commit"
+          git push
