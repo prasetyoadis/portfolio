@@ -205,7 +205,7 @@ main > section{
 
 
 .navbar-fixed {
-    @apply fixed z-10 bg-white/50 backdrop-blur-xs dark:bg-pasdev-surface-a10/50;
+    @apply fixed z-[9999] bg-white/50 backdrop-blur-xs dark:bg-pasdev-surface-a10/50;
     box-shadow: inset 0 -1px 0 0 rgb(144, 161, 185, 0.25);
 }
 .humberger-line {
