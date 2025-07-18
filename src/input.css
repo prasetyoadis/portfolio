@@ -224,7 +224,7 @@ main > section{
     @apply rotate-45;
 }
 .toggle-day{
-    @apply bg-[url(/public/img/assets/dark-toggle/day-sky.jpg)];
+    @apply bg-[url(public/img/assets/dark-toggle/day-sky.jpg)];
 }
 
 .toggle-circle{
@@ -232,7 +232,7 @@ main > section{
 }
 
 #dark-toggle:checked ~ label div.toggle-day{
-    @apply bg-[url(/public/img/assets/dark-toggle/night-sky.jpg)];
+    @apply bg-[url(public/img/assets/dark-toggle/night-sky.jpg)];
 }
 
 #dark-toggle:checked ~ label div.toggle-circle{
@@ -243,19 +243,19 @@ main > section{
                 0px 0 0.25px 0.5px rgba(229, 231, 235, 0.3);
 }
 #dark-toggle:checked ~ #whatsapp{
-    @apply bg-[url(/public/img/assets/kontak/Whatsapp-dark.png)]
+    @apply bg-[url(public/img/assets/kontak/Whatsapp-dark.png)]
 }
 
 #whatsapp{
-    @apply bg-[url(/public/img/assets/kontak/Whatsapp-light.png)]
+    @apply bg-[url(public/img/assets/kontak/Whatsapp-light.png)]
 }
 
 .bg-lang-id{
-    @apply bg-[url(/public/img/assets/lang/id.svg.png)];
+    @apply bg-[url(public/img/assets/lang/id.svg.png)];
 }
 
 .bg-lang-en{
-    @apply bg-[url(/public/img/assets/lang/en.svg.png)];
+    @apply bg-[url(public/img/assets/lang/en.svg.png)];
 }
 
 .nav-lang{

@@ -1,7 +1,7 @@
 // Fungsi untuk load file JSON
 async function loadLanguage(lang) {
   try {
-    const res = await fetch(`lang/${lang}.json`);
+    const res = await fetch(`public/lang/${lang}.json`);
     const translations = await res.json();
 
     Object.keys(translations).forEach(key => {
@@ -24,9 +24,7 @@ document.querySelectorAll('#language-selector a').forEach(link => {
     document.querySelectorAll('#language-selector a').forEach(a => {
       a.parentElement.classList.remove('lang-active');
       if (a.dataset.lang != selectedLang) {
-        console.log(a.dataset.lang);
         document.querySelector('#language').classList.replace(`bg-lang-${a.dataset.lang}`, `bg-lang-${selectedLang}`)
-        console.log(document.querySelector('#language'));
       }
     });
     // Tambahkan class aktif ke link yang diklik
