@@ -2059,7 +2059,7 @@ main > section {
   rotate: 45deg;
 }
 .toggle-day {
-  background-image: url(../img/assets/dark-toggle/day-sky.jpg);
+  background-image: url(../img/assets/dark-toggle/day-sky.webp);
 }
 .toggle-circle {
   --tw-gradient-position: to right in oklab;
@@ -2070,7 +2070,7 @@ main > section {
   --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
 }
 #dark-toggle:checked ~ label div.toggle-day {
-  background-image: url(../img/assets/dark-toggle/night-sky.jpg);
+  background-image: url(../img/assets/dark-toggle/night-sky.webp);
 }
 #dark-toggle:checked ~ label div.toggle-circle {
   --tw-translate-x: 23.5px;
@@ -2095,10 +2095,10 @@ main > section {
   background-image: url(../img/assets/kontak/Whatsapp-light.png);
 }
 .bg-lang-id {
-  background-image: url(../img/assets/lang/id.svg.png);
+  background-image: url(../img/assets/lang/id.svg.webp);
 }
 .bg-lang-en {
-  background-image: url(../img/assets/lang/en.svg.png);
+  background-image: url(../img/assets/lang/en.svg.webp);
 }
 .nav-lang {
   background-color: transparent;
