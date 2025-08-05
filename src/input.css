@@ -242,12 +242,12 @@ main > section{
                 0.75px 0 1px 0.5px rgba(229, 231, 235, 0.3),
                 0px 0 0.25px 0.5px rgba(229, 231, 235, 0.3);
 }
-#dark-toggle:checked ~ #whatsapp{
-    @apply bg-[url(../img/assets/kontak/Whatsapp-dark.png)]
+.bg-wa-dark{
+    @apply bg-[url(../img/assets/kontak/whatsapp-dark.webp)] bg-pasdev-surface-a00/50
 }
 
-#whatsapp{
-    @apply bg-[url(../img/assets/kontak/Whatsapp-light.png)]
+.bg-wa-light{
+    @apply bg-[url(../img/assets/kontak/whatsapp-light.webp)]
 }
 
 .bg-lang-id{
