@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi Perpustakaan | PASdev Full-Stack Developer</title>
+
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../public/img/favicon.ico">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&" />
+
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="overflow-hidden">
+<!-- Header Start -->
+    <header class="flex items-center top-0 left-0 w-full sm:-ml-4 z-10 bg-transparent">
+        <div class="container xl:w-9/12 mx-auto">
+            <div class="flex relative items-center justify-between">
+                <div class="px-4 sm:px-8">
+                    <a class="block py-6 font-bold text-2xl text-primary dark:text-tertiary" href="/">PASdev</a>
+                </div>
+                <div class="flex items-center px-4">
+                    
+                    <div class="flex lg:order-last items-center absolute right-[7.25rem] lg:static lg:mr-4 ">
+                        <input type="checkbox" class="hidden" id="dark-toggle">
+                        <label for="dark-toggle">
+                            <div class="toggle-day flex p-1 w-14 h-8 cursor-pointer item-center bg-cover bg-center rounded-full inset-shadow-sm shadow-sm transition duration-300 ease-in-out">
+                                <div class="toggle-circle w-6 h-6 rounded-full shadow-lg transition duration-300 ease-in-out"></div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <button id="language" class="block absolute lg:static right-16 lg:order-last bg-lang-id bg-cover bg-center bg-no-repeat w-9 lg:w-10 h-9 border border-slate-200 rounded-full shadow-sm cursor-pointer dark:border-pasdev-surface-a20" name="hamburger" type="button">
+                    </button>
+
+                    <button id="hamburger" class="block lg:hidden absolute right-4 cursor-pointer" name="hamburger" type="button">
+                        <span class="humberger-line origin-top-right transition duration-300 ease-in-out"></span>
+                        <span class="humberger-line transition duration-300 ease-in-out"></span>
+                        <span class="humberger-line origin-bottom-right transition duration-300 ease-in-out"></span>
+                    </button>
+                    <!-- Dropdown Select language -->
+                    <nav id="nav-language" class="hidden absolute right-4 top-full py-5 lg:py-2 max-w-[265px] w-full bg-white border border-slate-200 shadow-lg rounded-lg dark:bg-pasdev-surface-a10 dark:border-pasdev-surface-a20">
+                        <ul id="language-selector">
+                            <li class="group nav-lang lang-active">
+                                <a class="font-semibold text-white hover:text-slate-300 hover:underline dark:text-light dark:hover:text-tertiary" href="#" data-lang="id">
+                                    <div class="flex gap-2 align-middle py-2 mx-8">
+                                        <img src="public/img/assets/lang/id.svg.webp" class="bg-cover bg-center bg-no-repeat w-9 h-9 rounded-full border border-slate-200 dark:border-pasdev-surface-a20">
+                                        <span class="flex items-center">Bahasa Indonesia</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="group nav-lang">
+                                <a class="my-2 font-semibold text-dark hover:text-primary hover:underline dark:text-light dark:hover:text-tertiary" href="#" data-lang="en">
+                                    <div class="flex gap-2 py-2 mx-8">
+                                        <img src="public/img/assets/lang/en.svg.webp" class="bg-cover bg-center bg-no-repeat w-9 h-9 rounded-full border border-slate-200 dark:border-pasdev-surface-a20">
+                                        <span class="flex items-center">English</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- Mobile Nav -->
+                    <nav id="nav-menu" class="hidden lg:block absolute right-4 top-full lg:static py-5 max-w-[250px] lg:max-w-full w-full bg-white lg:bg-transparent border border-slate-200 lg:border-none shadow-lg lg:shadow-none rounded-lg lg:rounded-none dark:bg-pasdev-surface-a10 dark:border-pasdev-surface-a20 lg:dark:bg-transparent">
+                        <ul class="block lg:flex lg:items-center">
+                            <li class="group dark:hover:bg-pasdev-surface-a20 lg:dark:hover:bg-transparent">
+                                <a id="nav-home" class="flex py-2 mx-8 lg:mx-6 2xl:mx-8 font-semibold text-dark lg:text-dark hover:text-primary hover:underline active:text-primary dark:text-light dark:hover:text-tertiary dark:active:text-tertiary" href="#home">Beranda</a>
+                            </li>
+                            <li class="group dark:hover:bg-pasdev-surface-a20 lg:dark:hover:bg-transparent">
+                                <a id="nav-about-me" class="flex py-2 mx-8 lg:mx-6 2xl:mx-8 font-semibold text-dark lg:text-dark text-center hover:text-primary hover:underline dark:text-light dark:hover:text-tertiary dark:active:text-tertiary" href="#about">Tentang Saya</a>
+                            </li>
+                            <li class="group dark:hover:bg-pasdev-surface-a20 lg:dark:hover:bg-transparent">
+                                <a id="nav-portfolio" class="flex py-2 mx-8 lg:mx-6 2xl:mx-8 font-semibold text-dark lg:text-dark hover:text-primary hover:underline dark:text-light dark:hover:text-tertiary dark:active:text-tertiary" href="#portfolio">Portfolio</a>
+                            </li>
+                            <li class="group dark:hover:bg-pasdev-surface-a20 lg:dark:hover:bg-transparent">
+                                <a id="nav-activity" class="flex py-2 mx-8 lg:mx-6 2xl:mx-8 font-semibold text-dark lg:text-dark hover:text-primary hover:underline dark:text-light dark:hover:text-tertiary dark:active:text-tertiary" href="#activity">Aktivitas</a>
+                            </li>
+                            <li class="group dark:hover:bg-pasdev-surface-a20 lg:dark:hover:bg-transparent">
+                                <a id="nav-blog" class="flex py-2 mx-8 lg:mx-6 2xl:mx-8 font-semibold text-dark lg:text-dark hover:text-primary hover:underline dark:text-light dark:hover:text-tertiary dark:active:text-tertiary" href="#blog">Blog</a>
+                            </li>
+                            <li class="group dark:hover:bg-pasdev-surface-a20 lg:dark:hover:bg-transparent">
+                                <a id="nav-contact" class="flex py-2 mx-8 lg:mx-6 2xl:mx-8 font-semibold text-dark lg:text-dark hover:text-primary hover:underline dark:text-light dark:hover:text-tertiary dark:active:text-tertiary" href="#contact">Kontak</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+<!-- Header End -->
+    <!-- Section Hero Start -->
+        <section id="home" class="slide pt-20 pb-16 md:pb-0 md:pt-0 dark:bg-pasdev-surface-a00">
+            <div class="container xl:w-9/12 lg:w-10/12 mx-auto sm:h-screen dark:bg-pasdev-surface-a10">
+                <div class="flex flex-wrap max-h-full">
+                    <h1 class="text-2xl font-bold">TEST SIP</h1>
+                </div>
+            </div>
+        </section>
+    <!-- Section Hero End -->
+    
+    <!-- Footer Start -->
+        <footer class="pt-24 pb-12 bg-dark dark:bg-pasdev-surface-a20">
+            <div class="container xl:w-9/12 lg:w-10/12 mx-auto">
+                <div class="flex flex-wrap">
+                    <div class="w-full sm:w-1/3 px-4 mb-12 font-medium text-light">
+                        <h2 class="font-bold text-4xl text-white mb-5 animate-scroll dark:text-white">PASdev</h2>
+                        <h3 id="h-contact-us" class="font-bold text-2xl text-tertiary mb-2 animate-scroll">Hubungi Kami</h3>
+                        <p class="my-1 animate-scroll">prasetyoadi522@gmail.com</p>
+                        <p class="my-1 animate-scroll">Jl. Pagu Indah V/04 Manisrejo</p>
+                        <p class="my-1 animate-scroll">Madiun, Jawa Timur</p>
+                    </div>
+    
+                    <div class="w-full md:w-1/3 px-4 mb-12">
+                        <h3 id="link-category" class="font-semibold text-xl text-tertiary mb-5 animate-scroll">Kategori Tautan</h3>
+                        <ul class="text-light">
+                            <li class="animate-scroll">
+                                <a id="lc-home" class="inline-block text-base hover:underline hover:text-tertiary" href="#home">Beranda</a>
+                            </li>
+                            <li class="animate-scroll">
+                                <a id="lc-about-me" class="inline-block text-base hover:underline hover:text-tertiary" href="#about">Tentang Saya</a>
+                            </li>
+                            <li class="animate-scroll">
+                                <a id="portfolio" class="inline-block text-base hover:underline hover:text-tertiary" href="#portfolio">Portfolio</a>
+                            </li>
+                            <li class="animate-scroll">
+                                <a id="lc-activity" class="inline-block text-base hover:underline hover:text-tertiary" href="#activty">Aktivitas</a>
+                            </li>
+                            <li class="animate-scroll">
+                                <a id="lc-blog" class="inline-block text-base hover:underline hover:text-tertiary" href="#blog">Blog</a>
+                            </li>
+                            <li class="animate-scroll">
+                                <a id="lc-contact" class="inline-block text-base hover:underline hover:text-tertiary" href="#contact">Kontak</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="w-full px-4 pt-10 border-t border-tertiary">
+                    <div class="flex items-center justify-center mb-5 text-light border-light border-opacity-75 animate-scroll">
+                        <!-- linkedin -->
+                        <a class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border   hover:bg-linkedin hover:text-white hover:border-0" href="https://www.linkedin.com/in/prasetyo-adi-saputra/" target="_blank">
+                            <svg class="fill-current" role="img" width="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"/></svg>
+                        </a>
+    
+                        <!-- github -->
+                        <a class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border hover:bg-github hover:text-white hover:border-none hover:border-transparent" href="https://github.com/prasetyoadis" target="_blank">
+                            <svg class="fill-current" role="img" width="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Github</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        </a>
+    
+                        <!-- Youtube -->
+                        <a class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border hover:bg-youtube hover:text-white hover:border-0" href="https://www.youtube.com/@prasetyoadi.s" target="_blank">
+                        <svg class="fill-current" role="img" width="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                        
+                        <!-- instagram -->
+                        <a class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border hover:bg-instagram hover:text-white hover:border-0" href="https://www.instagram.com/prasetyoadi.s" target="_blank">
+                        <svg class="fill-current" role="img" width="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                        </a>
+                        
+                        <!-- X Twitter -->
+                        <a class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border hover:bg-black hover:text-white hover:border-0" href="https://x.com/prasetyoadi_s" target="_blank">
+                            <svg class="fill-current" role="img" width="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                        </a>
+                    </div>
+    
+                    <p class="font-medium text-xs text-light text-center animate-scroll">
+                        ⓒ Copyright <span id="year"></span> oleh 
+                        <a class="font-bold text-tertiary" href="https://github.com/prasetyoadis" target="_blank">Prasetyo Adi</a>. Dibuat dengan ❤️ Didukung Oleh <a class="font-bold text-[#06B6D4]" href="https://tailwindcss.com/">Tailwind</a> v4.1
+                    </p>
+                </div>
+            </div>
+    
+        </footer>
+    <!-- Footer End -->
+<!-- <script src="./assets/vendor/preline/dist/preline.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="public/js/switch-lang.js"></script>
+<script>
+    function isEmpty(value) {
+        return value == null || (typeof value === "string" && value.trim().length === 0);
+    };
+</script>
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.remove('animate-fade-out-left');
+                entry.target.classList.add('animate-fade-in-left');
+                
+            } else {
+                    entry.target.classList.remove('animate-fade-in-left');
+                    entry.target.classList.add('animate-fade-out-left');
+                
+            }
+        });
+    }, {
+        threshold: 0.5 // sesuaikan seberapa banyak elemen harus terlihat untuk dianggap "masuk"
+    });
+      
+    document.querySelectorAll('.animate-scroll').forEach(el => observer.observe(el));
+</script>
+
+<script>
+    
+    // fixed navbar
+    window.onscroll = function() {
+        const header = document.querySelector('header');
+        const fixedNav = header.offsetTop;
+
+        if (window.pageYOffset > fixedNav) {
+            header.classList.add('navbar-fixed');
+        } else {
+            header.classList.remove('navbar-fixed');
+        }
+    };
+    // hamburger
+    const hamburger = document.querySelector('#hamburger');
+    const lang = document.querySelector('#language');
+    const navMenu = document.querySelector('#nav-menu');
+    const navLang = document.querySelector('#nav-language');
+
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('hamburger-active');
+        navMenu.classList.toggle('hidden');
+    });
+
+    window.addEventListener('click', function name(e) {
+        if (e.target != hamburger && e.target != navMenu) {
+            hamburger.classList.remove('hamburger-active');
+            navMenu.classList.add('hidden')
+        }
+        if (e.target != lang && e.target != navLang){
+            navLang.classList.add('hidden')
+        }
+    })
+
+    lang.addEventListener('click', function() {
+        navLang.classList.toggle('hidden');
+    })
+
+    const darkToggle = document.querySelector('#dark-toggle');
+    const dayToggle = document.querySelector('.toggle-day');
+    const circleToggle = document.querySelector('.toggle-circle');
+    const html = document.querySelector('html');
+    
+    darkToggle.addEventListener('click', function() {
+        if (darkToggle.checked) {
+            html.classList.add('dark');
+            localStorage.theme = 'dark';
+            
+        } else {
+            html.classList.remove('dark');
+            localStorage.theme = 'light';
+            
+        } 
+    });
+
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        darkToggle.checked = true;
+    } else {
+        darkToggle.checked = false;
+    }
+
+    
+</script>
+</body>
+</html>
