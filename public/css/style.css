@@ -623,11 +623,17 @@
     .basis-2\/4 {
       flex-basis: calc(2/4 * 100%);
     }
+    .basis-2\/5 {
+      flex-basis: calc(2/5 * 100%);
+    }
     .basis-3 {
       flex-basis: calc(var(--spacing) * 3);
     }
     .basis-3\/4 {
       flex-basis: calc(3/4 * 100%);
+    }
+    .basis-3\/5 {
+      flex-basis: calc(3/5 * 100%);
     }
     .border-collapse {
       border-collapse: collapse;
