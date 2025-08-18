@@ -1,45 +1,6 @@
 {
-  "totalContributions": 138,
+  "totalContributions": 136,
   "weeks": [
-    {
-      "contributionDays": [
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2024-08-11"
-        },
-        {
-          "color": "#30a14e",
-          "contributionCount": 4,
-          "date": "2024-08-12"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2024-08-13"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2024-08-14"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2024-08-15"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2024-08-16"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2024-08-17"
-        }
-      ]
-    },
     {
       "contributionDays": [
         {
@@ -2062,9 +2023,23 @@
           "date": "2025-08-15"
         },
         {
+          "color": "#40c463",
+          "contributionCount": 2,
+          "date": "2025-08-16"
+        }
+      ]
+    },
+    {
+      "contributionDays": [
+        {
           "color": "#ebedf0",
           "contributionCount": 0,
-          "date": "2025-08-16"
+          "date": "2025-08-17"
+        },
+        {
+          "color": "#ebedf0",
+          "contributionCount": 0,
+          "date": "2025-08-18"
         }
       ]
     }
