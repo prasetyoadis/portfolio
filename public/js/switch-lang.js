@@ -1,7 +1,7 @@
 // Fungsi untuk load file JSON
 async function loadLanguage(lang) {
   try {
-    const res = await fetch(`public/lang/${lang}.json`);
+    const res = await fetch(`../public/lang/${lang}.json`);
     const translations = await res.json();
 
     Object.keys(translations).forEach(key => {
