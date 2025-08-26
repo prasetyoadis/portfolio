@@ -378,3 +378,52 @@ main > section{
 [role=tooltip].invisible>[data-popper-arrow]:after {
     visibility: hidden
 }
+
+code[class*=language-],pre[class*=language-]{
+    text-align:left;
+    white-space:pre;
+    word-spacing:normal;
+    word-break:normal;
+    text-shadow:none;
+    tab-size:4;
+    -webkit-hyphens:none;
+    hyphens:none;
+    --tw-font-weight:var(--font-weight-normal);
+    font-family:Menlo,ui-monospace,SFMono-Regular,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+    line-height:1.5;
+    font-weight:var(--font-weight-normal);
+    color:var(--color-gray-500);
+    direction:ltr
+}
+:is(code[class*=language-],pre[class*=language-]):where(.dark,.dark *){
+    color:var(--color-gray-400)
+}
+.highlight pre[class*=language-]{
+    background-color: #22212C !important;
+    padding:calc(var(--spacing)*6);
+    padding-top:calc(var(--spacing)*6);
+    font-size:var(--text-sm);
+    line-height:var(--tw-leading,var(--text-sm--line-height));
+    overflow:auto
+}
+.highlight pre[class*=language-]:where(.dark,.dark *){
+        background-color: #22212C !important;
+}
+.cd{
+    @apply text-white;
+}
+.cd-comment {
+    color: #7970A9 !important
+}
+.cd-bracket{
+    color: #FF80BF !important
+}
+.cd-tag{
+    color: #FF80BF !important
+}
+.cd-attribute{
+    color: #8AFF80 !important
+}
+.cd-string{
+    color: #FFFF80 !important
+}
