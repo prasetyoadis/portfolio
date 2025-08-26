@@ -151,22 +151,6 @@
                             <br><br>
                             Dalam artikel ini, kita akan membahas perbedaan Tailwind dan Bootstrap dari sisi kemudahan penggunaan, fleksibilitas, performa, hingga kecepatan pengembangan. 
                         </p>
-                        <h2 class="py-1.5 mt-2 text-lg font-bold">Apa Itu Bootstrap?</h2>
-                        <p class=" text-sm sm:text-base">
-                            Bootstrap adalah framework CSS yang sudah hadir sejak 2011. Framework ini menyediakan berbagai komponen siap pakai seperti tombol, navbar, modal, dan grid system.
-                        </p>
-                        <h3 class="py-1.5 mt-2 text-base font-bold">Kelebihan Bootstrap</h3>
-                        <ul class="text-sm sm:text-base list-disc list-inside">
-                            <li><span class="font-semibold">Mudah digunakan</span>: tersedia banyak tutorial, plugin, dan komunitas yang aktif.</li>
-                            <li><span class="font-semibold">Konsistensi desain</span>: tersedia banyak tutorial, plugin, dan komunitas yang aktif.</li>
-                            <li><span class="font-semibold">Dokumentasi lengkap</span>: tersedia banyak tutorial, plugin, dan komunitas yang aktif.</li>
-                        </ul>
-                        <h3 class="py-1.5 mt-2 text-base font-bold">Kekurangan Bootstrap</h3>
-                        <ul class="text-sm sm:text-base list-disc list-inside">
-                            <li>Banyak website terlihat mirip karena menggunakan style default.</li>
-                            <li>File CSS cenderung besar meskipun tidak semua dipakai.</li>
-                            <li>Kustomisasi butuh usaha ekstra untuk menimpa style bawaan.</li>
-                        </ul>
                         
                         <h2 class="py-1.5 mt-2 text-lg font-bold">Apa Itu Tailwind CSS?</h2>
                         <p class=" text-sm sm:text-base">
@@ -184,6 +168,23 @@
                             <li>Tidak ada komponen bawaan, jadi developer harus membangunnya sendiri.</li>
                         </ul>
                         
+                        <h2 class="py-1.5 mt-2 text-lg font-bold">Apa Itu Bootstrap?</h2>
+                        <p class=" text-sm sm:text-base">
+                            Bootstrap adalah framework CSS yang sudah hadir sejak 2011. Framework ini menyediakan berbagai komponen siap pakai seperti tombol, navbar, modal, dan grid system.
+                        </p>
+                        <h3 class="py-1.5 mt-2 text-base font-bold">Kelebihan Bootstrap</h3>
+                        <ul class="text-sm sm:text-base list-disc list-inside">
+                            <li><span class="font-semibold">Mudah digunakan</span>: tersedia banyak tutorial, plugin, dan komunitas yang aktif.</li>
+                            <li><span class="font-semibold">Konsistensi desain</span>: tersedia banyak tutorial, plugin, dan komunitas yang aktif.</li>
+                            <li><span class="font-semibold">Dokumentasi lengkap</span>: tersedia banyak tutorial, plugin, dan komunitas yang aktif.</li>
+                        </ul>
+                        <h3 class="py-1.5 mt-2 text-base font-bold">Kekurangan Bootstrap</h3>
+                        <ul class="text-sm sm:text-base list-disc list-inside">
+                            <li>Banyak website terlihat mirip karena menggunakan style default.</li>
+                            <li>File CSS cenderung besar meskipun tidak semua dipakai.</li>
+                            <li>Kustomisasi butuh usaha ekstra untuk menimpa style bawaan.</li>
+                        </ul>
+                        
                         <h2 class="py-1.5 mt-2 text-lg font-bold">Perbandingan Tailwind VS Bootstrap</h2>
                         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -193,10 +194,10 @@
                                             Aspek
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            Bootstrap
+                                            Tailwind CSS
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            Tailwind CSS
+                                            Bootstrap
                                         </th>
                                     </tr>
                                 </thead>
@@ -206,10 +207,10 @@
                                             Kemudahan Pemula
                                         </th>
                                         <td class="px-6 py-4">
-                                            Sangat mudah dengan komponen siap pakai
+                                            Butuh adaptasi karena utility-first
                                         </td>
                                         <td class="px-6 py-4">
-                                            Butuh adaptasi karena utility-first
+                                            Sangat mudah dengan komponen siap pakai
                                         </td>
                                     </tr>
                                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
@@ -217,10 +218,10 @@
                                             Kustomisasi
                                         </th>
                                         <td class="px-6 py-4">
-                                            Terbatas, perlu override style
+                                            Sangat fleksibel, mudah diatur
                                         </td>
                                         <td class="px-6 py-4">
-                                            Sangat fleksibel, mudah diatur
+                                            Terbatas, perlu override style
                                         </td>
                                     </tr>
                                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
@@ -228,10 +229,10 @@
                                             Ukuran File
                                         </th>
                                         <td class="px-6 py-4">
-                                            Cenderung besar
+                                            Lebih kecil dengan PurgeCSS
                                         </td>
                                         <td class="px-6 py-4">
-                                            Lebih kecil dengan PurgeCSS
+                                            Cenderung besar
                                         </td>
                                     </tr>
                                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
@@ -239,10 +240,10 @@
                                             Kecepatan Prototipe
                                         </th>
                                         <td class="px-6 py-4">
-                                            Cepat karena komponen instan
+                                            Lebih lambat di awal, cepat setelah terbiasa
                                         </td>
                                         <td class="px-6 py-4">
-                                            Lebih lambat di awal, cepat setelah terbiasa
+                                            Cepat karena komponen instan
                                         </td>
                                     </tr>
                                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
@@ -250,10 +251,10 @@
                                             Keunikan Desain
                                         </th>
                                         <td class="px-6 py-4">
-                                            Banyak website terlihat mirip
+                                            Desain lebih variatif dan khas
                                         </td>
                                         <td class="px-6 py-4">
-                                            Desain lebih variatif dan khas
+                                            Banyak website terlihat mirip
                                         </td>
                                     </tr>
                                 </tbody>
@@ -261,70 +262,8 @@
                         </div>
 
                         <h2 class="py-1.5 mt-3.5 text-lg font-bold">Contoh Kode: Tombol di Tailwind VS Bootstrap</h2>
-                        <h3 class="py-1.5 text-base font-bold">Bootstrap</h3>
-                        <p class="text-sm sm:text-base">
-                            Bootstrap sudah menyediakan komponen tombol siap pakai.
-                        </p>
                         
-                        <div class="source-code py-2.5">
-                            <div class="demo-source flex items-center p-5 sm:h-40 bg-[#fafafa] dark:bg-pasdev-surface-a00 border border-b-0 border-gray-300 dark:border-gray-600 rounded-t-md">
-                                <iframe class="w-full sm:h-10" src="../public/iframe/btn-boostrap.html" frameborder="0"></iframe>
-                            </div>
-                            <div class="head-source flex justify-between items-center bg-[#fafafa]! dark:bg-[#22212C]! border border-b-0 border-gray-300 dark:border-gray-600">
-                                <span class="flex gap-2 items-center px-3 text-sm font-semibold">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">
-                                        <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
-                                            <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
-                                            <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
-                                            <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
-                                        </g>
-                                    </svg>
-                                    HTML
-                                </span>
-                                <div class="flex">
-                                    <button data-tooltip-target="tooltip-bs-ctc" type="button" class="flex items-center justify-center w-10 h-10 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700">
-                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
-                                            <path d="M216-144q-29.7 0-50.85-21.15Q144-186.3 144-216v-528q0-29.7 21.15-50.85Q186.3-816 216-816h171q8-31 33.5-51.5T480-888q34 0 59.5 20.5T573-816h171q29.7 0 50.85 21.15Q816-773.7 816-744v528q0 29.7-21.15 50.85Q773.7-144 744-144H216Zm0-72h528v-528h-72v120H288v-120h-72v528Zm263.79-528q15.21 0 25.71-10.29t10.5-25.5q0-15.21-10.29-25.71t-25.5-10.5q-15.21 0-25.71 10.29t-10.5 25.5q0 15.21 10.29 25.71t25.5 10.5Z"/>
-                                        </svg>
-                                    </button>
-                                    <button data-tooltip-target="tooltip-bs-expand" type="button" class="flex items-center justify-center w-10 h-10 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700">
-                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
-                                            <path d="M192-96v-72h576v72H192Zm288-144L336-384l51-51 57 57v-204l-57 57-51-51 144-144 144 144-51 51-57-57v204l57-57 51 51-144 144ZM192-792v-72h576v72H192Z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-
-                                <div id="tooltip-bs-ctc" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
-                                    Copy to clipboard
-                                    <div class="tooltip-arrow" data-popper-arrow></div>
-                                </div>
-                                <div id="tooltip-bs-expand" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
-                                    Expand code
-                                    <div class="tooltip-arrow" data-popper-arrow></div>
-                                </div>
-                            </div>
-                            <div class="body-source relative overflow-auto text-white bg-[#1f2937] border border-gray-300 dark:border-gray-600 rounded-b-md h-40">
-                                <div class="highlight">
-                                    <pre tabindex="0" class="chroma language-html">
-<code class=" language-html" data-lang="html"><span class="cd-comment">&lt;!-- Bootstrap Button --&gt;</span>
-<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-primary"</span><span class="cd-bracket">&gt;</span>Primary<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span>
-<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-secondary"</span><span class="cd-bracket">&gt;</span>Secondary<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span>
-<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-success"</span><span class="cd-bracket">&gt;</span>Success<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span>
-<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-danger"</span><span class="cd-bracket">&gt;</span>Danger<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span></code>
-<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-warning"</span><span class="cd-bracket">&gt;</span>Warning<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span></code>
-<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-info"</span><span class="cd-bracket">&gt;</span>Info<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span></code>
-<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-light"</span><span class="cd-bracket">&gt;</span>Light<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span></code>
-<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-dark"</span><span class="cd-bracket">&gt;</span>Dark<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span></code>
-
-<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-link"</span><span class="cd-bracket">&gt;</span>Link<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span></code></pre>
-                                </div>
-                            </div>
-                        </div>
-
-                        <p class="text-sm sm:text-base">
-                            Hasilnya konsisten, namun tampilannya sangat “Bootstrap look” kecuali Anda menimpa style dengan CSS tambahan.
-                        </p>
-                        <h3 class="py-1.5 mt-2 text-base font-bold">Tailwind</h3>
+                        <h3 class="py-1.5 text-base font-bold">Tailwind</h3>
                         <p class="text-sm sm:text-base">
                             Dengan Tailwind, tombol dibangun menggunakan utility class.
                         </p>
@@ -358,8 +297,8 @@
                                     Link
                                 </button>
                             </div>
-                            <div class="head-source flex justify-between items-center bg-[#fafafa]! dark:bg-[#22212C]! border border-b-0 border-gray-300 dark:border-gray-600">
-                                <span class="flex gap-2 items-center px-3 text-sm font-semibold">
+                            <div class="head-source flex justify-between items-center px-3 bg-[#fafafa]! dark:bg-[#2c2c31]! border border-b-0 border-gray-300 dark:border-gray-600">
+                                <span class="flex gap-2 items-center h-10 text-sm font-semibold">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">
                                         <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
                                             <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
@@ -367,7 +306,7 @@
                                             <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
                                         </g>
                                     </svg>
-                                    HTML
+                                    <span class="self-end px-3 py-2 text-xs font-light bg-[#22212C]! rounded-t-lg shadow-lg">btn-tailwind.html</span>
                                 </span>
                                 <div class="flex">
                                     <button data-tooltip-target="tooltip-tw-ctc" type="button" class="flex items-center justify-center w-10 h-10 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700">
@@ -375,23 +314,26 @@
                                             <path d="M216-144q-29.7 0-50.85-21.15Q144-186.3 144-216v-528q0-29.7 21.15-50.85Q186.3-816 216-816h171q8-31 33.5-51.5T480-888q34 0 59.5 20.5T573-816h171q29.7 0 50.85 21.15Q816-773.7 816-744v528q0 29.7-21.15 50.85Q773.7-144 744-144H216Zm0-72h528v-528h-72v120H288v-120h-72v528Zm263.79-528q15.21 0 25.71-10.29t10.5-25.5q0-15.21-10.29-25.71t-25.5-10.5q-15.21 0-25.71 10.29t-10.5 25.5q0 15.21 10.29 25.71t25.5 10.5Z"/>
                                         </svg>
                                     </button>
-                                    <button data-tooltip-target="tooltip-tw-expand" type="button" class="flex items-center justify-center w-10 h-10 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700">
-                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
+                                    <button data-tooltip-target="tooltip-tw-expand" data-todo="expand" onclick="expandCode('tw', this)" type="button" class="flex items-center justify-center w-10 h-10 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700">
+                                        <svg id="icon-expand-tw" class="fill-current" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
                                             <path d="M192-96v-72h576v72H192Zm288-144L336-384l51-51 57 57v-204l-57 57-51-51 144-144 144 144-51 51-57-57v204l57-57 51 51-144 144ZM192-792v-72h576v72H192Z"/>
                                         </svg>
+                                        <svg id="icon-shrink-tw" class="fill-current hidden" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
+                                            <path d="M192-384v-72h576v72H192Zm0-120v-72h576v72H192ZM444-96v-102l-57 57-51-51 144-144 144 144-51 51-57-57v102h-72Zm36-528L336-768l51-51 57 57v-102h72v102l57-57 51 51-144 144Z"/>
+                                        </svg>
                                     </button>
-                                </div>
 
-                                <div id="tooltip-tw-ctc" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                                    <div id="tooltip-tw-ctc" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
                                     Copy to clipboard
                                     <div class="tooltip-arrow" data-popper-arrow></div>
-                                </div>
-                                <div id="tooltip-tw-expand" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
-                                    Expand code
-                                    <div class="tooltip-arrow" data-popper-arrow></div>
+                                    </div>
+                                    <div id="tooltip-tw-expand" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                                        <span id="tt-tw">Expand</span> code
+                                        <div class="tooltip-arrow" data-popper-arrow></div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="body-source relative overflow-auto text-white bg-[#1f2937] border border-gray-300 dark:border-gray-600 rounded-b-md h-40">
+                            <div id="tw-source" class="body-source relative overflow-auto text-white bg-[#1f2937] border border-t-0 border-gray-300 dark:border-gray-600 rounded-b-md h-40">
                                 <div class="highlight">
                                     <pre tabindex="0" class="chroma language-html">
 <code class=" language-html" data-lang="html"><span class="cd-comment">&lt;!-- Tailwind CSS Button --&gt;</span>
@@ -411,12 +353,79 @@
                         <p class="text-sm sm:text-base">
                             Kelebihannya, Anda bisa mengatur warna, ukuran, dan efek hover sesuai kebutuhan tanpa harus menulis CSS terpisah.
                         </p>
+
+                        <h3 class="py-1.5 mt-2 text-base font-bold">Bootstrap</h3>
+                        <p class="text-sm sm:text-base">
+                            Bootstrap sudah menyediakan komponen tombol siap pakai.
+                        </p>
+                        
+                        <div class="source-code py-2.5">
+                            <div class="demo-source flex items-center p-5 sm:h-40 bg-[#fafafa] dark:bg-pasdev-surface-a00 border border-b-0 border-gray-300 dark:border-gray-600 rounded-t-md">
+                                <iframe class="w-full sm:h-10" src="../public/iframe/btn-boostrap.html" frameborder="0"></iframe>
+                            </div>
+                            <div class="head-source flex justify-between items-center px-3 bg-[#fafafa]! dark:bg-[#2c2c31]! border border-b-0 border-gray-300 dark:border-gray-600">
+                                <span class="flex gap-2 items-center h-10 text-sm font-semibold">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">
+                                        <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                                            <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                                            <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                                            <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+                                        </g>
+                                    </svg>
+                                    <span class="self-end px-3 py-2 text-xs font-light bg-[#22212C]! rounded-t-lg shadow-lg">btn-bootstrap.html</span>
+                                </span>
+                                <div class="flex">
+                                    <button data-tooltip-target="tooltip-bs-ctc" type="button" class="flex items-center justify-center w-10 h-10 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700">
+                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
+                                            <path d="M216-144q-29.7 0-50.85-21.15Q144-186.3 144-216v-528q0-29.7 21.15-50.85Q186.3-816 216-816h171q8-31 33.5-51.5T480-888q34 0 59.5 20.5T573-816h171q29.7 0 50.85 21.15Q816-773.7 816-744v528q0 29.7-21.15 50.85Q773.7-144 744-144H216Zm0-72h528v-528h-72v120H288v-120h-72v528Zm263.79-528q15.21 0 25.71-10.29t10.5-25.5q0-15.21-10.29-25.71t-25.5-10.5q-15.21 0-25.71 10.29t-10.5 25.5q0 15.21 10.29 25.71t25.5 10.5Z"/>
+                                        </svg>
+                                    </button>
+                                    <button data-tooltip-target="tooltip-bs-expand" data-todo="expand" onclick="expandCode('bs', this)" type="button" class="flex items-center justify-center w-10 h-10 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700">
+                                        <svg id="icon-expand-bs" class="fill-current" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
+                                            <path d="M192-96v-72h576v72H192Zm288-144L336-384l51-51 57 57v-204l-57 57-51-51 144-144 144 144-51 51-57-57v204l57-57 51 51-144 144ZM192-792v-72h576v72H192Z"/>
+                                        </svg>
+                                        <svg id="icon-shrink-bs" class="fill-current hidden" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
+                                            <path d="M192-384v-72h576v72H192Zm0-120v-72h576v72H192ZM444-96v-102l-57 57-51-51 144-144 144 144-51 51-57-57v102h-72Zm36-528L336-768l51-51 57 57v-102h72v102l57-57 51 51-144 144Z"/>
+                                        </svg>
+                                    </button>
+
+                                    <div id="tooltip-bs-ctc" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                                    Copy to clipboard
+                                    <div class="tooltip-arrow" data-popper-arrow></div>
+                                    </div>
+                                    <div id="tooltip-bs-expand" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                                        <span id="tt-bs">Expand</span> code
+                                        <div class="tooltip-arrow" data-popper-arrow></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="bs-source" class="body-source relative overflow-auto text-white bg-[#1f2937] border border-t-0 border-gray-300 dark:border-gray-600 rounded-b-md h-40">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma language-html">
+<code class=" language-html" data-lang="html"><span class="cd-comment">&lt;!-- Bootstrap Button --&gt;</span>
+<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-primary"</span><span class="cd-bracket">&gt;</span>Primary<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span>
+<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-secondary"</span><span class="cd-bracket">&gt;</span>Secondary<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span>
+<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-success"</span><span class="cd-bracket">&gt;</span>Success<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span>
+<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-danger"</span><span class="cd-bracket">&gt;</span>Danger<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span></code>
+<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-warning"</span><span class="cd-bracket">&gt;</span>Warning<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span></code>
+<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-info"</span><span class="cd-bracket">&gt;</span>Info<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span></code>
+<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-light"</span><span class="cd-bracket">&gt;</span>Light<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span></code>
+<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-dark"</span><span class="cd-bracket">&gt;</span>Dark<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span></code>
+
+<span class="cd"><span class="cd-bracket">&lt;</span><span class="cd-tag">button</span> <span class="cd-attribute">class</span>=<span class="cd-string">"btn btn-link"</span><span class="cd-bracket">&gt;</span>Link<span class="cd-bracket">&lt;/</span><span class="cd-tag">button</span><span class="cd-bracket">&gt;</span></span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-sm sm:text-base">
+                            Hasilnya konsisten, namun tampilannya sangat “Bootstrap look” kecuali Anda menimpa style dengan CSS tambahan.
+                        </p>
+
                         <h2 class="py-1.5 mt-2 text-lg font-bold">Mana Framework CSS yang Lebih Baik?</h2>
                         <p class="text-sm sm:text-base">
                             Tidak ada jawaban mutlak. Pilihan tergantung pada kebutuhan proyek:
                             <ul class="text-sm sm:text-base list-disc list-inside">
-                                <li>Gunakan <b>Bootstrap</b> jika ingin membangun website dengan cepat, konsisten, dan tidak terlalu fokus pada desain unik.</li>
                                 <li>Pilih <b>Tailwind</b> jika membutuhkan fleksibilitas, performa lebih ringan, dan kebebasan penuh dalam desain.</li>
+                                <li>Gunakan <b>Bootstrap</b> jika ingin membangun website dengan cepat, konsisten, dan tidak terlalu fokus pada desain unik.</li>
                             </ul>
                         </p>
                         <h2 class="py-1.5 mt-2 text-lg font-bold">Kesimpulan</h2>
@@ -653,7 +662,48 @@
 </script>
 
 <script>
-    
+    function expandCode(css, el){
+        switch (css) {
+            case "bs":
+                const bsSource = document.querySelector('#bs-source');
+                const iconExpandBs = document.querySelector('#icon-expand-bs');
+                const iconShrinkBs = document.querySelector('#icon-shrink-bs');
+                const ttBs = document.querySelector('#tt-bs');
+
+                if(el.dataset.todo == "expand"){
+                    el.dataset.todo = "shrink";
+                    ttBs.innerHTML = "Shrink";
+                }else {
+                    el.dataset.todo = "expand";
+                    ttBs.innerHTML = "Expand";
+                }
+                iconExpandBs.classList.toggle('hidden');
+                iconShrinkBs.classList.toggle('hidden');
+                bsSource.classList.toggle('h-40');
+                break;
+        
+            case "tw":
+                const twSource = document.querySelector('#tw-source');
+                const iconExpandTw = document.querySelector('#icon-expand-tw');
+                const iconShrinkTw = document.querySelector('#icon-shrink-tw');
+                const ttTw = document.querySelector('#tt-tw');
+
+                if(el.dataset.todo == "expand"){
+                    el.dataset.todo = "shrink";
+                    ttTw.innerHTML = "Shrink";
+                }else {
+                    el.dataset.todo = "expand";
+                    ttTw.innerHTML = "Expand";
+                }
+                iconExpandTw.classList.toggle('hidden');
+                iconShrinkTw.classList.toggle('hidden');
+                twSource.classList.toggle('h-40');
+                break;
+        
+            default:
+                break;
+        }
+    }
     // fixed navbar
     window.onscroll = function() {
         const header = document.querySelector('header');
