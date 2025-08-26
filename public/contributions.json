@@ -1,45 +1,6 @@
 {
-  "totalContributions": 138,
+  "totalContributions": 137,
   "weeks": [
-    {
-      "contributionDays": [
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2024-08-18"
-        },
-        {
-          "color": "#40c463",
-          "contributionCount": 3,
-          "date": "2024-08-19"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2024-08-20"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2024-08-21"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2024-08-22"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2024-08-23"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2024-08-24"
-        }
-      ]
-    },
     {
       "contributionDays": [
         {
@@ -2042,9 +2003,48 @@
           "date": "2025-08-18"
         },
         {
+          "color": "#40c463",
+          "contributionCount": 2,
+          "date": "2025-08-19"
+        },
+        {
           "color": "#ebedf0",
           "contributionCount": 0,
-          "date": "2025-08-19"
+          "date": "2025-08-20"
+        },
+        {
+          "color": "#ebedf0",
+          "contributionCount": 0,
+          "date": "2025-08-21"
+        },
+        {
+          "color": "#ebedf0",
+          "contributionCount": 0,
+          "date": "2025-08-22"
+        },
+        {
+          "color": "#ebedf0",
+          "contributionCount": 0,
+          "date": "2025-08-23"
+        }
+      ]
+    },
+    {
+      "contributionDays": [
+        {
+          "color": "#ebedf0",
+          "contributionCount": 0,
+          "date": "2025-08-24"
+        },
+        {
+          "color": "#ebedf0",
+          "contributionCount": 0,
+          "date": "2025-08-25"
+        },
+        {
+          "color": "#ebedf0",
+          "contributionCount": 0,
+          "date": "2025-08-26"
         }
       ]
     }
