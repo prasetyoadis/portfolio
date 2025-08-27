@@ -427,3 +427,29 @@ code[class*=language-],pre[class*=language-]{
 .cd-string{
     color: #FFFF80 !important
 }
+.tab-code:before {
+    content: ' ';
+    display: block;
+    background: #bb77ff;
+    width: 20px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    transform: skew(-10deg);
+    border-radius: 8px;
+    z-index: -1;
+}
+.tab-code:after {
+    content: ' ';
+    display: block;
+    background: #6e6eff;
+    width: 20px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -10px;
+    transform: skew(10deg);
+    border-radius: 8px;
+    z-index: -1;
+}
