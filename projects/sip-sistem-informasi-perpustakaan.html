@@ -51,7 +51,7 @@
                     <nav id="nav-language" class="hidden absolute right-4 top-full py-5 lg:py-2 max-w-[265px] w-full bg-white border border-slate-200 shadow-lg rounded-lg dark:bg-pasdev-surface-a10 dark:border-pasdev-surface-a20">
                         <ul id="language-selector">
                             <li class="group nav-lang lang-active">
-                                <a class="font-semibold text-white hover:text-slate-300 hover:underline dark:text-light dark:hover:text-tertiary" href="#" data-lang="id">
+                                <a class="font-semibold text-white hover:text-slate-300 hover:underline dark:text-light dark:hover:text-tertiary" href="#" data-lang="id" data-path="../public/lang">
                                     <div class="flex gap-2 align-middle py-2 mx-8">
                                         <img src="../public/img/assets/lang/id.svg.webp" class="bg-cover bg-center bg-no-repeat w-9 h-9 rounded-full border border-slate-200 dark:border-pasdev-surface-a20">
                                         <span class="flex items-center">Bahasa Indonesia</span>
@@ -59,7 +59,7 @@
                                 </a>
                             </li>
                             <li class="group nav-lang">
-                                <a class="my-2 font-semibold text-dark hover:text-primary hover:underline dark:text-light dark:hover:text-tertiary" href="#" data-lang="en">
+                                <a class="my-2 font-semibold text-dark hover:text-primary hover:underline dark:text-light dark:hover:text-tertiary" href="#" data-lang="en" data-path="../public/lang">
                                     <div class="flex gap-2 py-2 mx-8">
                                         <img src="../public/img/assets/lang/en.svg.webp" class="bg-cover bg-center bg-no-repeat w-9 h-9 rounded-full border border-slate-200 dark:border-pasdev-surface-a20">
                                         <span class="flex items-center">English</span>
@@ -136,7 +136,7 @@
                         <h1 class="font-bold text-xl md:text-2xl pb-2">SIP Sistem Informasi Perpustakaan</h1>
                         <span class="text-xs font-medium text-light">Oleh Prasetyo Adi S. | <span id="date-post">date</span> |</span>
                     </div>
-                    <div class=" p-4 dark:bg-pasdev-surface-a10 rounded-md">
+                    <div class=" p-4 rounded-md">
                         <div class="flex flex-col items-center mb-4">
                             <img class="w-full sm:w-1/2 rounded-md" src="../public/img/project/sip-sman-5-madiun.webp" alt="SIP-Sistem-Informasi-Perpustakaan">
                             
@@ -173,23 +173,38 @@
                             </ul>
                         </p>
                         <h3 class="py-1.5 mt-2 text-lg font-bold">Tangkapan Layar</h3>
-                        
-
-
-                        <p class="text-sm sm:text-base">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, impedit cupiditate, quia temporibus qui libero quae corrupti odit reprehenderit quisquam exercitationem consectetur quasi adipisci accusantium incidunt similique laborum at magnam? Ullam alias eum error nisi!
-                        </p>
+                        <div class="carousel">
+                            <img class="card-carousel" src="../public/img/project/home-sip.jpg" alt="">
+                            <img class="card-carousel" src="../public/img/project/presensi-sip.jpg" alt="">
+                            <img class="card-carousel" src="../public/img/article/artikel-3.webp" alt="">
+                            <img class="card-carousel" src="../public/img/article/artikel-4.webp" alt="">
+                            <img class="card-carousel" src="../public/img/article/artikel-5.webp" alt="">
+                        </div>
                         <h3 class="py-1.5 mt-2 text-lg font-bold">Publikasi Jurnal</h3>
                         <p class="text-sm sm:text-base font-medium">
                             📄 RANCANG BANGUN SISTEM INFORMASI PERPUSTAKAAN BERBASIS WEB DENGAN FRAMEWORK LARAVEL (STUDI KASUS: SMA NEGERI 5 MADIUN) 
                             <br>
-                            <a class="inline-block mt-2 text-dark dark:text-tertiary font-bold hover:underline" href="http://">Baca publikasi di sini.</a>
+                            <button class="inline-flex items-center cursor-not-allowed mt-2 text-gray-400 dark:text-gray-600 font-bold" disabled>
+                                Baca publikasi di sini
+                                <span aria-hidden="true" class="ms-0.5 inline-block align-middle leading-none">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-rtl-flip="" class="block h-[0.75em] w-[0.75em] fill-current stroke-current stroke-[0.75]">
+                                        <path d="M14.3349 13.3301V6.60645L5.47065 15.4707C5.21095 15.7304 4.78895 15.7304 4.52925 15.4707C4.26955 15.211 4.26955 14.789 4.52925 14.5293L13.3935 5.66504H6.66011C6.29284 5.66504 5.99507 5.36727 5.99507 5C5.99507 4.63273 6.29284 4.33496 6.66011 4.33496H14.9999L15.1337 4.34863C15.4369 4.41057 15.665 4.67857 15.665 5V13.3301C15.6649 13.6973 15.3672 13.9951 14.9999 13.9951C14.6327 13.9951 14.335 13.6973 14.3349 13.3301Z"></path>
+                                    </svg>
+                                </span>
+                            </button>
                         </p>
                         <h3 class="py-1.5 mt-2 text-lg font-bold">Demo Aplikasi</h3>
                         <p class="text-sm sm:text-base font-medium">
-                            🚀 Lorem ipsum dolor sit
+                            🚀 Coba Demo Aplikasi
                             <br>
-                            <a class="inline-block mt-2 text-dark dark:text-tertiary font-bold hover:underline" href="http://">Coba demo di sini.</a>
+                            <a class="inline-flex items-center mt-2 text-dark hover:text-dark-400 dark:text-tertiary dark:hover:text-tertiary-400 font-bold hover:underline" href="http://">
+                                Coba demo di sini
+                                <span aria-hidden="true" class="ms-0.5 inline-block align-middle leading-none">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-rtl-flip="" class="block h-[0.75em] w-[0.75em] fill-current stroke-current stroke-[0.75]">
+                                        <path d="M14.3349 13.3301V6.60645L5.47065 15.4707C5.21095 15.7304 4.78895 15.7304 4.52925 15.4707C4.26955 15.211 4.26955 14.789 4.52925 14.5293L13.3935 5.66504H6.66011C6.29284 5.66504 5.99507 5.36727 5.99507 5C5.99507 4.63273 6.29284 4.33496 6.66011 4.33496H14.9999L15.1337 4.34863C15.4369 4.41057 15.665 4.67857 15.665 5V13.3301C15.6649 13.6973 15.3672 13.9951 14.9999 13.9951C14.6327 13.9951 14.335 13.6973 14.3349 13.3301Z"></path>
+                                    </svg>
+                                </span>
+                            </a>
                         </p>
                         <h3 class="py-1.5 mt-2 text-lg font-bold">Peran dalam Pengembangan</h3>
                         <p class="text-sm sm:text-base">
@@ -204,20 +219,24 @@
                         <h3 class="py-1.5 mt-2 text-lg font-bold">Hasil & Dampak</h3>
                         <p class="text-sm sm:text-base">
                             <ul class="text-sm sm:text-base list-disc list-inside">
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, nemo.</li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                                <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum, temporibus!</li>
-                                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                                <li>Kecepatan pelayanan meningkat hingga 50%.</li>
+                                <li>Pencatatan dilakukan sepenuhnya melalui aplikasi tanpa dokumen fisik.</li>
+                                <li>Kesalahan pencatatan berkurang signifikan.</li>
+                                <li>Data perpusatakaan dapat diakses dimana saja tanpa dokumen fisik.</li>
+                                <li>Laporan tersedia secara real-time dan lebih akurat.</li>
                             </ul>
                         </p>
                         <h3 class="py-1.5 mt-2 text-lg font-bold">Hubungi Saya</h3>
                         <p class="text-sm sm:text-base">
                             📞 Tertarik mengembangkan sistem serupa untuk institusi Anda?
                             <br>
-                            <a class="inline-block mt-2 text-dark dark:text-tertiary font-bold hover:underline" href="../#contact">Hubungi Sekarang!</a>
+                            <a class="inline-block mt-2 text-dark hover:text-dark-400 dark:text-tertiary dark:hover:text-tertiary-400 font-bold hover:underline" href="../#contact">Hubungi Sekarang!</a>
                         </p>
                     </div>
+
+                    <section class="comments mt-4 h-60 dark:bg-pasdev-surface-a10 rounded-md">
+
+                    </section>
                 </article>
                 <!-- Article End -->
                 <!-- Aside Start -->
