@@ -137,7 +137,7 @@
                         <h1 class="font-bold text-xl md:text-2xl pb-2">Tailwind VS Bootstrap, Manakah Framework CSS Terbaik?</h1>
                         <span class="text-xs font-medium text-light">Oleh Prasetyo Adi S. | <span id="date-post">date</span> |</span>
                     </div>
-                    <div class=" p-4 dark:bg-pasdev-surface-a10 rounded-md">
+                    <div class=" p-4 rounded-md">
                         <div class="flex flex-col items-center mb-4">
                             <img class="w-full sm:w-1/2 rounded-md" src="../public/img/article/artikel-1.webp" alt="SIP-Sistem-Informasi-Perpustakaan">
                             
@@ -268,7 +268,7 @@
                             Dengan Tailwind, tombol dibangun menggunakan utility class.
                         </p>
                         <div class="source-code py-2.5">
-                            <div class="demo-source flex flex-wrap gap-2 sm:gap-1.5 items-center p-5 sm:h-40 bg-[#fafafa] dark:bg-pasdev-surface-a00 border border-b-0 border-gray-300 dark:border-gray-600 rounded-t-md">
+                            <div class="demo-source flex flex-wrap gap-2 sm:gap-1.5 items-center p-5 sm:h-40 bg-[#fafafa] dark:bg-pasdev-surface-a00 border border-b-0 border-gray-300 dark:border-gray-600 rounded-t-md shadow-md">
                                 <button class="px-3 py-1.5 text-base font-sans text-white bg-blue-500 hover:bg-blue-600 border-blue-500 rounded-md cursor-pointer">
                                     Primary
                                 </button>
@@ -306,7 +306,7 @@
                                             <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
                                         </g>
                                     </svg>
-                                    <span class="self-end px-3 py-2 text-xs font-light text-white bg-[#22212C]! rounded-t-lg shadow-lg">btn-tailwind.html</span>
+                                    <span class="self-end px-3 py-2 text-xs font-light text-white bg-[#22212C]! rounded-t-lg shadow-lg truncate">btn-tailwind.html</span>
                                 </span>
                                 <div class="flex">
                                     <button data-tooltip-target="tooltip-tw-ctc" type="button" class="flex items-center justify-center w-10 h-10 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700">
@@ -333,7 +333,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="tw-source" class="body-source relative overflow-auto text-white bg-[#1f2937] border border-t-0 border-gray-300 dark:border-gray-600 rounded-b-md h-40">
+                            <div id="tw-source" class="body-source relative h-40 overflow-auto text-white bg-[#1f2937] border border-t-0 border-gray-300 dark:border-gray-600 rounded-b-md">
                                 <div class="highlight">
                                     <pre tabindex="0" class="chroma language-html">
 <code class=" language-html" data-lang="html"><span class="cd-comment">&lt;!-- Tailwind CSS Button --&gt;</span>
@@ -360,8 +360,8 @@
                         </p>
                         
                         <div class="source-code py-2.5">
-                            <div class="demo-source flex items-center p-5 sm:h-40 bg-[#fafafa] dark:bg-pasdev-surface-a00 border border-b-0 border-gray-300 dark:border-gray-600 rounded-t-md">
-                                <iframe class="w-full sm:h-10" src="../public/iframe/btn-boostrap.html" frameborder="0"></iframe>
+                            <div class="demo-source flex items-center p-5 max-h-56 sm:h-40 bg-[#fafafa] dark:bg-pasdev-surface-a00 border border-b-0 border-gray-300 dark:border-gray-600 rounded-t-md">
+                                <iframe class="w-full max-h-44 sm:max-h-24" src="../public/iframe/btn-boostrap.html" frameborder="0"></iframe>
                             </div>
                             <div class="head-source flex justify-between items-center px-3 bg-[#fafafa]! dark:bg-[#2c2c31]! border border-b-0 border-gray-300 dark:border-gray-600">
                                 <span class="flex gap-2 items-center h-10 text-sm font-semibold">
@@ -372,7 +372,7 @@
                                             <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
                                         </g>
                                     </svg>
-                                    <span class="self-end px-3 py-2 text-xs font-light text-white bg-[#22212C]! rounded-t-lg shadow-lg">btn-bootstrap.html</span>
+                                    <span class="self-end px-3 py-2 text-xs font-light text-white bg-[#22212C]! rounded-t-lg shadow-lg truncate">btn-bootstrap.html</span>
                                 </span>
                                 <div class="flex">
                                     <button data-tooltip-target="tooltip-bs-ctc" type="button" class="flex items-center justify-center w-10 h-10 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700">
@@ -399,7 +399,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="bs-source" class="body-source relative overflow-auto text-white bg-[#1f2937] border border-t-0 border-gray-300 dark:border-gray-600 rounded-b-md h-40">
+                            <div id="bs-source" class="body-source relative h-40 overflow-auto text-white bg-[#1f2937] border border-t-0 border-gray-300 dark:border-gray-600 rounded-b-md shadow-md">
                                 <div class="highlight">
                                     <pre tabindex="0" class="chroma language-html">
 <code class=" language-html" data-lang="html"><span class="cd-comment">&lt;!-- Bootstrap Button --&gt;</span>
@@ -436,6 +436,10 @@
                         </p>
                         
                     </div>
+
+                    <section class="comments mt-4 h-60 bg-gray-50 dark:bg-pasdev-surface-a10 rounded-md">
+
+                    </section>
                 </article>
                 <!-- Article End -->
                 <!-- Aside Start -->
@@ -443,17 +447,28 @@
                     <div class="sticky top-40">
                         <aside class="w-full p-4">
                             <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-                                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="tab-portfolio-content" data-tabs-toggle="#tab-content" data-tabs-active-classes="text-dark hover:text-dark dark:text-tertiary dark:hover:text-tertiary border-dark dark:border-tertiary" data-tabs-inactive-classes="dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300" role="tablist">
+                                <ul class="flex flex-wrap md:justify-center lg:justify-normal -mb-px text-sm font-medium text-center" id="tab-portfolio-content" data-tabs-toggle="#tab-content" data-tabs-active-classes="text-dark hover:text-dark dark:text-tertiary dark:hover:text-tertiary border-dark dark:border-tertiary" data-tabs-inactive-classes="dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300" role="tablist">
                                     <li class="me-2" role="presentation">
-                                        <button class="inline-block p-4 text-lg font-semibold border-b-2 rounded-t-lg" id="projects-tab" data-tabs-target="#tab-projects" type="button" role="tab" aria-controls="projects" aria-selected="false">New Projects</button>
+                                        <button id="tab-new-projects" class="inline-block p-2 xl:p-4 text-base md:text-[13px] xl:text-lg font-semibold border-b-2 rounded-t-lg" id="projects-tab" data-tabs-target="#tab-projects" type="button" role="tab" aria-controls="projects" aria-selected="false">New Projects</button>
                                     </li>
                                     <li class="me-2" role="presentation">
-                                        <button class="inline-block p-4 text-lg font-semibold border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="articles-tab" data-tabs-target="#tab-articles" type="button" role="tab" aria-controls="articles" aria-selected="true">New Articles</button>
+                                        <button id="tab-new-articles" class="inline-block p-2 xl:p-4 text-base md:text-[13px] xl:text-lg font-semibold border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="articles-tab" data-tabs-target="#tab-articles" type="button" role="tab" aria-controls="articles" aria-selected="false">New Articles</button>
                                     </li>
                                 </ul>
                             </div>
                             <div id="tab-content">
                                 <div class="hidden p-4 text-sm  rounded-lg bg-gray-50 dark:bg-pasdev-surface-a10" id="tab-projects" role="tabpanel" aria-labelledby="projects-tab">
+                                    <a href="../projects/sip-sistem-informasi-perpustakaan.html">
+                                        <div class="flex flex-row items-center w-full mb-4 group/tabs">
+                                            <div class="basis-2/5">
+                                                <img class="aspect-video object-cover object-center rounded-sm" src="../public/img/project/sip-sman-5-madiun.webp" alt="m-libary">
+                                            </div>
+                                            <div class="self-start basis-3/5 p-2">
+                                                <h3 class="font-semibold text-dark dark:text-white group-hover/tabs:text-dark group-hover/tabs:dark:text-tertiary group-hover/tabs:underline">SIP Sistem Informasi Perpustakaan</h3>
+                                                
+                                            </div>
+                                        </div>
+                                    </a>
                                     <a href="">
                                         <div class="flex flex-row items-center w-full mb-4 group/tabs">
                                             <div class="basis-2/5">

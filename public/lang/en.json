@@ -34,5 +34,7 @@
     "lc-portfolio": "Portfolio",
     "lc-activity": "Activity",
     "lc-blog": "Blog",
-    "lc-contact": "Contact"
+    "lc-contact": "Contact",
+    "tab-new-projects": "New Projects",
+    "tab-new-articles": "New Articles"
 }
