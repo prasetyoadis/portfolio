@@ -476,8 +476,8 @@
                 <!-- Comments Start -->
                 <section id="comments" class="mt-4 p-4 w-full md:w-2/3 ">
                     <div class="p-4 bg-gray-50 dark:bg-pasdev-surface-a10 rounded-md shadow-md">
-                        <div id="comment-form" class="my-2">
-                            <form id="commentForm">
+                        <div class="my-2">
+                            <form id="comment-form">
                                 <div class="my-2">
                                     <label for="name" class="block mb-1 mt-2.5 text-[0.65rem] font-medium text-gray-700 dark:text-white">Your Name</label>
                                     <input class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-white text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-pasdev-surface-a20 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" id="name" placeholder="Your Name" required>
@@ -508,34 +508,38 @@
                             </button>
                         </div>
 
-                        <div id="comment-list" class="">
-                            <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 rounded-md">
+                        <div id="comments-skeleton" role="status" class="animate-pulse">
+                            <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 rounded-md shadow-md">
                                 <div class="flex items-center mb-2">
-                                    <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">Timoty</span>
-                                    <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">05 Aug 2025</span>
+                                    <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">
+                                        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                                    </span>
+                                    <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">
+                                        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                                    </span>
                                 </div>
                                 <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
-                                    Nice! Tutorialnya jelas, saya jadi bisa kembangin Sistem Informasi dengan Laravel dan database MySQL.
+                                    <div class="h-2.5 bg-gray-400 rounded-full dark:bg-gray-700 w-full"></div>
+                                    <div class="h-2.5 mt-1.5 bg-gray-400 rounded-full dark:bg-gray-700 w-1/4"></div>
                                 </div>
                                 <div class="msg-action flex gap-1.5 mt-1">
                                     <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
                                         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
                                             <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
                                         </svg>
-                                        <span class="text-xs font-medium">96</span>
+                                        <span class="text-xs font-medium">
+                                            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                        </span>
                                     </button>
                                     <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
                                         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
                                             <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
                                         </svg>
-                                        <span class="text-xs font-medium">38</span>
+                                        <span class="text-xs font-medium">
+                                            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                        </span>
                                     </button>
-                                    <button class="flex items-center gap-1 text-dark hover:text-dark-400 dark:text-tertiary dark:hover:text-tertiary-400 cursor-pointer">
-                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
-                                            <path d="M760-200v-160q0-50-35-85t-85-35H273l144 144-57 56-240-240 240-240 57 56-144 144h367q83 0 141.5 58.5T840-360v160h-80Z"/>
-                                        </svg>
-                                        <span class="text-xs font-medium">Balas</span>
-                                    </button>
+                                    
                                     <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
                                         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
                                             <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
@@ -545,7 +549,9 @@
                                 <div class="ml-1 px-2 py-1 md:px-5 bg-white dark:bg-pasdev-surface-a00 rounded-md rounded-s-none border-l-4 dark:border-l-gray-500">
                                     <div class="msg-header flex items-end gap-1 mb-2">
                                         <div class="flex items-center gap-1 shrink-0 text-sm font-semibold text-dark dark:text-tertiary">
-                                            <span id="name">Prasetyo Adi</span>
+                                            <span id="name">
+                                                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-20"></div>
+                                            </span>
                                             <span class="text-blue-600 dark:text-blue-400">
                                                 <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="18px" viewBox="0 -960 960 960">
                                                     <path d="m438-452-58-57q-11-11-27.5-11T324-508q-11 11-11 28t11 28l86 86q12 12 28 12t28-12l170-170q12-12 11.5-28T636-592q-12-12-28.5-12.5T579-593L438-452ZM326-90l-58-98-110-24q-15-3-24-15.5t-7-27.5l11-113-75-86q-10-11-10-26t10-26l75-86-11-113q-2-15 7-27.5t24-15.5l110-24 58-98q8-13 22-17.5t28 1.5l104 44 104-44q14-6 28-1.5t22 17.5l58 98 110 24q15 3 24 15.5t7 27.5l-11 113 75 86q10 11 10 26t-10 26l-75 86 11 113q2 15-7 27.5T802-212l-110 24-58 98q-8 13-22 17.5T584-74l-104-44-104 44q-14 6-28 1.5T326-90Zm52-72 102-44 104 44 56-96 110-26-10-112 74-84-74-86 10-112-110-24-58-96-102 44-104-44-56 96-110 24 10 112-74 86 74 84-10 114 110 24 58 96Zm102-318Z"/>
@@ -554,87 +560,46 @@
                                         </div>
                                         <span class="msg-replied flex items-end gap-1 grow overflow-hidden text-[0.625rem] text-gray-400">
                                             <div class="flex flex-col sm:flex-row sm:gap-1 shrink-0">
-                                                membalas 
-                                                <span class="shrink-0 text-black dark:text-gray-300 font-semibold">Timoty</span>
+                                                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 w-14"></div>
+                                                <span class="shrink-0 text-black dark:text-gray-300 font-semibold">
+                                                    <div class="h-2 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                                                </span>
                                             </div>
-                                            <span class="font-medium text-gray-600 dark:text-gray-300 truncate before:content-['-']">
-                                                Nice! Tutorialnya jelas, saya jadi bisa kembangin Sistem Informasi dengan Laravel dan database MySQL.
+                                            <span class="grow font-medium text-gray-600 dark:text-gray-300 truncate before:content-['']">
+                                                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
                                             </span>
                                         </span>
-                                        <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">05 Aug 2025</span>
+                                        <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">
+                                            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                                        </span>
                                     </div>
                                     <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
-                                        <span class="text-dark dark:text-tertiary font-semibold">@Timoty</span> Senang dengarnya! Laravel + MySQL memang kombinasi yang solid. Kalau ada kendala pas coba implementasi, feel free buat tanya di sini ya 👍.
-                                    </div>
-                                    <div class="msg-action flex gap-1.5 mt-1">
-                                        <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 hover:text-black dark:hover:text-white border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
-                                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
-                                                <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
-                                            </svg>
-                                            <span class="text-xs font-medium">88</span>
-                                        </button>
-                                        <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 hover:text-black dark:hover:text-white border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
-                                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
-                                                <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
-                                            </svg>
-                                            <span class="text-xs font-medium">0</span>
-                                        </button>
-                                        <button class="flex items-center gap-1 text-dark hover:text-dark-400 dark:text-tertiary dark:hover:text-tertiary-400 cursor-pointer">
-                                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
-                                                <path d="M760-200v-160q0-50-35-85t-85-35H273l144 144-57 56-240-240 240-240 57 56-144 144h367q83 0 141.5 58.5T840-360v160h-80Z"/>
-                                            </svg>
-                                            <span class="text-xs font-medium">Balas</span>
-                                        </button>
-                                        <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
-                                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
-                                                <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="ml-1 px-2 py-1 md:px-5 bg-white dark:bg-pasdev-surface-a00 rounded-md rounded-s-none border-l-4 dark:border-l-gray-500">
-                                    <div class="flex items-end gap-1 mb-2">
-                                        <div class="msg-header flex items-center gap-1 shrink-0 text-sm font-semibold text-dark dark:text-tertiary">
-                                            <span id="name">Timoty</span>
-                                            <span class="hidden text-blue-600 dark:text-blue-400">
-                                                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="18px" viewBox="0 -960 960 960">
-                                                    <path d="m438-452-58-57q-11-11-27.5-11T324-508q-11 11-11 28t11 28l86 86q12 12 28 12t28-12l170-170q12-12 11.5-28T636-592q-12-12-28.5-12.5T579-593L438-452ZM326-90l-58-98-110-24q-15-3-24-15.5t-7-27.5l11-113-75-86q-10-11-10-26t10-26l75-86-11-113q-2-15 7-27.5t24-15.5l110-24 58-98q8-13 22-17.5t28 1.5l104 44 104-44q14-6 28-1.5t22 17.5l58 98 110 24q15 3 24 15.5t7 27.5l-11 113 75 86q10 11 10 26t-10 26l-75 86 11 113q2 15-7 27.5T802-212l-110 24-58 98q-8 13-22 17.5T584-74l-104-44-104 44q-14 6-28 1.5T326-90Zm52-72 102-44 104 44 56-96 110-26-10-112 74-84-74-86 10-112-110-24-58-96-102 44-104-44-56 96-110 24 10 112-74 86 74 84-10 114 110 24 58 96Zm102-318Z"/>
-                                                </svg>
+                                        <div class="flex gap-1">
+                                            <span class="text-dark dark:text-tertiary font-semibold">
+                                                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
                                             </span>
+                                            <div class="h-2.5 bg-gray-400 rounded-full dark:bg-gray-700 w-full"></div>
                                         </div>
-                                        <span class="msg-replied flex items-end gap-1 grow overflow-hidden text-[0.625rem] text-gray-400">
-                                            <div class="flex flex-col sm:flex-row sm:gap-1 shrink-0">
-                                                membalas 
-                                                <span class="shrink-0 text-black dark:text-gray-300 font-semibold">Prasetyo Adi</span>
-                                            </div>
-                                            <span class="font-medium text-gray-600 dark:text-gray-300 truncate before:content-['-']">
-                                                Senang dengarnya! Laravel + MySQL memang kombinasi yang solid. Kalau ada kendala pas coba implementasi, feel free buat tanya di sini ya 👍.
-                                            </span>
-                                        </span>
-                                        <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">05 Aug 2025</span>
-                                    </div>
-                                    <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
-                                        <span class="text-dark dark:text-tertiary font-semibold">@Prasetyo Adi</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae magni eveniet et, aliquam assumenda officia.
+                                        <div class="h-2.5 mt-1.5 bg-gray-400 rounded-full dark:bg-gray-700 w-1/2"></div>
                                     </div>
                                     <div class="msg-action flex gap-1.5 mt-1">
                                         <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 hover:text-black dark:hover:text-white border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
                                             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
                                                 <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
                                             </svg>
-                                            <span class="text-xs font-medium">88</span>
+                                            <span class="text-xs font-medium">
+                                                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                            </span>
                                         </button>
                                         <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 hover:text-black dark:hover:text-white border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
                                             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
                                                 <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
                                             </svg>
-                                            <span class="text-xs font-medium">0</span>
+                                            <span class="text-xs font-medium">
+                                                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                            </span>
                                         </button>
-                                        <button class="flex items-center gap-1 text-dark hover:text-dark-400 dark:text-tertiary dark:hover:text-tertiary-400 cursor-pointer">
-                                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
-                                                <path d="M760-200v-160q0-50-35-85t-85-35H273l144 144-57 56-240-240 240-240 57 56-144 144h367q83 0 141.5 58.5T840-360v160h-80Z"/>
-                                            </svg>
-                                            <span class="text-xs font-medium">Balas</span>
-                                        </button>
+                                        
                                         <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
                                             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
                                                 <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
@@ -644,33 +609,37 @@
                                 </div>
                             </div>
 
-                            <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 rounded-md">
+                            <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 rounded-md shadow-md">
                                 <div class="flex items-center mb-2">
-                                    <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">Reymon</span>
-                                    <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">05 Aug 2025</span>
+                                    <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">
+                                        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+                                    </span>
+                                    <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">
+                                        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                                    </span>
                                 </div>
                                 <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
-                                    Simple banget, pakai Bootstrap tampilannya jadi lebih rapi, cocok buat aplikasi perpustakaan.
+                                    <div class="h-2.5 bg-gray-400 rounded-full dark:bg-gray-700 w-full"></div>
+                                    <div class="h-2.5 mt-1.5 bg-gray-400 rounded-full dark:bg-gray-700 w-1/4"></div>
                                 </div>
                                 <div class="msg-action flex gap-1.5 mt-1">
                                     <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
                                         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
                                             <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
                                         </svg>
-                                        <span class="text-xs font-medium">6</span>
+                                        <span class="text-xs font-medium">
+                                            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                        </span>
                                     </button>
                                     <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
                                         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
                                             <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
                                         </svg>
-                                        <span class="text-xs font-medium">4</span>
+                                        <span class="text-xs font-medium">
+                                            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                        </span>
                                     </button>
-                                    <button class="flex items-center gap-1 text-dark hover:text-dark-400 dark:text-tertiary dark:hover:text-tertiary-400 cursor-pointer">
-                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
-                                            <path d="M760-200v-160q0-50-35-85t-85-35H273l144 144-57 56-240-240 240-240 57 56-144 144h367q83 0 141.5 58.5T840-360v160h-80Z"/>
-                                        </svg>
-                                        <span class="text-xs font-medium">Balas</span>
-                                    </button>
+                                    
                                     <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
                                         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
                                             <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
@@ -679,8 +648,9 @@
                                 </div>
                             </div>
                         </div>
-
-                        
+                        <div id="comments-list" class="hidden">
+                            
+                        </div>
                     </div>
                 </section>
                 <!-- Comments End -->
@@ -767,8 +737,129 @@
 <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 <script src="../public/js/switch-lang.js"></script>
 
-<script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+    import { getFirestore, collection, query, orderBy, onSnapshot, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
+    const firebaseConfig = {
+        apiKey: "AIzaSyCPvimYMvsBIXayvuhj1UA75njilp2OjDs",
+        authDomain: "pasdev-35b47.firebaseapp.com",
+        projectId: "pasdev-35b47",
+        storageBucket: "pasdev-35b47.firebasestorage.app",
+        messagingSenderId: "159673146420",
+        appId: "1:159673146420:web:8f2a30a6328584fe067e61",
+        measurementId: "G-5T7Z1CVRK6"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // ID Post blog yang sedang dibuka (misalnya dari URL atau variabel global)
+    const postId = "B95f5zBVYNJfska8AuOA";
+
+    // Ambil referensi form
+    const commentForm = document.getElementById("comment-form");
+
+    commentForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Data dari form
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const comment = document.getElementById("comment").value;
+        const upVotes = 0;
+        const downVotes = 0;
+
+        try {
+            await addDoc(collection(db, "posts", postId, "comments"), {
+            name,
+            email,
+            comment,
+            upVotes,
+            downVotes,
+            createdAt: serverTimestamp() // waktu server Firebase
+            });
+
+            alert("Komentar berhasil ditambahkan!");
+            commentForm.reset();
+        } catch (err) {
+            console.error("Error menambahkan komentar: ", err);
+        }
+    });
+
+    // Referensi elemen tempat komentar ditampilkan
+    const commentsSkeleton = document.getElementById("comments-skeleton");
+    const commentsList = document.getElementById("comments-list");
+
+    // Query komentar terbaru
+    const q = query(
+        collection(db, "posts", postId, "comments"),
+        orderBy("createdAt", "desc") // urut dari terbaru
+    );
+
+    // Real-time listener
+    onSnapshot(q, (snapshot) => {
+        // reset sebelum render ulang
+        commentsList.innerHTML = "";
+
+        // tampilkan skeleton dulu
+        commentsSkeleton.classList.remove("hidden");
+        commentsList.classList.add("hidden");
+
+        // Delay beberapa detik sebelum ganti skeleton dengan komentar asli
+        setTimeout(() => {
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+                const commentId = doc.id;
+                const name = data.name || "Anonymous";
+                const upVotes = data.upVotes || "0";
+                const downVotes = data.downVotes || "0";
+                const comment = data.comment || "";
+                const createdAt = data.createdAt?.toDate().toLocaleString('id-ID', {day: "2-digit", month: "short", year: "numeric"}) || "-";
+
+                // Buat elemen komentar
+                const commentEl = document.createElement("div");
+                commentEl.classList.add("comment-item");
+                commentEl.innerHTML = `
+                <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 shadow-md rounded-md">
+                    <div class="flex items-center mb-2">
+                        <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">${name}</span>
+                        <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">${createdAt}</span>
+                    </div>
+                    <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
+                        ${comment}
+                    </div>
+                    <div class="msg-action flex gap-1.5 mt-1">
+                        <button data-comment-id="${commentId}" class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
+                            </svg>
+                            <span class="text-xs font-medium">${upVotes}</span>
+                        </button>
+                        <button data-comment-id="${commentId}" class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
+                            </svg>
+                            <span class="text-xs font-medium">${downVotes}</span>
+                        </button>
+                        
+                        <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
+                                <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                `;
+
+                commentsList.appendChild(commentEl);
+            });
+            // setelah selesai render, sembunyikan skeleton & tampilkan komentar
+            commentsSkeleton.classList.add("hidden");
+            commentsList.classList.remove("hidden");
+        }, 3000); // delay 3 detik (bisa diganti 10000 untuk 10s)
+    });
 </script>
 
 <script>
