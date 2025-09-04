@@ -562,7 +562,7 @@
                                             <div class="flex flex-col sm:flex-row sm:gap-1 shrink-0">
                                                 <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 w-14"></div>
                                                 <span class="shrink-0 text-black dark:text-gray-300 font-semibold">
-                                                    <div class="h-2 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                                                    <div class="h-2 mt-1 md:mt-0 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
                                                 </span>
                                             </div>
                                             <span class="grow font-medium text-gray-600 dark:text-gray-300 truncate before:content-['']">
@@ -740,7 +740,10 @@
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
-    import { getFirestore, collection, query, orderBy, onSnapshot, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+    import { 
+        getFirestore, collection, query, orderBy, onSnapshot, addDoc, 
+        serverTimestamp, doc, updateDoc, increment, getDoc, deleteField 
+    } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyCPvimYMvsBIXayvuhj1UA75njilp2OjDs",
@@ -768,20 +771,17 @@
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
         const comment = document.getElementById("comment").value;
-        const upVotes = 0;
-        const downVotes = 0;
 
         try {
             await addDoc(collection(db, "posts", postId, "comments"), {
-            name,
-            email,
-            comment,
-            upVotes,
-            downVotes,
-            createdAt: serverTimestamp() // waktu server Firebase
+                name,
+                email,
+                comment,
+                createdAt: serverTimestamp(), // waktu server Firebase
+                upVotes: 0,
+                downVotes: 0
             });
 
-            alert("Komentar berhasil ditambahkan!");
             commentForm.reset();
         } catch (err) {
             console.error("Error menambahkan komentar: ", err);
@@ -798,67 +798,187 @@
         orderBy("createdAt", "desc") // urut dari terbaru
     );
 
+    let firstLoad = true; // untuk deteksi load pertama
+    const renderedComments = new Set(); // simpan commentId yang sudah tampil
+
+    function formatDate(ts) {
+        if (!ts) return "-";  // kalau masih null
+        if (typeof ts.toDate === "function") {
+            return ts.toDate().toLocaleString();
+        }
+        return String(ts);
+    }
+
     // Real-time listener
     onSnapshot(q, (snapshot) => {
-        // reset sebelum render ulang
-        commentsList.innerHTML = "";
+    // --- Load pertama: tampilkan skeleton global ---
+        if (firstLoad) {
+            // tampilkan skeleton dulu
+            commentsSkeleton.classList.remove("hidden");
+            commentsList.classList.add("hidden");
+            
+            // Delay beberapa detik sebelum ganti skeleton dengan komentar asli
+            setTimeout(() => {
+                // reset sebelum render ulang
+                commentsList.innerHTML = "";
 
-        // tampilkan skeleton dulu
-        commentsSkeleton.classList.remove("hidden");
-        commentsList.classList.add("hidden");
+                snapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const commentId = doc.id;
+                    const name = data.name || "Anonymous";
+                    const upVotes = data.upVotes || "0";
+                    const downVotes = data.downVotes || "0";
+                    const comment = data.comment || "";
+                    const createdAt = data.createdAt?.toDate().toLocaleString('id-ID', {day: "2-digit", month: "short", year: "numeric"}) || "-";
 
-        // Delay beberapa detik sebelum ganti skeleton dengan komentar asli
-        setTimeout(() => {
-            snapshot.forEach((doc) => {
-                const data = doc.data();
-                const commentId = doc.id;
-                const name = data.name || "Anonymous";
-                const upVotes = data.upVotes || "0";
-                const downVotes = data.downVotes || "0";
-                const comment = data.comment || "";
-                const createdAt = data.createdAt?.toDate().toLocaleString('id-ID', {day: "2-digit", month: "short", year: "numeric"}) || "-";
-
-                // Buat elemen komentar
-                const commentEl = document.createElement("div");
-                commentEl.classList.add("comment-item");
-                commentEl.innerHTML = `
-                <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 shadow-md rounded-md">
-                    <div class="flex items-center mb-2">
-                        <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">${name}</span>
-                        <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">${createdAt}</span>
+                    // Buat elemen komentar
+                    const commentEl = document.createElement("div");
+                    commentEl.classList.add("comment-item");
+                    commentEl.innerHTML = `
+                    <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 shadow-md rounded-md">
+                        <div class="flex items-center mb-2">
+                            <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">${name}</span>
+                            <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">${createdAt}</span>
+                        </div>
+                        <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
+                            ${comment}
+                        </div>
+                        <div class="msg-action flex gap-1.5 mt-1">
+                            <button data-comment-id="${commentId}" class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                    <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
+                                </svg>
+                                <span class="text-xs font-medium">${upVotes}</span>
+                            </button>
+                            <button data-comment-id="${commentId}" class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                    <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
+                                </svg>
+                                <span class="text-xs font-medium">${downVotes}</span>
+                            </button>
+                            
+                            <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
+                                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
+                                    <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
-                    <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
-                        ${comment}
-                    </div>
-                    <div class="msg-action flex gap-1.5 mt-1">
-                        <button data-comment-id="${commentId}" class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
-                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
-                                <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
-                            </svg>
-                            <span class="text-xs font-medium">${upVotes}</span>
-                        </button>
-                        <button data-comment-id="${commentId}" class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
-                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
-                                <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
-                            </svg>
-                            <span class="text-xs font-medium">${downVotes}</span>
-                        </button>
-                        
-                        <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
-                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
-                                <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                `;
+                    `;
 
-                commentsList.appendChild(commentEl);
+                    commentsList.appendChild(commentEl);
+                    renderedComments.add(commentId);
+                });
+                // setelah selesai render, sembunyikan skeleton & tampilkan komentar
+                commentsSkeleton.classList.add("hidden");
+                commentsList.classList.remove("hidden");
+                firstLoad = false;
+            }, 3000); // delay 3 detik (bisa diganti 10000 untuk 10s)
+        } else {
+            // --- Update realtime setelah load pertama ---
+            snapshot.docChanges().forEach((change) => {
+                if (change.type === "added") {
+                    const doc = change.doc;
+                    const data = doc.data();
+                    const commentId = doc.id;
+                    const name = data.name || "Anonymous";
+                    const upVotes = data.upVotes || "0";
+                    const downVotes = data.downVotes || "0";
+                    const comment = data.comment || "";
+                    const createdAt = data.createdAt?.toDate ? data.createdAt.toDate().toLocaleString() : "-";
+
+                    console.log("typeof createdAt:", typeof data.createdAt);
+                    console.log("createdAt object:", data.createdAt);
+
+                    // jika komentar sudah pernah ditampilkan, skip
+                    if (renderedComments.has(commentId)) return;
+
+                    // buat skeleton kecil untuk komentar baru
+                    const skeletonItem = document.createElement("div");
+                    skeletonItem.classList.add("animate-pulse", "mb-4");
+                    skeletonItem.innerHTML = `
+                    <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 rounded-md shadow-md">
+                        <div class="flex items-center mb-2">
+                            <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">
+                                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+                            </span>
+                            <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">
+                                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                            </span>
+                        </div>
+                        <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
+                            <div class="h-2.5 bg-gray-400 rounded-full dark:bg-gray-700 w-full"></div>
+                            <div class="h-2.5 mt-1.5 bg-gray-400 rounded-full dark:bg-gray-700 w-1/4"></div>
+                        </div>
+                        <div class="msg-action flex gap-1.5 mt-1">
+                            <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                    <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
+                                </svg>
+                                <span class="text-xs font-medium">
+                                    <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                </span>
+                            </button>
+                            <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                    <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
+                                </svg>
+                                <span class="text-xs font-medium">
+                                    <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                </span>
+                            </button>
+                            
+                            <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
+                                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
+                                    <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    `;
+                    commentsList.prepend(skeletonItem);
+                    
+                    // delay → ganti skeleton dengan komentar asli
+                    setTimeout(() => {
+                        const commentEl = document.createElement("div");
+                        commentEl.classList.add("comment-item");
+                        commentEl.innerHTML = `
+                        <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 shadow-md rounded-md">
+                            <div class="flex items-center mb-2">
+                                <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">${name}</span>
+                                <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">${createdAt}</span>
+                            </div>
+                            <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
+                                ${comment}
+                            </div>
+                            <div class="msg-action flex gap-1.5 mt-1">
+                                <button data-comment-id="${commentId}" class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                    <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                        <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
+                                    </svg>
+                                    <span class="text-xs font-medium">${upVotes}</span>
+                                </button>
+                                <button data-comment-id="${commentId}" class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                    <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                        <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
+                                    </svg>
+                                    <span class="text-xs font-medium">${downVotes}</span>
+                                </button>
+                                
+                                <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
+                                    <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
+                                        <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        `;
+                        skeletonItem.replaceWith(commentEl);
+                        renderedComments.add(commentId);
+                    }, 5000); // delay skeleton untuk komentar baru
+                }
             });
-            // setelah selesai render, sembunyikan skeleton & tampilkan komentar
-            commentsSkeleton.classList.add("hidden");
-            commentsList.classList.remove("hidden");
-        }, 3000); // delay 3 detik (bisa diganti 10000 untuk 10s)
+        }
     });
 </script>
 
