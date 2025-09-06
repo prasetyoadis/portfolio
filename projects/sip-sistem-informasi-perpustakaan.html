@@ -546,7 +546,7 @@
                                         </svg>
                                     </button>
                                 </div>
-                                <div class="ml-1 px-2 py-1 md:px-5 bg-white dark:bg-pasdev-surface-a00 rounded-md rounded-s-none border-l-4 dark:border-l-gray-500">
+                                <div class="hidden ml-1 px-2 py-1 md:px-5 bg-white dark:bg-pasdev-surface-a00 rounded-md rounded-s-none border-l-4 dark:border-l-gray-500">
                                     <div class="msg-header flex items-end gap-1 mb-2">
                                         <div class="flex items-center gap-1 shrink-0 text-sm font-semibold text-dark dark:text-tertiary">
                                             <span id="name">
@@ -801,14 +801,6 @@
     let firstLoad = true; // untuk deteksi load pertama
     const renderedComments = new Set(); // simpan commentId yang sudah tampil
 
-    function formatDate(ts) {
-        if (!ts) return "-";  // kalau masih null
-        if (typeof ts.toDate === "function") {
-            return ts.toDate().toLocaleString();
-        }
-        return String(ts);
-    }
-
     // Real-time listener
     onSnapshot(q, (snapshot) => {
     // --- Load pertama: tampilkan skeleton global ---
@@ -878,6 +870,7 @@
             // --- Update realtime setelah load pertama ---
             snapshot.docChanges().forEach((change) => {
                 if (change.type === "added") {
+                    let today = new Date().toLocaleDateString('id-ID', {day: "2-digit", month: "short", year: "numeric"});
                     const doc = change.doc;
                     const data = doc.data();
                     const commentId = doc.id;
@@ -885,11 +878,7 @@
                     const upVotes = data.upVotes || "0";
                     const downVotes = data.downVotes || "0";
                     const comment = data.comment || "";
-                    const createdAt = data.createdAt?.toDate ? data.createdAt.toDate().toLocaleString() : "-";
-
-                    console.log("typeof createdAt:", typeof data.createdAt);
-                    console.log("createdAt object:", data.createdAt);
-                    console.log("createdAt asdaect:", data.createdAt);
+                    const createdAt = data.createdAt?.toDate().toLocaleString('id-ID', {day: "2-digit", month: "short", year: "numeric"}) || today;
 
                     // jika komentar sudah pernah ditampilkan, skip
                     if (renderedComments.has(commentId)) return;
@@ -1009,7 +998,8 @@
 </script>
 
 <script>
-    
+    const thisYear = document.getElementById("year");
+    thisYear.innerHTML = (new Date().getFullYear() == 2025) ? "2025" : "2025 - " + new Date().getFullYear();
     // fixed navbar
     window.onscroll = function() {
         const header = document.querySelector('header');
