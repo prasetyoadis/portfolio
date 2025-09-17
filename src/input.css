@@ -510,3 +510,23 @@ code[class*=language-],pre[class*=language-]{
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+
+.btn-comment {
+    @apply flex items-center pl-0.5 py-1 pr-1.5 cursor-pointer;
+}
+.btn-comment.action {
+    @apply text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full; 
+}
+.btn-comment.action.active {
+    @apply text-black dark:text-white border border-gray-700;
+}
+
+.btn-dropdown {
+    @apply block px-4 py-2 cursor-pointer;
+}
+.btn-dropdown.filter {
+    @apply hover:bg-gray-100 dark:hover:bg-pasdev-surface-a10 dark:hover:text-white;
+}
+.btn-dropdown.filter.active {
+    @apply bg-gray-100 dark:bg-pasdev-surface-a10;
+}
