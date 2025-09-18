@@ -497,7 +497,9 @@
                         
                         <div class="flex items-center justify-between gap-1.5 mt-7">
                             <h1 class="inline-flex items-center gap-1 text-lg font-semibold dark:text-white">
-                                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M280-400h400q17 0 28.5-11.5T720-440q0-17-11.5-28.5T680-480H280q-17 0-28.5 11.5T240-440q0 17 11.5 28.5T280-400Zm0-120h400q17 0 28.5-11.5T720-560q0-17-11.5-28.5T680-600H280q-17 0-28.5 11.5T240-560q0 17 11.5 28.5T280-520Zm0-120h400q17 0 28.5-11.5T720-680q0-17-11.5-28.5T680-720H280q-17 0-28.5 11.5T240-680q0 17 11.5 28.5T280-640ZM160-240q-33 0-56.5-23.5T80-320v-480q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v623q0 27-24.5 37.5T812-148l-92-92H160Zm594-80 46 45v-525H160v480h594Zm-594 0v-480 480Z"/></svg>
+                                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+                                    <path d="M280-400h400q17 0 28.5-11.5T720-440q0-17-11.5-28.5T680-480H280q-17 0-28.5 11.5T240-440q0 17 11.5 28.5T280-400Zm0-120h400q17 0 28.5-11.5T720-560q0-17-11.5-28.5T680-600H280q-17 0-28.5 11.5T240-560q0 17 11.5 28.5T280-520Zm0-120h400q17 0 28.5-11.5T720-680q0-17-11.5-28.5T680-720H280q-17 0-28.5 11.5T240-680q0 17 11.5 28.5T280-640ZM160-240q-33 0-56.5-23.5T80-320v-480q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v623q0 27-24.5 37.5T812-148l-92-92H160Zm594-80 46 45v-525H160v480h594Zm-594 0v-480 480Z"/>
+                                </svg>
                                 <span>Comments</span>
                                 <span class="text-xs text-gray-500 dark:text-gray-400">(<span id="comments-sum">0</span>)</span>
                             </h1>
@@ -714,6 +716,9 @@
                         <div id="comments-list" class="hidden">
                             
                         </div>
+                        <div class="flex justify-center">
+                            <button id="btn-show-more" class="hidden px-3 py-1.5 text-xs font-semibold text-white bg-dark dark:text-dark dark:bg-tertiary rounded-md cursor-pointer">Show More</button>
+                        </div>
                     </div>
                 </section>
                 <!-- Comments End -->
@@ -887,11 +892,15 @@
     // Referensi elemen tempat komentar ditampilkan
     const commentsSkeleton = document.getElementById("comments-skeleton");
     const commentsList = document.getElementById("comments-list");
+    const btnShowMore = document.getElementById("btn-show-more");
 
     const btnPopuler = document.querySelector('#dropdown-filter-comment ul li:nth-child(1) button:nth-child(1)')
     const btnLatest = document.querySelector('#dropdown-filter-comment ul li:nth-child(2) button:nth-child(1)')
+    
     let unsubscribe = null; // simpan listener aktif
-
+    let lastVisible = null;   // simpan dokumen terakhir yang dimuat
+    let currentOrder = "popular"; // simpan urutan aktif
+    
     function loadComments(order = "popular") {
         // stop listener lama biar nggak double
         if (unsubscribe) unsubscribe();
@@ -923,15 +932,18 @@
         
         let q;
         if (order === "latest") {
+            // komentar terbaru
             q = query(
                 collection(db, "posts", postId, "comments"),
-                orderBy("createdAt", "desc") // komentar terbaru
+                orderBy("createdAt", "desc"),
+                limit(10)
             );
         } else {
             // komentar populer
             q = query(
-            collection(db, "posts", postId, "comments"),
-            orderBy("upVotes", "desc")
+                collection(db, "posts", postId, "comments"),
+                orderBy("upVotes", "desc"),
+                limit(10)
             );
         }
 
@@ -946,7 +958,7 @@
                 // tampilkan skeleton dulu
                 commentsSkeleton.classList.remove("hidden");
                 commentsList.classList.add("hidden");
-                
+
                 // Delay beberapa detik sebelum ganti skeleton dengan komentar asli
                 setTimeout(() => {
                     // reset sebelum render ulang
@@ -1026,7 +1038,9 @@
                     // setelah selesai render, sembunyikan skeleton & tampilkan komentar
                     commentsSkeleton.classList.add("hidden");
                     commentsList.classList.remove("hidden");
+                    btnShowMore.classList.remove("hidden");
                     firstLoad = false;
+                    
                 }, 3000); // delay 3 detik (bisa diganti 10000 untuk 10s)
             } else {
                 // --- Update realtime setelah load pertama ---
