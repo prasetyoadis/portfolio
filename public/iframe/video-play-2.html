@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+</head>
+<body class="min-h-screen bg-pasdev-surface-a00">
+    <header class="h-12">
+        <div class="container max-w-[1280px] h-full mx-auto bg-gray-400"></div>
+    </header>
+    <div class="h-60">
+        <div class="container max-w-[1280px] mx-auto">
+            <button id="open-sheet" class="m-5 p-2 bg-pasdev-surface-a10 text-white rounded-lg">Open</button>
+        </div>
+    </div>
+    <div id="bottom-sheet" class="fixed left-0 bottom-0 rounded-t-2xl bg-pasdev-surface-a10 shadow-xl transition-transform duration-300 h-[75dvh]" style="transform: translateY(100%);">
+        <!-- Drag handle -->
+        <div id="drag-handle" 
+            class="w-full py-3 cursor-grab active:cursor-grabbing flex justify-center">
+            <div class="w-12 h-1.5 bg-gray-300 rounded-full"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="px-4 overflow-y-auto h-[calc(75dvh-48px)] text-white">
+            <p class="text-lg">Isi konten bottom sheet... Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab architecto libero ratione a, voluptatum explicabo vitae optio sed excepturi hic reprehenderit nam perferendis saepe vero quam nostrum consectetur eveniet impedit fuga. Labore consequuntur blanditiis sapiente, consectetur numquam voluptatem magnam ipsum?</p>
+        </div>
+    </div>
+
+
+<script>
+const sheet = document.getElementById("bottom-sheet");
+const handle = document.getElementById("drag-handle");
+const openBtn = document.getElementById("open-sheet");
+
+let startY = 0;
+let currentY = 0;
+let sheetY = 0;
+let dragging = false;
+
+openBtn.onclick = () => {
+    console.log('test button')
+    sheet.style.transform = `translateY(0)`;
+};
+
+// Event Start
+handle.addEventListener("pointerdown", e => {
+    dragging = true;
+    startY = e.clientY;
+    sheetY = sheet.getBoundingClientRect().top;
+    sheet.style.transition = "none";
+});
+
+// Drag Move
+window.addEventListener("pointermove", e => {
+    if (!dragging) return;
+
+    currentY = e.clientY - startY;
+    
+    // Geser hanya ke bawah
+    if (currentY > 0) {
+        sheet.style.transform = `translateY(${currentY}px)`;
+    }
+});
+
+// Event End
+window.addEventListener("pointerup", () => {
+    if (!dragging) return;
+    dragging = false;
+
+    sheet.style.transition = "transform 0.25s";
+
+    // Threshold close (drag 30% tinggi)
+    const threshold = window.innerHeight * 0.25;
+
+    if (currentY > threshold) {
+        // close
+        sheet.style.transform = `translateY(100%)`;
+    } else {
+        // snap back open
+        sheet.style.transform = `translateY(0)`;
+    }
+
+    currentY = 0;
+});
+
+</script>
+</body>
+</html>

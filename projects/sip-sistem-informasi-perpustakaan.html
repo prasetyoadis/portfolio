@@ -146,9 +146,9 @@
                 <!-- Breadcrumb End -->
                 <!-- Article Start -->
                 <article class="w-full p-4 md:w-2/3 dark:text-white">      
-                    <section id="heading-post" class="p-4 mb-4 text-white dark:text-dark bg-dark dark:bg-tertiary rounded-md">
+                    <section id="heading-post" class="p-4 mb-4 text-white dark:text-dark-600 bg-dark dark:bg-tertiary rounded-md">
                         <h1 class="font-bold text-xl md:text-2xl pb-2">SIP Sistem Informasi Perpustakaan</h1>
-                        <span class="text-xs font-medium text-light-200">Oleh Prasetyo Adi S. | <span id="date-post">date</span> |</span>
+                        <span class="text-xs font-medium text-stone-100 dark:text-dark-500">Oleh Prasetyo Adi S. | <span id="date-post">date</span> |</span>
                     </section>
                     
                     <div class="p-4 rounded-md">
@@ -364,7 +364,7 @@
                             </div>
                             <div id="tab-content">
                                 <div class="hidden p-4 text-sm  rounded-lg bg-gray-50 dark:bg-pasdev-surface-a10" id="tab-projects" role="tabpanel" aria-labelledby="projects-tab">
-                                    <a href="">
+                                    <a href="/projects/m-library.html">
                                         <div class="flex flex-row items-center w-full mb-4 group/tabs">
                                             <div class="basis-2/5">
                                                 <img class="aspect-video object-cover object-center rounded-sm" src="../public/img/project/m-libary.webp" alt="m-libary">
@@ -422,10 +422,10 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="">
+                                    <a href="../articles/membuat-api-crud-sederhana-dengan-laravel-12.html">
                                         <div class="flex flex-row items-center w-full mb-4 group/tabs">
                                             <div class="basis-2/5">
-                                                <img class="aspect-video object-cover object-center rounded-sm" src="../public/img/article/artikel-2.webp" alt="img-article-2">
+                                                <img class="aspect-video object-cover object-center rounded-sm" src="../public/img/article/api-crud-laravel-12-thumbnail.webp" alt="img-article-2">
                                             </div>
                                             <div class="self-start basis-3/5 p-2">
                                                 <h3 class="text-base md:text-xs lg:text-base font-semibold text-dark dark:text-white group-hover/tabs:text-dark group-hover/tabs:dark:text-tertiary group-hover/tabs:underline truncate-2" title="Membangun API CRUD Sederhana dengan Laravel 12">Membangun API CRUD Sederhana dengan Laravel 12</h3>
@@ -900,8 +900,9 @@
     let unsubscribe = null; // simpan listener aktif
     let lastVisible = null;   // simpan dokumen terakhir yang dimuat
     let currentOrder = "popular"; // simpan urutan aktif
-    
-    function loadComments(order = "popular") {
+    let q;
+
+    function loadComments(order) {
         // stop listener lama biar nggak double
         if (unsubscribe) unsubscribe();
 
@@ -930,7 +931,6 @@
                 break;
         }
         
-        let q;
         if (order === "latest") {
             // komentar terbaru
             q = query(
