@@ -223,7 +223,7 @@
         <div class="flex flex-wrap w-full">
             <div id="video-container" class="relative md:mr-2 w-full h-auto md:w-[calc(73%-0.5rem)] aspect-video md:rounded-lg z-[2] overflow-hidden">
                 <video id="video-player" class="w-full h-full">
-                    <source src="/public/video/Violet_Evergarden_Fight_480p.mp4" type="video/mp4">
+                    <source src="../video/Violet_Evergarden_Fight_480p.mp4" type="video/mp4">
                     Browser kamu tidak mendukung tag video.
                 </video>
                 <div id="thumbnail-video" class="absolute flex justify-center top-0 left-0 w-full h-full text-center">
@@ -529,7 +529,7 @@
                                 <div class="absolute top-0 left-0 w-full h-full bg-black/35 z-[1]"></div>
                                 <div class="relative w-1/3 z-[2]">
                                     <div class="absolute md:top-7/12 aspect-[2/3] w-full rounded-md ring-1 ring-black/5 shadow-lg overflow-hidden">
-                                        <img class="h-full object-center" src="/public/img/violet-evergarden/violet-evergarden.jpg" alt="violet-evergarden-poster">
+                                        <img class="h-full object-center" src="../img/violet-evergarden/violet-evergarden.jpg" alt="violet-evergarden-poster">
                                     </div>
                                 </div>
                                 <div class="relative w-2/3 z-[2]">
@@ -1797,10 +1797,10 @@
 
     // --- Sumber Video  ---
     const videoSources = {
-        "1080p": "/public/video/Violet_Evergarden_Fight_1080p.mp4",
-        "720p" : "/public/video/Violet_Evergarden_Fight_720p.mp4",
-        "480p" : "/public/video/Violet_Evergarden_Fight_480p.mp4",
-        "360p" : "/public/video/Violet_Evergarden_Fight_320p.mp4"
+        "1080p": "../video/Violet_Evergarden_Fight_1080p.mp4",
+        "720p" : "../video/Violet_Evergarden_Fight_720p.mp4",
+        "480p" : "../video/Violet_Evergarden_Fight_480p.mp4",
+        "360p" : "../video/Violet_Evergarden_Fight_320p.mp4"
     };
     
     const video = document.getElementById("video-player");
