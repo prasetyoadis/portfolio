@@ -673,7 +673,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="p-4 2xl:w-1/3 lg:w-1/3 md:1/2 sm:w-1/2 duration-300 group-hover:scale-95 hover:scale-100! cursor-pointer animate-scroll">
+                    <div class="hidden p-4 2xl:w-1/3 lg:w-1/3 md:1/2 sm:w-1/2 duration-300 group-hover:scale-95 hover:scale-100! cursor-pointer animate-scroll">
                         <div class="relative rounded-md shadow-md overflow-hidden group/card">
                             <div class="aspect-[16/12] rounded-t-md md:rounded-md overflow-hidden">
                                 <img src="public/img/project/cloth-ecommerce.webp" alt="project-1" class="h-full object-cover object-top">
@@ -684,7 +684,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="p-4 2xl:w-1/3 lg:w-1/3 md:1/2 sm:w-1/2 duration-300 group-hover:scale-95 hover:scale-100! cursor-pointer animate-scroll">
+                    <div class="hidden p-4 2xl:w-1/3 lg:w-1/3 md:1/2 sm:w-1/2 duration-300 group-hover:scale-95 hover:scale-100! cursor-pointer animate-scroll">
                         <div class="relative rounded-md shadow-md overflow-hidden group/card">
                             <div class="aspect-[16/12] rounded-t-md md:rounded-md overflow-hidden">
                                 <img src="https://w3layouts.b-cdn.net//wp-content/uploads/2016/07/catchy-carz-1-768x480.jpg" alt="project-1" class="h-full object-cover object-top">
@@ -695,6 +695,12 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="flex justify-center items-center mt-4">
+                    <a href="/projects/" class="inline-block px-3 py-2 sm:px-5 sm:py-2.5 font-semibold text-sm text-center items-center text-white bg-dark rounded-md hover:bg-dark-400 hover:text-light dark:bg-tertiary dark:text-dark dark:hover:bg-tertiary-600 dark:hover:text-dark-700 animate-scroll">
+                        Selengkapnya
+                    </a>
                 </div>
             </div>
         </section>
@@ -762,7 +768,7 @@
                                 <a href="./articles/tailwind-vs-bootstrap-manakah-framework-css-terbaik.html">
                                     <h3 class="mb-3 font-semibold text-base text-dark dark:text-white truncate-2">Tailwind VS Bootstrap, Manakah Framework CSS Terbaik?</h3>
                                 </a>
-                                <p class="mb-3 font-medium text-sm text-primary dark:text-light">Tailwind dan Bootstrap adalah dua framework CSS paling populer yang sering dibandingkan oleh para web developer. Keduanya menawarkan pendekatan berbeda...</p>
+                                <p class="mb-3 font-medium text-sm text-primary dark:text-light truncate-3">Tailwind dan Bootstrap adalah dua framework CSS paling populer yang sering dibandingkan oleh para web developer. Keduanya menawarkan pendekatan berbeda</p>
                                 <a href="./articles/tailwind-vs-bootstrap-manakah-framework-css-terbaik.html" class="inline-flex px-3 py-2 sm:px-5 sm:py-2.5 font-semibold text-sm text-center items-center text-white bg-dark rounded-md hover:bg-dark-400 hover:text-light dark:bg-tertiary dark:text-dark dark:hover:bg-tertiary-600 dark:hover:text-dark-700">
                                     <span>Selengkapnya</span>
                                     <svg class="ms-1.5 fill-current" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px">
@@ -847,9 +853,15 @@
                                 </a>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
-    
+                
+                <div class="flex justify-center items-center mt-4">
+                    <a href="/articles/" class="inline-block px-3 py-2 sm:px-5 sm:py-2.5 font-semibold text-sm text-center items-center text-white bg-dark rounded-md hover:bg-dark-400 hover:text-light dark:bg-tertiary dark:text-dark dark:hover:bg-tertiary-600 dark:hover:text-dark-700 animate-scroll">
+                        Selengkapnya
+                    </a>
+                </div>
             </div>
         </section>
     <!-- Section Blog End -->
@@ -987,6 +999,13 @@
                                         </p>
                                     </div>
 
+                                    <div id="new-chat" class="bubble-chat relative flex justify-end my-3 w-full font-medium text-xs opacity-0 transition-opacity delay-50 duration-150">
+                                        <p id="chat-me" class="max-w-56 relative flex items-end right-0 bg-[#dcf8c6] rounded-lg shadow-md before:absolute before:top-0 before:-right-3 before:w-5 before:h-5">
+                                            <span id="new-text-chat" class="py-2 pl-3 pr-1 break-all">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque nulla iure excepturi ad quae.</span>
+                                            <span id="time-chat-me" class="leading-none text-[0.6rem] text-slate-500 me-1">00:00</span>
+                                            <img class="w-3 h-3 me-2 mb-0.5 align-baseline" src="public/img/assets/kontak/read-check.webp" alt="read-chat">
+                                        </p>       
+                                    </div>
                                 </div>
                                 <div class="chat-footer px-3 py-2 flex gap-2 items-center">
                                     
@@ -997,7 +1016,7 @@
                                             <ellipse cx="9" cy="10.5" rx="1" ry="1.5" fill="#1C274C"/>
                                             <path d="M15 22H12C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8M15 22C18.866 22 22 18.866 22 15M15 22C15 20.1387 15 19.2081 15.2447 18.4549C15.7393 16.9327 16.9327 15.7393 18.4549 15.2447C19.2081 15 20.1387 15 22 15M22 12V15" stroke="#1C274C" stroke-width="2" stroke-linecap="round"/>
                                         </svg>
-                                        <textarea class="font-['Montserrat'] font-medium text-xs w-[9.15rem] h-9 max-h-32 px-1.5 py-2 bg-white outline-none overflow-hidden resize-none" style="scrollbar-width: thin;" name="pesan-wa" id="pesan-wa" oninput="setTextWa(this)" placeholder="Ketik Pesan"></textarea>
+                                        <textarea name="pesan-wa" id="pesan-wa" class="font-['Montserrat'] font-medium text-xs w-[9.15rem] h-9 max-h-32 px-1.5 py-2 bg-white outline-none overflow-hidden resize-none" style="scrollbar-width: thin;" oninput="setTextWa(this)" placeholder="Ketik Pesan"></textarea>
                                         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="-1.5 0 19 19">
                                             <path d="M11.26 16.151h-.043a4.012 4.012 0 0 1-2.809-1.182L1.667 8.227a2.799 2.799 0 0 1 0-3.954l.065-.065a2.799 2.799 0 0 1 3.954 0l6.855 6.856a1.752 1.752 0 1 1-2.478 2.478L5.424 8.903a.554.554 0 0 1 .784-.784l4.639 4.64a.644.644 0 1 0 .91-.912L4.903 4.991a1.694 1.694 0 0 0-2.386 0l-.066.066a1.694 1.694 0 0 0 0 2.386l6.742 6.742a2.908 2.908 0 0 0 2.037.858h.031a2.76 2.76 0 0 0 2.782-2.814 2.91 2.91 0 0 0-.858-2.037l-7.03-7.03a.554.554 0 1 1 .784-.783l7.03 7.03a4.01 4.01 0 0 1 1.183 2.809 3.868 3.868 0 0 1-3.89 3.933z"/>
                                         </svg>
@@ -1438,7 +1457,7 @@ const showPopover = (btn) => {
 
 <script>
     const thisYear = document.getElementById("year");
-    const timeCM = document.getElementById("time-chat-me");
+    const timeCM = document.querySelectorAll("#time-chat-me");
     const timeCY = document.getElementById("time-chat-you");
     
     var thisHours = new Date().getHours();
@@ -1447,7 +1466,7 @@ const showPopover = (btn) => {
     var minutes = (thisMinutes < 10) ? "0" + thisMinutes : thisMinutes;
 
     thisYear.innerHTML = (new Date().getFullYear() == 2025) ? "2025" : "2025 - " + new Date().getFullYear();
-    timeCM.innerHTML = hours + ":" + minutes;
+    timeCM[0].innerHTML = hours + ":" + minutes;
     timeCY.innerHTML = hours + ":" + minutes;
     
     const mainWindow = document.querySelector("main");
@@ -1523,6 +1542,8 @@ const showPopover = (btn) => {
     const iconCamera = document.querySelector('#icon-camera');
     const pesanWA = document.querySelector('#pesan-wa');
     const pengirim = document.querySelector('#email-pengirim');
+    const newChat = document.querySelector('#new-chat');
+    const newTextChat = document.querySelector('#new-text-chat');
 
     function showMail() {
         mail.classList.remove('hidden');
@@ -1569,6 +1590,27 @@ const showPopover = (btn) => {
             iconSend.innerHTML = "send";
         }
     }
+
+    btnSendWA.addEventListener("click", function() {
+        var thisHours = new Date().getHours();
+        var thisMinutes = new Date().getMinutes();
+        var hours = (thisHours < 10) ? "0" + thisHours : thisHours;
+        var minutes = (thisMinutes < 10) ? "0" + thisMinutes : thisMinutes;
+
+        timeCM[1].innerHTML = hours + ":" + minutes;
+        
+        newTextChat.innerHTML = pesanWA.value;
+        var pesanPlan = pesanWA.value;
+        
+        newChat.classList.replace('opacity-0', "opacity-100");
+        pesanWA.value = "";
+        pesanWA.style.height = '';
+        iconCamera.classList.remove('hidden');
+        iconSend.innerHTML = "mic";
+        btnSendWA.classList.remove('cursor-pointer');
+
+        window.open(`https://api.whatsapp.com/send?phone=6289622539826&text=${pesanPlan}`, '_blank')
+    });
 </script>
 </body>
 </html>
