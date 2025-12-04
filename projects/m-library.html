@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="id" class="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SMA Negeri 5 Madiun merupakan sekolah menengah atas yang berada di Kota Madiun. SMA ini memiliki fasilitas-fasilitas yang mendukung kegiatan belajar mengajar salah satunya adalah perpustakaan. Perpustakaan ini sudah memiliki sistem informasi berbasis web, namun masih memiliki beberapa permasalahan yaitu pengunjung baru tidak dapat melakukan pendaftaran anggota secara mandiri, minimnya informasi mengenai lokasi pasti buku pada rak bagi pengunjung baru bahkan anggota perpustakaan, dan anggota perpustakaan tidak berkesempatan meminjam buku yang diinginkan karena buku selalu didahului dipinjam oleh anggota lain. Maka, diperlukan penerapan teknologi mobile yang dapat diakses dimanapun dan kapanpun seperti M-Library (Mobile Library/Libraries). M-Library mempermudah proses peminjaman dengan adanya fitur booking peminjaman. Sehingga, berdasarkan permasalahan dan solusi yang ditemukan penulis mengembangkan aplikasi M-Library berbasis Android.">
+<!-- Open Graph -->
+<meta property="og:title" content="SIP Sistem Informasi Perpustakaan">
+<meta property="og:description" content="SMA Negeri 5 Madiun merupakan sekolah menengah atas yang berada di Kota Madiun. SMA ini memiliki fasilitas-fasilitas yang mendukung kegiatan belajar mengajar salah satunya adalah perpustakaan. Perpustakaan ini sudah memiliki sistem informasi berbasis web, namun masih memiliki beberapa permasalahan yaitu pengunjung baru tidak dapat melakukan pendaftaran anggota secara mandiri, minimnya informasi mengenai lokasi pasti buku pada rak bagi pengunjung baru bahkan anggota perpustakaan, dan anggota perpustakaan tidak berkesempatan meminjam buku yang diinginkan karena buku selalu didahului dipinjam oleh anggota lain. Maka, diperlukan penerapan teknologi mobile yang dapat diakses dimanapun dan kapanpun seperti M-Library (Mobile Library/Libraries). M-Library mempermudah proses peminjaman dengan adanya fitur booking peminjaman. Sehingga, berdasarkan permasalahan dan solusi yang ditemukan penulis mengembangkan aplikasi M-Library berbasis Android.">
+<meta property="og:image" content="https://prasetyoadis.github.io/portfolio/public/img/project/m-library.webp">
+<meta property="og:url" content="https://prasetyoadis.github.io/portfolio/projects/m-library.html">
+<meta property="og:type" content="article">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aplikasi M-Library">
+<meta name="twitter:description" content="SMA Negeri 5 Madiun merupakan sekolah menengah atas yang berada di Kota Madiun. SMA ini memiliki fasilitas-fasilitas yang mendukung kegiatan belajar mengajar salah satunya adalah perpustakaan. Perpustakaan ini sudah memiliki sistem informasi berbasis web, namun masih memiliki beberapa permasalahan yaitu pengunjung baru tidak dapat melakukan pendaftaran anggota secara mandiri, minimnya informasi mengenai lokasi pasti buku pada rak bagi pengunjung baru bahkan anggota perpustakaan, dan anggota perpustakaan tidak berkesempatan meminjam buku yang diinginkan karena buku selalu didahului dipinjam oleh anggota lain. Maka, diperlukan penerapan teknologi mobile yang dapat diakses dimanapun dan kapanpun seperti M-Library (Mobile Library/Libraries). M-Library mempermudah proses peminjaman dengan adanya fitur booking peminjaman. Sehingga, berdasarkan permasalahan dan solusi yang ditemukan penulis mengembangkan aplikasi M-Library berbasis Android.">
+<meta name="twitter:image" content="https://prasetyoadis.github.io/portfolio/public/img/project/m-library.webp">
+
+    <title>Aplikasi M-Libray | PASdev Full-Stack Developer</title>
+
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../public/img/favicon.ico">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&" />
+
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="overflow-hidden">
+<!-- Header Start -->
+    <header class="flex items-center absolute top-0 left-0 w-full z-10 bg-transparent">
+        <div class="container xl:w-9/12 lg:w-10/12 mx-auto">
+            <div class="flex relative items-center justify-between">
+                <div class="px-4 sm:pr-8">
+                    <a class="block py-6 font-bold text-2xl text-primary dark:text-tertiary" href="../">PASdev</a>
+                </div>
+                <div class="flex items-center px-4">
+                    
+                    <div class="flex lg:order-last items-center absolute right-[7.25rem] lg:static lg:mr-4 ">
+                        <input type="checkbox" class="hidden" id="dark-toggle">
+                        <label for="dark-toggle">
+                            <div class="toggle-day flex p-1 w-14 h-8 cursor-pointer item-center bg-cover bg-center rounded-full inset-shadow-sm shadow-sm transition duration-300 ease-in-out">
+                                <div class="toggle-circle w-6 h-6 rounded-full shadow-lg transition duration-300 ease-in-out"></div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <button id="language" class="block absolute lg:static right-16 lg:order-last bg-lang-id bg-cover bg-center bg-no-repeat w-9 lg:w-10 h-9 border border-slate-200 rounded-full shadow-sm cursor-pointer dark:border-pasdev-surface-a20" name="hamburger" type="button">
+                    </button>
+
+                    <button id="hamburger" class="block lg:hidden absolute right-4 cursor-pointer" name="hamburger" type="button">
+                        <span class="humberger-line origin-top-right transition duration-300 ease-in-out"></span>
+                        <span class="humberger-line transition duration-300 ease-in-out"></span>
+                        <span class="humberger-line origin-bottom-right transition duration-300 ease-in-out"></span>
+                    </button>
+                    <!-- Dropdown Select language -->
+                    <nav id="nav-language" class="hidden absolute right-4 top-full py-5 lg:py-2 max-w-[265px] w-full bg-white border border-slate-200 shadow-lg rounded-lg dark:bg-pasdev-surface-a10 dark:border-pasdev-surface-a20">
+                        <ul id="language-selector">
+                            <li class="group nav-lang lang-active">
+                                <a class="font-semibold text-white hover:text-slate-300 hover:underline dark:text-light dark:hover:text-tertiary" href="#" data-lang="id" data-path="../public/lang">
+                                    <div class="flex gap-2 align-middle py-2 mx-8">
+                                        <img src="../public/img/assets/lang/id.svg.webp" class="bg-cover bg-center bg-no-repeat w-9 h-9 rounded-full border border-slate-200 dark:border-pasdev-surface-a20">
+                                        <span class="flex items-center">Bahasa Indonesia</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="group nav-lang">
+                                <a class="my-2 font-semibold text-dark hover:text-primary hover:underline dark:text-light dark:hover:text-tertiary" href="#" data-lang="en" data-path="../public/lang">
+                                    <div class="flex gap-2 py-2 mx-8">
+                                        <img src="../public/img/assets/lang/en.svg.webp" class="bg-cover bg-center bg-no-repeat w-9 h-9 rounded-full border border-slate-200 dark:border-pasdev-surface-a20">
+                                        <span class="flex items-center">English</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- Mobile Nav -->
+                    <nav id="nav-menu" class="hidden lg:block absolute right-4 top-full lg:static py-5 max-w-[250px] lg:max-w-full w-full bg-white lg:bg-transparent border border-slate-200 lg:border-none shadow-lg lg:shadow-none rounded-lg lg:rounded-none dark:bg-pasdev-surface-a10 dark:border-pasdev-surface-a20 lg:dark:bg-transparent">
+                        <ul class="block lg:flex lg:items-center">
+                            <li class="group dark:hover:bg-pasdev-surface-a20 lg:dark:hover:bg-transparent">
+                                <a id="nav-home" class="flex py-2 mx-8 lg:mx-2 2xl:mx-8 text-base lg:text-sm xl:text-base font-semibold text-dark lg:text-dark hover:text-primary hover:underline active:text-primary dark:text-light dark:hover:text-tertiary dark:active:text-tertiary" href="../#home">Beranda</a>
+                            </li>
+                            <li class="group dark:hover:bg-pasdev-surface-a20 lg:dark:hover:bg-transparent">
+                                <a id="nav-about-me" class="flex py-2 mx-8 lg:mx-6 2xl:mx-8 text-base lg:text-sm xl:text-base font-semibold text-dark lg:text-dark text-center hover:text-primary hover:underline dark:text-light dark:hover:text-tertiary dark:active:text-tertiary" href="../#about">Tentang Saya</a>
+                            </li>
+                            <li class="group dark:hover:bg-pasdev-surface-a20 lg:dark:hover:bg-transparent">
+                                <a id="nav-portfolio" class="flex py-2 mx-8 lg:mx-6 2xl:mx-8 text-base lg:text-sm xl:text-base font-semibold text-dark lg:text-dark hover:text-primary hover:underline dark:text-light dark:hover:text-tertiary dark:active:text-tertiary" href="../#portfolio">Portfolio</a>
+                            </li>
+                            <li class="group dark:hover:bg-pasdev-surface-a20 lg:dark:hover:bg-transparent">
+                                <a id="nav-activity" class="flex py-2 mx-8 lg:mx-6 2xl:mx-8 text-base lg:text-sm xl:text-base font-semibold text-dark lg:text-dark hover:text-primary hover:underline dark:text-light dark:hover:text-tertiary dark:active:text-tertiary" href="../#activity">Aktivitas</a>
+                            </li>
+                            <li class="group dark:hover:bg-pasdev-surface-a20 lg:dark:hover:bg-transparent">
+                                <a id="nav-blog" class="flex py-2 mx-8 lg:mx-6 2xl:mx-8 text-base lg:text-sm xl:text-base font-semibold text-dark lg:text-dark hover:text-primary hover:underline dark:text-light dark:hover:text-tertiary dark:active:text-tertiary" href="../#blog">Blog</a>
+                            </li>
+                            <li class="group dark:hover:bg-pasdev-surface-a20 lg:dark:hover:bg-transparent">
+                                <a id="nav-contact" class="flex py-2 mx-8 lg:mx-6 2xl:mx-8 text-base lg:text-sm xl:text-base font-semibold text-dark lg:text-dark hover:text-primary hover:underline dark:text-light dark:hover:text-tertiary dark:active:text-tertiary" href="../#contact">Kontak</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+<!-- Header End -->
+    <!-- Section Article Start -->
+    <section id="main" class="slide pt-20 pb-16 md:py-16 dark:bg-pasdev-surface-a00">
+        <div class="container xl:w-9/12 lg:w-10/12 mx-auto ">
+            <div class="flex flex-wrap">
+                <!-- Breadcrumb Start -->
+                <nav class="flex w-full pl-5 pr-4 pt-8 pb-0.5" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                        <li class="inline-flex items-center">
+                            <a href="../#home" class="inline-flex items-center text-sm font-semibold text-gray-700 hover:text-primary-300 dark:text-pasdev-surface-a40 dark:hover:text-tertiary">
+                                <svg class="w-3 h-3 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
+                                </svg>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                                </svg>
+                                <a href="../projects/" class="ms-1 text-sm font-semibold text-gray-700 hover:text-primary-300 md:ms-2 dark:text-pasdev-surface-a40 dark:hover:text-tertiary">Projects</a>
+                            </div>
+                        </li>
+                        <li aria-current="page">
+                            <div class="flex items-center">
+                                <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                                </svg>
+                                <span class="max-w-28 sm:max-w-full ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-pasdev-surface-a30 truncate">Aplikasi M-Library</span>
+                            </div>
+                        </li>
+                    </ol>
+                </nav>
+                <!-- Breadcrumb End -->
+                <!-- Article Start -->
+                <article class="w-full p-4 md:w-2/3 dark:text-white">      
+                    <section id="heading-post" class="p-4 mb-4 text-white dark:text-dark-600 bg-dark dark:bg-tertiary rounded-md">
+                        <h1 class="font-bold text-xl md:text-2xl pb-2">Aplikasi M-Library</h1>
+                        <span class="text-xs font-medium text-stone-100 dark:text-dark-500">Oleh Prasetyo Adi S. | <span id="date-post">date</span> |</span>
+                    </section>
+                    
+                    <div class="p-4 rounded-md">
+                        <div class="flex flex-col items-center mb-4">
+                            <img class="w-full sm:w-1/2 rounded-md" src="../public/img/project/m-libary.webp" alt="M-Library">
+                            
+                            <blockquote class="mt-3 max-w-xl text-base sm:text-lg italic text-center font-light text-gray-900 dark:text-light">
+                                <p>"Aplikasi android untuk anggota perpustakaan memesan peminjaman buku dan informasi buku."</p>
+                            </blockquote>
+                        </div>
+
+                        <h3 class="py-1.5 mt-2 text-lg font-bold">Ringkasan</h3>
+                        <p class=" text-sm sm:text-base">
+                            SMA Negeri 5 Madiun merupakan sekolah menengah atas yang berada di Kota Madiun. SMA ini memiliki fasilitas-fasilitas yang mendukung kegiatan belajar mengajar salah satunya adalah perpustakaan. Perpustakaan ini sudah memiliki sistem informasi berbasis web, namun masih memiliki beberapa permasalahan yaitu pengunjung baru tidak dapat melakukan pendaftaran anggota secara mandiri, minimnya informasi mengenai lokasi pasti buku pada rak bagi pengunjung baru bahkan anggota perpustakaan, dan anggota perpustakaan tidak berkesempatan meminjam buku yang diinginkan karena buku selalu didahului dipinjam oleh anggota lain. Maka, diperlukan penerapan teknologi mobile yang dapat diakses dimanapun dan kapanpun seperti M-Library (Mobile Library/Libraries). M-Library mempermudah proses peminjaman dengan adanya fitur booking peminjaman. Sehingga, berdasarkan permasalahan dan solusi yang ditemukan penulis mengembangkan aplikasi M-Library berbasis Android.  
+                        </p>
+                        <h3 class="py-1.5 mt-2 text-lg font-bold">Latar Belakang</h3>
+                        <p class=" text-sm sm:text-base">
+                            SMA Negeri 5 Madiun adalah sekolah menengah atas di Kota Madiun yang memiliki perpustakaan dengan berbagai fasilitas. Perpustakaan ini memiliki koleksi lebih dari 2.000 buku teks, 100 buku fiksi, 1.800 buku non-fiksi, dan 400 buku referensi, yang dapat dipinjam oleh siswa, guru, dan pengunjung yang menjadi anggota. Meski sudah memiliki sistem informasi perpustakaan berbasis web, ada masalah seperti pengunjung harus mendaftar anggota melalui pustakawan, kesulitan menemukan buku di rak dan terkadang tidak memiliki kesempatan meminjam karena buku sudah didahului dipinjam oleh anggota lain. Ponsel atau smartphone semakin umum digunakan oleh masyarakat Indonesia bahkan para pelajar bahkan menurut data jumlah perangkat seluler yang terkoneksi di Indonesia mencapai 370,1 juta pada Januari 2022. Permasalah yang ada dan data mengenai penguna smartphone saat ini majemuk maka akan dikembangkan M-Library, sistem layanan perpustakaan berbasis ponsel. M-Library akan mempermudah akses layanan perpustakaan bagi siswa dan pengunjung kapan saja dan di mana saja, menggunakan aplikasi berbasis Android dengan Dart Flutter.
+                        </p>
+                        <h3 class="py-1.5 mt-2 text-lg font-bold">Fitur Utama</h3>
+                        <p class="text-sm sm:text-base">
+                            <ul class="text-sm sm:text-base list-inside">
+                                <li>👥 Pendaftaran Mandiri Anggota Perpustakaan.</li>
+                                <li>🔍 Pencarian Koleksi Buku Perpustakaan. </li>
+                                <li>📝 Pencatatan Kehadiran Pengunjung dengan Scan QR Presensi.</li>
+                                <li>📚 Detail Informasi Buku Serta Lokasi Rak.</li>
+                                <li>🧾 Informasi Peminjaman Buku, Keterlambatan dan Denda.</li>
+                            </ul>
+                        </p>
+                        <h3 class="py-1.5 mt-2 not-[]:text-lg font-bold">Teknologi yang Digunakan</h3>
+                        <p class="text-sm sm:text-base">
+                            <ul class="text-sm sm:text-base list-disc list-inside">
+                                <li><span class="font-semibold">FrontEnd</span> &nbsp;: HTML, CSS (Bootstrap 5), JavaScript (jQuery)</li>
+                                <li><span class="font-semibold">BackEnd</span> &ensp;: PHP (Laravel 8)</li>
+                                <li><span class="font-semibold">Database</span> &nbsp;: MySQL</li>
+                            </ul>
+                        </p>
+                        <h3 class="py-1.5 mt-2 text-lg font-bold">Tangkapan Layar</h3>
+                        <div class="carousel">
+                            <img class="card-carousel" src="../public/img/project/sip-sman-5-madiun/home.webp" alt="home-sip-sman-5-madiun">
+                            <img class="card-carousel" src="../public/img/project/sip-sman-5-madiun/presensi.webp" alt="presensi-sip-sman-5-madiun">
+                            <img class="card-carousel" src="../public/img/project/sip-sman-5-madiun/koleksi-buku.webp" alt="koleksi-buku-sip-sman-5-madiun">
+                            <img class="card-carousel" src="../public/img/project/sip-sman-5-madiun/detail-buku.webp" alt="detail-buku-sip-sman-5-madiun">
+                            <img class="card-carousel" src="../public/img/project/sip-sman-5-madiun/login-pustakawan.webp" alt="login-pustakawan-sip-sman-5-madiun">
+                            <img class="card-carousel" src="../public/img/project/sip-sman-5-madiun/dashboard-pustakawan.webp" alt="login-anggota-sip-sman-5-madiun">
+                            <img class="card-carousel" src="../public/img/project/sip-sman-5-madiun/transaksi-buku.webp" alt="transaksi-buku-sip-sman-5-madiun">
+                            <img class="card-carousel" src="../public/img/project/sip-sman-5-madiun/login-anggota.webp" alt="login-anggota-sip-sman-5-madiun">
+                            <img class="card-carousel" src="../public/img/project/sip-sman-5-madiun/dashboard-anggota.webp" alt="dashboard-anggota-sip-sman-5-madiun">
+                        </div>
+                        <h3 class="py-1.5 mt-2 text-lg font-bold">Publikasi Jurnal</h3>
+                        <p class="text-sm sm:text-base font-medium">
+                            📄 IMPLEMENTASI REST API PADA APLIKASI M-LIBRARY BERBASIS ANDROID (Studi Kasus: SMA Negeri 5 Madiun) 
+                            <br>
+                            <button onClick="window.open('https://jurnal.polinela.ac.id/routers/article/view/3251','_blank')" target="_blank" class="inline-flex items-center cursor-pointer mt-2 text-dark hover:text-dark-400 dark:text-tertiary dark:hover:text-tertiary-400 font-bold hover:underline">
+                                Baca publikasi di sini
+                                <span aria-hidden="true" class="ms-0.5 inline-block align-middle leading-none">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-rtl-flip="" class="block h-[0.75em] w-[0.75em] fill-current stroke-current stroke-[0.75]">
+                                        <path d="M14.3349 13.3301V6.60645L5.47065 15.4707C5.21095 15.7304 4.78895 15.7304 4.52925 15.4707C4.26955 15.211 4.26955 14.789 4.52925 14.5293L13.3935 5.66504H6.66011C6.29284 5.66504 5.99507 5.36727 5.99507 5C5.99507 4.63273 6.29284 4.33496 6.66011 4.33496H14.9999L15.1337 4.34863C15.4369 4.41057 15.665 4.67857 15.665 5V13.3301C15.6649 13.6973 15.3672 13.9951 14.9999 13.9951C14.6327 13.9951 14.335 13.6973 14.3349 13.3301Z"></path>
+                                    </svg>
+                                </span>
+                            </button>
+                        </p>
+                        <h3 class="py-1.5 mt-2 text-lg font-bold">Demo Aplikasi</h3>
+                        <p class="text-sm sm:text-base font-medium">
+                            🚀 Coba Demo Aplikasi
+                            <br>
+                            <a class="inline-flex items-center mt-2 text-dark hover:text-dark-400 dark:text-tertiary dark:hover:text-tertiary-400 font-bold hover:underline" href="http://">
+                                Coba demo di sini
+                                <span aria-hidden="true" class="ms-0.5 inline-block align-middle leading-none">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-rtl-flip="" class="block h-[0.75em] w-[0.75em] fill-current stroke-current stroke-[0.75]">
+                                        <path d="M14.3349 13.3301V6.60645L5.47065 15.4707C5.21095 15.7304 4.78895 15.7304 4.52925 15.4707C4.26955 15.211 4.26955 14.789 4.52925 14.5293L13.3935 5.66504H6.66011C6.29284 5.66504 5.99507 5.36727 5.99507 5C5.99507 4.63273 6.29284 4.33496 6.66011 4.33496H14.9999L15.1337 4.34863C15.4369 4.41057 15.665 4.67857 15.665 5V13.3301C15.6649 13.6973 15.3672 13.9951 14.9999 13.9951C14.6327 13.9951 14.335 13.6973 14.3349 13.3301Z"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </p>
+                        <h3 class="py-1.5 mt-2 text-lg font-bold">Peran dalam Pengembangan</h3>
+                        <p class="text-sm sm:text-base">
+                            <ul class="text-sm sm:text-base list-disc list-inside">
+                                <li>Analisis Kebutuhan Fungsional Sistem.</li>
+                                <li>Perancangan Desain Antarmuka (UI/UX).</li>
+                                <li>Perancangan Desain Logic (DFD, Use Case Diagram).</li>
+                                <li>Perancangan Database (ERD, Struktur Table).</li>
+                                <li>Testing dan Deployment.</li>
+                            </ul>
+                        </p>
+                        <h3 class="py-1.5 mt-2 text-lg font-bold">Hasil & Dampak</h3>
+                        <p class="text-sm sm:text-base">
+                            <ul class="text-sm sm:text-base list-disc list-inside">
+                                <li>Kecepatan pelayanan meningkat hingga 50%.</li>
+                                <li>Pencatatan dilakukan sepenuhnya melalui aplikasi tanpa dokumen fisik.</li>
+                                <li>Kesalahan pencatatan berkurang signifikan.</li>
+                                <li>Data perpusatakaan dapat diakses dimana saja tanpa dokumen fisik.</li>
+                                <li>Laporan tersedia secara real-time dan lebih akurat.</li>
+                            </ul>
+                        </p>
+                        <h3 class="py-1.5 mt-2 text-lg font-bold">Hubungi Saya</h3>
+                        <p class="text-sm sm:text-base">
+                            📞 Tertarik mengembangkan sistem serupa untuk institusi Anda?
+                            <br>
+                            <a class="inline-block mt-2 text-dark hover:text-dark-400 dark:text-tertiary dark:hover:text-tertiary-400 font-bold hover:underline" href="../#contact">Hubungi Sekarang!</a>
+                        </p>
+
+                        <div class="mt-5 text-xs">
+                            <b class="text-sm">keyword</b>: M-Libray, Perpustakaan, Android, Dart, Flutter, REST API 
+                        </div>
+                    </div>
+
+                    <section id="share-post" class="flex flex-row-reverse gap-2 mt-2">
+                        <div class="flex flex-row-reverse items-center gap-1">
+                            <svg class="fill-current w-[1.125rem] sm:w-5" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960">
+                                <path d="M648-96q-50 0-85-35t-35-85q0-9 4-29L295-390q-16 14-36.05 22-20.04 8-42.95 8-50 0-85-35t-35-85q0-50 35-85t85-35q23 0 43 8t36 22l237-145q-2-7-3-13.81-1-6.81-1-15.19 0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35q-23 0-43-8t-36-22L332-509q2 7 3 13.81 1 6.81 1 15.19 0 8.38-1 15.19-1 6.81-3 13.81l237 145q16-14 36.05-22 20.04-8 42.95-8 50 0 85 35t35 85q0 50-35 85t-85 35Zm0-72q20.4 0 34.2-13.8Q696-195.6 696-216q0-20.4-13.8-34.2Q668.4-264 648-264q-20.4 0-34.2 13.8Q600-236.4 600-216q0 20.4 13.8 34.2Q627.6-168 648-168ZM216-432q20.4 0 34.2-13.8Q264-459.6 264-480q0-20.4-13.8-34.2Q236.4-528 216-528q-20.4 0-34.2 13.8Q168-500.4 168-480q0 20.4 13.8 34.2Q195.6-432 216-432Zm432-264q20.4 0 34.2-13.8Q696-723.6 696-744q0-20.4-13.8-34.2Q668.4-792 648-792q-20.4 0-34.2 13.8Q600-764.4 600-744q0 20.4 13.8 34.2Q627.6-696 648-696Zm0 480ZM216-480Zm432-264Z"/>
+                            </svg>
+                            <span class="text-xs sm:text-base font-semibold">Bagikan</span>
+                        </div>
+
+                        <div class="flex gap-1.5 flex-wrap justify-end">
+                            <!-- Facebook -->
+                            <a class="w-8 h-8 sm:w-11 sm:h-11 rounded-full flex justify-center items-center border border-slate-400 text-[#0866FF] hover:bg-[#0866FF] hover:text-white hover:border-0 dark:text-white dark:border-pasdev-surface-a40"
+                                href="https://www.facebook.com/sharer/sharer.php?u=https://prasetyoadis.github.io/portfolio/projects/m-library.html"
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                            >
+                                <svg class="fill-current w-[1.125rem] sm:w-[1.625rem]" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <title>Facebook</title>
+                                    <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/>
+                                </svg>
+                            </a>
+                            
+                            <!-- X Twitter -->
+                            <a class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex justify-center items-center border border-slate-400 text-black hover:bg-black hover:text-white hover:border-0 dark:text-white dark:border-pasdev-surface-a40"
+                                href="https://twitter.com/intent/tweet?url=https://prasetyoadis.github.io/portfolio/projects/m-library.html&text=Aplikasi%20M-Library%20Dengan%20Dart%20Flutter"
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                            >
+                                <svg class="fill-current w-3.5 sm:w-5" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <title>X</title>
+                                    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                                </svg>
+                            </a>
+
+                            <!-- linkedin -->
+                            <a class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex justify-center items-center border border-slate-400 text-linkedin hover:bg-linkedin hover:text-white hover:border-0 dark:text-white dark:border-pasdev-surface-a40"
+                                href="https://www.linkedin.com/shareArticle?mini=true&url=https://prasetyoadis.github.io/portfolio/projects/m-library.html&title=Aplikasi%20M-Library%20Dengan%20Dart%20Flutter"
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                            >
+                                <svg class="fill-current w-[1.125rem] sm:w-6" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <title>LinkedIn</title>
+                                    <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"/>
+                                </svg>
+                            </a>
+                            <!-- Telegram -->
+                             <a class="w-8 h-8 sm:w-10 sm:h-10 flex justify-center items-center text-[#26A5E4] hover:bg-[#26A5E4] hover:text-white hover:border-0 dark:text-white dark:border-pasdev-surface-a40 border border-slate-400 rounded-full"
+                                href="https://t.me/share/url?url=https://prasetyoadis.github.io/portfolio/projects/m-library.html&title=Aplikasi%20M-Library%20Dengan%20Dart%20Flutter"
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                            >
+                                <svg class="fill-current w-[1.125rem] sm:w-6" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <title>Telegram</title>
+                                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                </svg>
+                            </a>
+                            
+                            <!-- WhatsApp -->
+                            <a class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex justify-center items-center border border-slate-400 text-[#25D366] hover:bg-[#25D366] hover:text-white hover:border-0 dark:text-white dark:border-pasdev-surface-a40"
+                                href="https://api.whatsapp.com/send?text=Aplikasi%20M-Library%20Dengan%20Dart%20Flutter%20baca%20selengkapnya:%20https://prasetyoadis.github.io/portfolio/projects/m-library.html"
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                            >
+                                <svg class="fill-current w-[1.125rem] sm:w-6" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <title>WhatsApp</title>
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                </svg>
+                            </a>
+                            
+                            <!-- Copy Link -->
+                            <a href="" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex justify-center items-center border border-slate-400 text-gray-600 hover:bg-gray-600 hover:text-white hover:border-0 dark:text-white dark:border-pasdev-surface-a40"
+                            >
+                                <svg class="fill-current  w-4 sm:w-5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 442.246 442.246" xml:space="preserve">
+                                <title>Copy Link</title>
+                                <g>
+                                    <g>
+                                        <path d="M409.657,32.474c-43.146-43.146-113.832-43.146-156.978,0l-84.763,84.762c29.07-8.262,60.589-6.12,88.129,6.732
+                                            l44.063-44.064c17.136-17.136,44.982-17.136,62.118,0c17.136,17.136,17.136,44.982,0,62.118l-55.386,55.386l-36.414,36.414
+                                            c-17.136,17.136-44.982,17.136-62.119,0l-47.43,47.43c11.016,11.017,23.868,19.278,37.332,24.48
+                                            c36.415,14.382,78.643,8.874,110.467-16.219c3.06-2.447,6.426-5.201,9.18-8.262l57.222-57.222l34.578-34.578
+                                            C453.109,146.306,453.109,75.926,409.657,32.474z"/>
+                                        <path d="M184.135,320.114l-42.228,42.228c-17.136,17.137-44.982,17.137-62.118,0c-17.136-17.136-17.136-44.981,0-62.118
+                                            l91.8-91.799c17.136-17.136,44.982-17.136,62.119,0l47.43-47.43c-11.016-11.016-23.868-19.278-37.332-24.48
+                                            c-38.25-15.3-83.232-8.262-115.362,20.502c-1.53,1.224-3.06,2.754-4.284,3.978l-91.8,91.799
+                                            c-43.146,43.146-43.146,113.832,0,156.979c43.146,43.146,113.832,43.146,156.978,0l82.927-83.845
+                                            C230.035,335.719,220.243,334.496,184.135,320.114z"/>
+                                    </g>
+                                </g>
+                                </svg>
+                            </a>
+                        </div>
+                    </section>
+                    
+                </article>
+                <!-- Article End -->
+                
+                <!-- Aside Start -->
+                <div class="w-full order-3 md:order-0 md:w-1/3 md:border-l-2">
+                    <div class="sticky top-40">
+                        <aside class="w-full p-4">
+                            <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+                                <ul class="flex flex-wrap md:justify-center lg:justify-normal -mb-px text-sm font-medium text-center" id="tab-portfolio-content" data-tabs-toggle="#tab-content" data-tabs-active-classes="text-dark hover:text-dark dark:text-tertiary dark:hover:text-tertiary border-dark dark:border-tertiary" data-tabs-inactive-classes="dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300" role="tablist">
+                                    <li class="me-2" role="presentation">
+                                        <button id="tab-new-projects" class="inline-block p-2 xl:p-4 text-base md:text-[13px] xl:text-lg font-semibold border-b-2 rounded-t-lg" id="projects-tab" data-tabs-target="#tab-projects" type="button" role="tab" aria-controls="projects" aria-selected="false">New Projects</button>
+                                    </li>
+                                    <li class="me-2" role="presentation">
+                                        <button id="tab-new-articles" class="inline-block p-2 xl:p-4 text-base md:text-[13px] xl:text-lg font-semibold border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="articles-tab" data-tabs-target="#tab-articles" type="button" role="tab" aria-controls="articles" aria-selected="false">New Articles</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="tab-content">
+                                <div class="hidden p-4 text-sm  rounded-lg bg-gray-50 dark:bg-pasdev-surface-a10" id="tab-projects" role="tabpanel" aria-labelledby="projects-tab">
+                                    <a href="#">
+                                        <div class="flex flex-row items-center w-full mb-4 group/tabs">
+                                            <div class="basis-2/5">
+                                                <img class="aspect-video object-cover object-center rounded-sm" src="../public/img/project/m-libary.webp" alt="m-libary">
+                                            </div>
+                                            <div class="self-start basis-3/5 p-2">
+                                                <h3 class="text-base md:text-xs lg:text-base font-semibold text-dark dark:text-white group-hover/tabs:text-dark group-hover/tabs:dark:text-tertiary group-hover/tabs:underline" title="M-Library">M-Library</h3>
+                                                
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="flex flex-row items-center w-full mb-4 group/tabs">
+                                            <div class="basis-2/5">
+                                                <img class="aspect-video object-cover object-center rounded-sm" src="../public/img/project/video-play.webp" alt="web-player">
+                                            </div>
+                                            <div class="self-start basis-3/5 p-2">
+                                                <h3 class="text-base md:text-xs lg:text-base font-semibold text-dark dark:text-white group-hover/tabs:text-dark group-hover/tabs:dark:text-tertiary group-hover/tabs:underline" title="Web Stream Media Player">Web Stream Media Player</h3>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="flex flex-row items-center w-full mb-4 group/tabs">
+                                            <div class="basis-2/5">
+                                                <img class="aspect-video object-cover object-center rounded-sm" src="../public/img/project/cloth-ecommerce.webp" alt="E-Commers">
+                                            </div>
+                                            <div class="self-start basis-3/5 p-2">
+                                                <h3 class="text-base md:text-xs lg:text-base font-semibold text-dark dark:text-white group-hover/tabs:text-dark group-hover/tabs:dark:text-tertiary group-hover/tabs:underline truncate-2" title="Web E-Commers Elektronik">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, tempore?</h3>
+                                                
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="flex flex-row items-center w-full mb-4 group/tabs">
+                                            <div class="basis-2/5">
+                                                <img class="aspect-video object-cover object-center rounded-sm" src="https://w3layouts.b-cdn.net//wp-content/uploads/2016/07/catchy-carz-1-768x480.jpg" alt="img-article-1">
+                                            </div>
+                                            <div class="self-start basis-3/5 p-2 overflow-hidden">
+                                                <h3 class="text-base md:text-xs lg:text-base font-semibold text-dark dark:text-white group-hover/tabs:text-dark group-hover/tabs:dark:text-tertiary group-hover/tabs:underline truncate-2" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                </h3>
+                                                
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="hidden p-4 text-sm rounded-lg bg-gray-50 dark:bg-pasdev-surface-a10" id="tab-articles" role="tabpanel" aria-labelledby="articles-tab">
+                                    <a href="../articles/tailwind-vs-bootstrap-manakah-framework-css-terbaik.html">
+                                        <div class="flex flex-row items-center w-full mb-4 group/tabs">
+                                            <div class="basis-2/5">
+                                                <img class="aspect-video object-cover object-center rounded-sm" src="../public/img/article/tailwind-vs-bootstrap-thumbnail.webp" alt="img-article-2">
+                                            </div>
+                                            <div class="self-start basis-3/5 lg:basis-3/5 p-2">
+                                                <h3 class="text-base md:text-xs lg:text-base font-semibold text-dark dark:text-white group-hover/tabs:text-dark group-hover/tabs:dark:text-tertiary group-hover/tabs:underline truncate-2" title="Tailwind VS Bootstrap, Manakah Framework CSS Terbaik?">Tailwind VS Bootstrap, Manakah Framework CSS Terbaik?</h3>
+                                                
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="../articles/membuat-api-crud-sederhana-dengan-laravel-12.html">
+                                        <div class="flex flex-row items-center w-full mb-4 group/tabs">
+                                            <div class="basis-2/5">
+                                                <img class="aspect-video object-cover object-center rounded-sm" src="../public/img/article/api-crud-laravel-12-thumbnail.webp" alt="img-article-2">
+                                            </div>
+                                            <div class="self-start basis-3/5 p-2">
+                                                <h3 class="text-base md:text-xs lg:text-base font-semibold text-dark dark:text-white group-hover/tabs:text-dark group-hover/tabs:dark:text-tertiary group-hover/tabs:underline truncate-2" title="Membangun API CRUD Sederhana dengan Laravel 12">Membangun API CRUD Sederhana dengan Laravel 12</h3>
+                                                
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="flex flex-row items-center w-full mb-4 group/tabs">
+                                            <div class="basis-2/5">
+                                                <img class="aspect-video object-cover object-center rounded-sm" src="../public/img/article/artikel-3.webp" alt="img-article-3">
+                                            </div>
+                                            <div class="self-start basis-3/5 p-2">
+                                                <h3 class="text-base md:text-xs lg:text-base font-semibold text-dark dark:text-white group-hover/tabs:text-dark group-hover/tabs:dark:text-tertiary group-hover/tabs:underline truncate-2" title="Membuat Fitur Multi Bahasa Pada Web Dengan JS, Tailwind CSS, dan HTML">Membuat Fitur Multi Bahasa Pada Web Dengan JS, Tailwind CSS, dan HTML</h3>
+                                                
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="flex flex-row items-center w-full mb-4 group/tabs">
+                                            <div class="basis-2/5">
+                                                <img class="aspect-video object-cover object-center rounded-sm" src="../public/img/article/artikel-4.webp" alt="img-article-4">
+                                            </div>
+                                            <div class="self-start basis-3/5 p-2">
+                                                <h3 class="text-base md:text-xs lg:text-base font-semibold text-dark dark:text-white group-hover/tabs:text-dark group-hover/tabs:dark:text-tertiary group-hover/tabs:underline truncate-2" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+                                                
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="flex flex-row items-center w-full group/tabs">
+                                            <div class="basis-2/4">
+                                                <img class="aspect-video object-cover object-center rounded-sm" src="../public/img/article/artikel-5.webp" alt="img-article-5">
+                                            </div>
+                                            <div class="self-start basis-3/4 p-2">
+                                                <h3 class="text-base md:text-xs lg:text-base font-semibold text-dark dark:text-white group-hover/tabs:text-dark group-hover/tabs:dark:text-tertiary group-hover/tabs:underline truncate-2" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas incidunt corrupti">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas incidunt corrupti</h3>
+                                                
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+                <!-- Aside End -->
+
+                <!-- Comments Start -->
+                <section id="comments" class="mt-4 p-4 w-full md:w-2/3 ">
+                    <div class="p-4 bg-gray-50 dark:bg-pasdev-surface-a10 rounded-md shadow-md">
+                        <div class="my-2">
+                            <form id="comment-form">
+                                <div class="my-2">
+                                    <label for="name" class="block mb-1 mt-2.5 text-[0.65rem] font-medium text-gray-700 dark:text-white">Your Name</label>
+                                    <input class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-white text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-pasdev-surface-a20 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" id="name" placeholder="Your Name" required>
+                                </div>
+                                <div class="my-2">
+                                    <label for="email" class="block mb-1 mt-2.5 text-[0.65rem] font-medium text-gray-700 dark:text-white">Your Email (Will not be published)</label>
+                                    <input class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-white text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-pasdev-surface-a20 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="email" id="email" placeholder="Your Email" required>
+                                </div>
+                                <div class="my-2">
+                                    <label for="first_name" class="block mb-1 mt-2.5 text-[0.65rem] font-medium text-gray-700 dark:text-white">Your Comment (HTML tags not supported)</label>
+                                    <textarea class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-white text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-pasdev-surface-a20 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="comment" placeholder="Your Comment" required></textarea>
+                                </div>
+                                <button class="text-white bg-dark hover:bg-dark-700/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-md text-sm w-full sm:w-auto mt-1.5 px-5 py-2.5 text-center dark:text-dark dark:bg-tertiary dark:hover:bg-tertiary-600/90 dark:hover:text-white dark:focus:ring-blue-800 cursor-pointer" type="submit">Submit</button>
+                            </form>
+                        </div>
+                        
+                        <div class="flex items-center justify-between gap-1.5 mt-7">
+                            <h1 class="inline-flex items-center gap-1 text-lg font-semibold dark:text-white">
+                                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+                                    <path d="M280-400h400q17 0 28.5-11.5T720-440q0-17-11.5-28.5T680-480H280q-17 0-28.5 11.5T240-440q0 17 11.5 28.5T280-400Zm0-120h400q17 0 28.5-11.5T720-560q0-17-11.5-28.5T680-600H280q-17 0-28.5 11.5T240-560q0 17 11.5 28.5T280-520Zm0-120h400q17 0 28.5-11.5T720-680q0-17-11.5-28.5T680-720H280q-17 0-28.5 11.5T240-680q0 17 11.5 28.5T280-640ZM160-240q-33 0-56.5-23.5T80-320v-480q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v623q0 27-24.5 37.5T812-148l-92-92H160Zm594-80 46 45v-525H160v480h594Zm-594 0v-480 480Z"/>
+                                </svg>
+                                <span>Comments</span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">(<span id="comments-sum">0</span>)</span>
+                            </h1>
+                            
+                            <button class="flex gap-1 text-gray-500 hover:text-black font-medium dark:text-gray-300 dark:hover:text-white cursor-pointer" 
+                                id="btn-filter-comment" 
+                                data-dropdown-toggle="dropdown-filter-comment" 
+                                data-dropdown-placement="left-end" 
+                                type="button"
+                            >
+                                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24px" viewBox="0 -960 960 960">
+                                    <path d="M160-240q-17 0-28.5-11.5T120-280q0-17 11.5-28.5T160-320h160q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240H160Zm0-200q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520h400q17 0 28.5 11.5T600-480q0 17-11.5 28.5T560-440H160Zm0-200q-17 0-28.5-11.5T120-680q0-17 11.5-28.5T160-720h640q17 0 28.5 11.5T840-680q0 17-11.5 28.5T800-640H160Z"/>
+                                </svg>
+                                <span>Urutkan</span>
+                            </button>
+
+                            <!-- Dropdown menu -->
+                            <div id="dropdown-filter-comment" class="z-20 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-pasdev-surface-a00">
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="btn-filter-comment">
+                                    <li class="flex justify-center">
+                                        <button class="btn-dropdown filter active">Komentar Populer</button>
+                                    </li>
+                                    <li class="flex justify-center">
+                                        <button class="btn-dropdown filter">Komentar Terbaru</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div id="comments-skeleton" role="status" class="animate-pulse">
+                            <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 rounded-md shadow-md">
+                                <div class="msg-header flex items-center mb-2">
+                                    <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">
+                                        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                                    </span>
+                                    <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">
+                                        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                                    </span>
+                                </div>
+                                <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
+                                    <div class="h-2.5 bg-gray-400 rounded-full dark:bg-gray-700 w-full"></div>
+                                    <div class="h-2.5 mt-1.5 bg-gray-400 rounded-full dark:bg-gray-700 w-1/4"></div>
+                                </div>
+                                <div class="msg-action flex gap-1.5 mt-1">
+                                    <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                            <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
+                                        </svg>
+                                        <span class="text-xs font-medium">
+                                            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                        </span>
+                                    </button>
+                                    <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                            <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
+                                        </svg>
+                                        <span class="text-xs font-medium">
+                                            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                        </span>
+                                    </button>
+                                    
+                                    <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
+                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
+                                            <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="hidden ml-1 px-2 py-1 md:px-5 bg-white dark:bg-pasdev-surface-a00 rounded-md rounded-s-none border-l-4 dark:border-l-gray-500">
+                                    <div class="msg-header flex items-end gap-1 mb-2">
+                                        <div class="flex items-center gap-1 shrink-0 text-sm font-semibold text-dark dark:text-tertiary">
+                                            <span id="name">
+                                                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-20"></div>
+                                            </span>
+                                            <span class="text-blue-600 dark:text-blue-400">
+                                                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="18px" viewBox="0 -960 960 960">
+                                                    <path d="m438-452-58-57q-11-11-27.5-11T324-508q-11 11-11 28t11 28l86 86q12 12 28 12t28-12l170-170q12-12 11.5-28T636-592q-12-12-28.5-12.5T579-593L438-452ZM326-90l-58-98-110-24q-15-3-24-15.5t-7-27.5l11-113-75-86q-10-11-10-26t10-26l75-86-11-113q-2-15 7-27.5t24-15.5l110-24 58-98q8-13 22-17.5t28 1.5l104 44 104-44q14-6 28-1.5t22 17.5l58 98 110 24q15 3 24 15.5t7 27.5l-11 113 75 86q10 11 10 26t-10 26l-75 86 11 113q2 15-7 27.5T802-212l-110 24-58 98q-8 13-22 17.5T584-74l-104-44-104 44q-14 6-28 1.5T326-90Zm52-72 102-44 104 44 56-96 110-26-10-112 74-84-74-86 10-112-110-24-58-96-102 44-104-44-56 96-110 24 10 112-74 86 74 84-10 114 110 24 58 96Zm102-318Z"/>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <span class="msg-replied flex items-end gap-1 grow overflow-hidden text-[0.625rem] text-gray-400">
+                                            <div class="flex flex-col sm:flex-row sm:gap-1 shrink-0">
+                                                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 w-14"></div>
+                                                <span class="shrink-0 text-black dark:text-gray-300 font-semibold">
+                                                    <div class="h-2 mt-1 md:mt-0 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                                                </span>
+                                            </div>
+                                            <span class="grow font-medium text-gray-600 dark:text-gray-300 truncate before:content-['']">
+                                                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+                                            </span>
+                                        </span>
+                                        <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">
+                                            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                                        </span>
+                                    </div>
+                                    <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
+                                        <div class="flex gap-1">
+                                            <span class="text-dark dark:text-tertiary font-semibold">
+                                                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                                            </span>
+                                            <div class="h-2.5 bg-gray-400 rounded-full dark:bg-gray-700 w-full"></div>
+                                        </div>
+                                        <div class="h-2.5 mt-1.5 bg-gray-400 rounded-full dark:bg-gray-700 w-1/2"></div>
+                                    </div>
+                                    <div class="msg-action flex gap-1.5 mt-1">
+                                        <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 hover:text-black dark:hover:text-white border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                                <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
+                                            </svg>
+                                            <span class="text-xs font-medium">
+                                                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                            </span>
+                                        </button>
+                                        <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 hover:text-black dark:hover:text-white border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                                <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
+                                            </svg>
+                                            <span class="text-xs font-medium">
+                                                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                            </span>
+                                        </button>
+                                        
+                                        <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
+                                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
+                                                <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 rounded-md shadow-md">
+                                <div class="msg-header flex items-center mb-2">
+                                    <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">
+                                        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+                                    </span>
+                                    <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">
+                                        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                                    </span>
+                                </div>
+                                <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
+                                    <div class="h-2.5 bg-gray-400 rounded-full dark:bg-gray-700 w-full"></div>
+                                    <div class="h-2.5 mt-1.5 bg-gray-400 rounded-full dark:bg-gray-700 w-2/4"></div>
+                                </div>
+                                <div class="msg-action flex gap-1.5 mt-1">
+                                    <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                            <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
+                                        </svg>
+                                        <span class="text-xs font-medium">
+                                            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                        </span>
+                                    </button>
+                                    <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                            <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
+                                        </svg>
+                                        <span class="text-xs font-medium">
+                                            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                        </span>
+                                    </button>
+                                    
+                                    <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
+                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
+                                            <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 rounded-md shadow-md">
+                                <div class="msg-header flex items-center mb-2">
+                                    <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">
+                                        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+                                    </span>
+                                    <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">
+                                        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                                    </span>
+                                </div>
+                                <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
+                                    <div class="h-2.5 bg-gray-400 rounded-full dark:bg-gray-700 w-full"></div>
+                                    <div class="h-2.5 mt-1.5 bg-gray-400 rounded-full dark:bg-gray-700 w-1/4"></div>
+                                </div>
+                                <div class="msg-action flex gap-1.5 mt-1">
+                                    <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                            <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
+                                        </svg>
+                                        <span class="text-xs font-medium">
+                                            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                        </span>
+                                    </button>
+                                    <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                            <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
+                                        </svg>
+                                        <span class="text-xs font-medium">
+                                            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                        </span>
+                                    </button>
+                                    
+                                    <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
+                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
+                                            <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-center">
+                                <svg class="mr-3 -ml-1 size-5 animate-spin text-dark dark:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                            </div>
+                        </div>
+
+                        <div id="comments-list" class="hidden">
+                            
+                        </div>
+                        <div class="flex justify-center">
+                            <button id="btn-show-more" class="hidden px-3 py-1.5 text-xs font-semibold text-white bg-dark dark:text-dark dark:bg-tertiary rounded-md cursor-pointer">Show More</button>
+                        </div>
+                    </div>
+                </section>
+                <!-- Comments End -->
+            </div>
+        </div>
+    </section>
+    <!-- Section Article End -->
+
+    <!-- Footer Start -->
+        <footer class="pt-24 pb-12 bg-dark dark:bg-pasdev-surface-a20">
+            <div class="container xl:w-9/12 lg:w-10/12 mx-auto">
+                <div class="flex flex-wrap">
+                    <div class="w-full sm:w-1/3 px-4 mb-12 font-medium text-light">
+                        <h2 class="font-bold text-4xl text-white mb-5 animate-scroll dark:text-white">PASdev</h2>
+                        <h3 id="h-contact-us" class="font-bold text-2xl text-tertiary mb-2 animate-scroll">Hubungi Kami</h3>
+                        <p class="my-1 animate-scroll">prasetyoadi522@gmail.com</p>
+                        <p class="my-1 animate-scroll">Jl. Pagu Indah V/04 Manisrejo</p>
+                        <p class="my-1 animate-scroll">Madiun, Jawa Timur</p>
+                    </div>
+    
+                    <div class="w-full md:w-1/3 px-4 mb-12">
+                        <h3 id="link-category" class="font-semibold text-xl text-tertiary mb-5 animate-scroll">Kategori Tautan</h3>
+                        <ul class="text-light">
+                            <li class="animate-scroll">
+                                <a id="lc-home" class="inline-block text-base hover:underline hover:text-tertiary" href="../#home">Beranda</a>
+                            </li>
+                            <li class="animate-scroll">
+                                <a id="lc-about-me" class="inline-block text-base hover:underline hover:text-tertiary" href="../#about">Tentang Saya</a>
+                            </li>
+                            <li class="animate-scroll">
+                                <a id="portfolio" class="inline-block text-base hover:underline hover:text-tertiary" href="../#portfolio">Portfolio</a>
+                            </li>
+                            <li class="animate-scroll">
+                                <a id="lc-activity" class="inline-block text-base hover:underline hover:text-tertiary" href="../#activty">Aktivitas</a>
+                            </li>
+                            <li class="animate-scroll">
+                                <a id="lc-blog" class="inline-block text-base hover:underline hover:text-tertiary" href="../#blog">Blog</a>
+                            </li>
+                            <li class="animate-scroll">
+                                <a id="lc-contact" class="inline-block text-base hover:underline hover:text-tertiary" href="../#contact">Kontak</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="w-full px-4 pt-10 border-t border-tertiary">
+                    <div class="flex items-center justify-center mb-5 text-light border-light border-opacity-75 animate-scroll">
+                        <!-- linkedin -->
+                        <a class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border   hover:bg-linkedin hover:text-white hover:border-0" href="https://www.linkedin.com/in/prasetyo-adi-saputra/" target="_blank">
+                            <svg class="fill-current" role="img" width="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"/></svg>
+                        </a>
+    
+                        <!-- github -->
+                        <a class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border hover:bg-github hover:text-white hover:border-none hover:border-transparent" href="https://github.com/prasetyoadis" target="_blank">
+                            <svg class="fill-current" role="img" width="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Github</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        </a>
+    
+                        <!-- Youtube -->
+                        <a class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border hover:bg-youtube hover:text-white hover:border-0" href="https://www.youtube.com/@prasetyoadi.s" target="_blank">
+                        <svg class="fill-current" role="img" width="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                        
+                        <!-- instagram -->
+                        <a class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border hover:bg-instagram hover:text-white hover:border-0" href="https://www.instagram.com/prasetyoadi.s" target="_blank">
+                        <svg class="fill-current" role="img" width="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                        </a>
+                        
+                        <!-- X Twitter -->
+                        <a class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border hover:bg-black hover:text-white hover:border-0" href="https://x.com/prasetyoadi_s" target="_blank">
+                            <svg class="fill-current" role="img" width="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                        </a>
+                    </div>
+    
+                    <p class="font-medium text-xs text-light text-center animate-scroll">
+                        ⓒ Copyright <span id="year"></span> oleh 
+                        <a class="font-bold text-tertiary" href="https://github.com/prasetyoadis" target="_blank">Prasetyo Adi</a>. Dibuat dengan ❤️ Didukung Oleh <a class="font-bold text-[#06B6D4]" href="https://tailwindcss.com/">Tailwind</a> v4.1
+                    </p>
+                </div>
+            </div>
+    
+        </footer>
+    <!-- Footer End -->
+<!-- <script src="./assets/vendor/preline/dist/preline.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+<script src="../public/js/switch-lang.js"></script>
+
+<script>
+    function isEmpty(value) {
+        return value == null || (typeof value === "string" && value.trim().length === 0);
+    };
+
+    const email = document.getElementById("email");
+    const name = document.getElementById("name");
+    if (('userEmail' in localStorage)) {
+        email.value = localStorage.getItem("userEmail");
+        name.value = localStorage.getItem("userName");
+    } else {
+        email.value = "";
+    }
+</script>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+    import { 
+        getFirestore, collection, query, onSnapshot, doc, getDoc, addDoc, updateDoc, deleteField, orderBy, limit, serverTimestamp, increment, startAfter 
+    } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCPvimYMvsBIXayvuhj1UA75njilp2OjDs",
+        authDomain: "pasdev-35b47.firebaseapp.com",
+        projectId: "pasdev-35b47",
+        storageBucket: "pasdev-35b47.firebasestorage.app",
+        messagingSenderId: "159673146420",
+        appId: "1:159673146420:web:8f2a30a6328584fe067e61",
+        measurementId: "G-5T7Z1CVRK6"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    function encodeKey(email) {
+        return email.replace(/\./g, "_");
+    }
+
+    function decodeKey(key) {
+        return key.replace(/_/g, ".");
+    }
+
+    // ID Post blog yang sedang dibuka (misalnya dari URL atau variabel global)
+    const postId = "B95f5zBVYNJfska8AuOA";
+    // Ambil email user tersimpan dari localStorage
+    let currentUserEmail = localStorage.getItem("userEmail") || null;
+
+    // Ambil referensi form
+    const commentForm = document.getElementById("comment-form");
+
+    commentForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Data dari form
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const comment = document.getElementById("comment").value;
+
+        try {
+            await addDoc(collection(db, "posts", postId, "comments"), {
+                name,
+                email,
+                comment,
+                createdAt: serverTimestamp(), // waktu server Firebase
+                upVotes: 0,
+                downVotes: 0,
+                voters: {}
+            });
+
+            // simpan email ke localStorage agar bisa digunakan untuk vote
+            localStorage.setItem("userEmail", email);
+            localStorage.setItem("userName", name);
+            currentUserEmail = email;
+
+            commentForm.reset();
+
+            email.value = localStorage.getItem("userEmail");
+            name.value = localStorage.getItem("userName");
+        } catch (err) {
+            console.error("Error menambahkan komentar: ", err);
+        }
+    });
+
+    // Referensi elemen tempat komentar ditampilkan
+    const commentsSkeleton = document.getElementById("comments-skeleton");
+    const commentsList = document.getElementById("comments-list");
+    const btnShowMore = document.getElementById("btn-show-more");
+
+    const btnPopuler = document.querySelector('#dropdown-filter-comment ul li:nth-child(1) button:nth-child(1)')
+    const btnLatest = document.querySelector('#dropdown-filter-comment ul li:nth-child(2) button:nth-child(1)')
+    
+    let unsubscribe = null; // simpan listener aktif
+    let lastVisible = null;   // simpan dokumen terakhir yang dimuat
+    let currentOrder = "popular"; // simpan urutan aktif
+    let q;
+
+    function loadComments(order) {
+        // stop listener lama biar nggak double
+        if (unsubscribe) unsubscribe();
+
+        switch (order) {
+            case "popular":
+                if (btnPopuler.classList.contains('active')) {
+                    break;
+                }
+                else {
+                    btnPopuler.classList.toggle('active');
+                    btnLatest.classList.remove('active');
+                }
+                break;
+            case "latest":
+                if (btnLatest.classList.contains('active')) {
+                    break;
+                }
+                else {
+                    btnLatest.classList.toggle('active');
+                    btnPopuler.classList.remove('active');
+                }
+                break;
+            default:
+                btnPopuler.classList.remove('active');
+                btnLatest.classList.remove('active');
+                break;
+        }
+        
+        if (order === "latest") {
+            // komentar terbaru
+            q = query(
+                collection(db, "posts", postId, "comments"),
+                orderBy("createdAt", "desc"),
+                limit(10)
+            );
+        } else {
+            // komentar populer
+            q = query(
+                collection(db, "posts", postId, "comments"),
+                orderBy("upVotes", "desc"),
+                limit(10)
+            );
+        }
+
+        let firstLoad = true; // untuk deteksi load pertama
+        const renderedComments = new Set(); // simpan commentId yang sudah tampil
+        const commentsSum = document.getElementById("comments-sum");
+
+        // Real-time listener
+        unsubscribe = onSnapshot(q, (snapshot) => {
+        // --- Load pertama: tampilkan skeleton global ---
+            if (firstLoad) {
+                // tampilkan skeleton dulu
+                commentsSkeleton.classList.remove("hidden");
+                commentsList.classList.add("hidden");
+
+                // Delay beberapa detik sebelum ganti skeleton dengan komentar asli
+                setTimeout(() => {
+                    // reset sebelum render ulang
+                    commentsList.innerHTML = "";
+                    var i = 0;
+                    
+                    snapshot.forEach((doc) => {
+                        const data = doc.data();
+                        const commentId = doc.id;
+                        const name = data.name || "Anonymous";
+                        const upVotes = data.upVotes || "0";
+                        const downVotes = data.downVotes || "0";
+                        const comment = data.comment || "";
+                        const createdAt = data.createdAt?.toDate().toLocaleString('id-ID', {day: "2-digit", month: "short", year: "numeric"}) || "-";
+                        const voters = data.voters || {};
+
+                        // cek apakah email user sudah vote
+                        const myVote = currentUserEmail ? (voters[encodeKey(currentUserEmail)]) : null;
+                    
+                        // Buat elemen komentar
+                        const commentEl = document.createElement("div");
+                        commentEl.classList.add("comment-item");
+                        commentEl.innerHTML = `
+                        <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 shadow-md rounded-md">
+                            <div class="flex items-center mb-2">
+                                <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">${name}</span>
+                                <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">${createdAt}</span>
+                            </div>
+                            <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
+                                ${comment}
+                            </div>
+                            <div class="msg-action flex gap-1.5 mt-1">
+                                <button  data-comment-id="${commentId}" data-vote-type="up" class="btn-comment action ${myVote === 'up' ? 'active' : ''} " onclick="voteComment(this)">
+                                    <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                        <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
+                                    </svg>
+                                    <span id="upVotesNum-${commentId}" class="text-xs font-medium">${upVotes}</span>
+                                </button>
+                                <button data-comment-id="${commentId}" data-vote-type="down" class="btn-comment action ${myVote === 'down' ? 'active' : ''}" onclick="voteComment(this)">
+                                    <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                        <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
+                                    </svg>
+                                    <span id="downVotesNum-${commentId}" class="text-xs font-medium">${downVotes}</span>
+                                </button>
+                                
+                                <button id="btn-action-${commentId}" data-dropdown-toggle="action[${i}]" data-dropdown-placement="right" class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer" type="button">
+                                    <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
+                                        <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
+                                    </svg>
+                                </button>
+                                <!-- Dropdown menu -->
+                                <div id="action[${i}]" class="z-40 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="btn-action-${commentId}">
+                                        <li>
+                                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+
+                        commentsList.appendChild(commentEl);
+                        i++;
+                        renderedComments.add(commentId);
+                        commentsSum.innerHTML = renderedComments.size;
+                    });
+                    // setelah selesai render, sembunyikan skeleton & tampilkan komentar
+                    commentsSkeleton.classList.add("hidden");
+                    commentsList.classList.remove("hidden");
+                    btnShowMore.classList.remove("hidden");
+                    firstLoad = false;
+                    
+                }, 3000); // delay 3 detik (bisa diganti 10000 untuk 10s)
+            } else {
+                // --- Update realtime setelah load pertama ---
+                snapshot.docChanges().forEach((change) => {
+                    const doc = change.doc;
+                    const data = doc.data();
+                    const commentId = doc.id;
+                    const voters = data.voters || {};
+
+                    if (change.type === "added") {
+                        let today = new Date().toLocaleDateString('id-ID', {day: "2-digit", month: "short", year: "numeric"});
+                        
+                        const name = data.name || "Anonymous";
+                        const upVotes = data.upVotes || "0";
+                        const downVotes = data.downVotes || "0";
+                        const comment = data.comment || "";
+                        const createdAt = data.createdAt?.toDate().toLocaleString('id-ID', {day: "2-digit", month: "short", year: "numeric"}) || today;
+
+                        // cek apakah email user sudah vote
+                        const myVote = currentUserEmail ? voters[encodeKey(currentUserEmail)] : null;
+
+                        // jika komentar sudah pernah ditampilkan, skip
+                        if (renderedComments.has(commentId)) return;
+
+                        // buat skeleton kecil untuk komentar baru
+                        const skeletonItem = document.createElement("div");
+                        skeletonItem.classList.add("animate-pulse", "mb-4");
+                        skeletonItem.innerHTML = `
+                        <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 rounded-md shadow-md">
+                            <div class="flex items-center mb-2">
+                                <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">
+                                    <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+                                </span>
+                                <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">
+                                    <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-16"></div>
+                                </span>
+                            </div>
+                            <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
+                                <div class="h-2.5 bg-gray-400 rounded-full dark:bg-gray-700 w-full"></div>
+                                <div class="h-2.5 mt-1.5 bg-gray-400 rounded-full dark:bg-gray-700 w-1/4"></div>
+                            </div>
+                            <div class="msg-action flex gap-1.5 mt-1">
+                                <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                    <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                        <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
+                                    </svg>
+                                    <span class="text-xs font-medium">
+                                        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                    </span>
+                                </button>
+                                <button class="flex items-center pl-0.5 py-1 pr-1.5 text-gray-400 dark:hover:text-white hover:text-black border border-transparent hover:border-gray-700 rounded-full cursor-pointer">
+                                    <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                        <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
+                                    </svg>
+                                    <span class="text-xs font-medium">
+                                        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-4"></div>
+                                    </span>
+                                </button>
+                                
+                                <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
+                                    <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
+                                        <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        `;
+                        commentsList.prepend(skeletonItem);
+                        
+                        // delay → ganti skeleton dengan komentar asli
+                        setTimeout(() => {
+                            const commentEl = document.createElement("div");
+                            commentEl.classList.add("comment-item");
+                            commentEl.innerHTML = `
+                            <div class="my-5 p-2 md:p-5 bg-white dark:bg-pasdev-surface-a00 shadow-md rounded-md">
+                                <div class="flex items-center mb-2">
+                                    <span id="name" class="grow text-sm font-semibold text-dark dark:text-tertiary">${name}</span>
+                                    <span id="date" class="shrink-0 text-[0.625rem] dark:text-white">${createdAt}</span>
+                                </div>
+                                <div class="msg-body p-2 text-sm font-medium dark:text-white bg-gray-100 dark:bg-pasdev-surface-a10 before:absolute before:content-[''] before:-top-2.5 before:left-0 before:border-[10px] before:border-transparent before:border-l-[10px] before:border-l-gray-100 dark:before:border-l-pasdev-surface-a10 rounded-md">
+                                    ${comment}
+                                </div>
+                                <div class="msg-action flex gap-1.5 mt-1">
+                                    <button data-comment-id="${commentId}" data-vote-type="up" class="btn-comment action ${myVote === 'up' ? 'active' : ''}" onclick="voteComment(this)">
+                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                            <path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/>
+                                        </svg>
+                                        <span id="upVotesNum-${commentId}" class="text-xs font-medium">${upVotes}</span>
+                                    </button>
+                                    <button data-comment-id="${commentId}" data-vote-type="down" class="btn-comment action ${myVote === 'down' ? 'active' : ''}" onclick="voteComment(this)">
+                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 -960 960 960">
+                                            <path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/>
+                                        </svg>
+                                        <span id="downVotesNum-${commentId}" class="text-xs font-medium">${downVotes}</span>
+                                    </button>
+                                    
+                                    <button class="flex items-center text-gray-400 hover:text-black dark:hover:text-white cursor-pointer">
+                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 -960 960 960">
+                                            <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            `;
+                            skeletonItem.replaceWith(commentEl);
+                            renderedComments.add(commentId);
+                            commentsSum.innerHTML = renderedComments.size;
+                        }, 5000); // delay skeleton untuk komentar baru
+                    }
+                    else if (change.type === "modified") {
+                        // update hanya vote count yg berubah
+                        const upEl = document.querySelector(`#upVotesNum-${commentId}`);
+                        const downEl = document.querySelector(`#downVotesNum-${commentId}`);
+
+                        // cek apakah email user sudah vote
+                        const myVote = currentUserEmail ? voters[encodeKey(currentUserEmail)] : null;
+
+                        console.log(myVote);
+
+                        if (upEl) upEl.innerHTML = data.upVotes;
+                        if (downEl) downEl.innerHTML = data.downVotes;
+
+                        switch (myVote) {
+                            case "up":
+                                if (upEl.parentNode.classList.contains('active')) {
+                                    break;
+                                }
+                                else {
+                                    upEl.parentNode.classList.toggle('active');
+                                    downEl.parentNode.classList.remove('active');
+                                }
+                                break;
+                            case "down":
+                                if (downEl.parentNode.classList.contains('active')) {
+                                    break;
+                                }
+                                else {
+                                    downEl.parentNode.classList.toggle('active');
+                                    upEl.parentNode.classList.remove('active');
+                                }
+                                break;
+                            default:
+                                downEl.parentNode.classList.remove('active');
+                                upEl.parentNode.classList.remove('active');
+                                break;
+                        }
+
+                    }
+                });
+            }
+        });
+    }
+
+    // Panggil awal default ke populer
+    loadComments("popular");
+    
+    // Fungsi vote
+    window.voteComment = async (btn) => {
+        const commentId = btn.getAttribute("data-comment-id");
+        const voteType = btn.getAttribute("data-vote-type");
+
+        if (!currentUserEmail) {
+            alert("posting komentar terlebih dahulu untuk bisa vote!");
+            return;
+        }
+
+        const ref = doc(db, "posts", postId, "comments", commentId);
+        const res = await getDoc(ref);
+        const data = res.data();
+        const voters = data.voters || {};
+        const myVote = voters[encodeKey(currentUserEmail)] || null;
+        const safeEmail = encodeKey(currentUserEmail);
+
+        let updateData = {};
+
+        if (myVote === voteType) {
+            // klik ulang → batal
+            updateData[voteType === "up" ? "upVotes" : "downVotes"] = increment(-1);
+            updateData[`voters.${safeEmail}`] = deleteField();
+        } else {
+            // kalau sebelumnya sudah vote lawan → kurangi dulu
+            if (myVote) {
+                updateData[myVote === "up" ? "upVotes" : "downVotes"] = increment(-1);
+            }
+            // tambahkan vote baru (langsung string "up" / "down")
+            updateData[voteType === "up" ? "upVotes" : "downVotes"] = increment(1);
+            updateData[`voters.${safeEmail}`] = voteType;
+        }
+
+        await updateDoc(ref, updateData);
+    };
+    
+    // Hubungkan dengan tombol dropdown
+    btnPopuler.addEventListener("click", () => loadComments("popular"));
+    btnLatest.addEventListener("click", () => loadComments("latest"));
+    
+</script>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.remove('animate-fade-out-left');
+                entry.target.classList.add('animate-fade-in-left');
+                
+            } else {
+                    entry.target.classList.remove('animate-fade-in-left');
+                    entry.target.classList.add('animate-fade-out-left');
+                
+            }
+        });
+    }, {
+        threshold: 0.5 // sesuaikan seberapa banyak elemen harus terlihat untuk dianggap "masuk"
+    });
+      
+    document.querySelectorAll('.animate-scroll').forEach(el => observer.observe(el));
+</script>
+
+<script>
+    const thisYear = document.getElementById("year");
+    thisYear.innerHTML = (new Date().getFullYear() == 2025) ? "2025" : "2025 - " + new Date().getFullYear();
+    // fixed navbar
+    window.onscroll = function() {
+        const header = document.querySelector('header');
+        const fixedNav = header.offsetTop;
+
+        if (window.pageYOffset > fixedNav) {
+            header.classList.add('navbar-fixed');
+        } else {
+            header.classList.remove('navbar-fixed');
+        }
+    };
+    // hamburger
+    const hamburger = document.querySelector('#hamburger');
+    const lang = document.querySelector('#language');
+    const navMenu = document.querySelector('#nav-menu');
+    const navLang = document.querySelector('#nav-language');
+
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('hamburger-active');
+        navMenu.classList.toggle('hidden');
+    });
+
+    window.addEventListener('click', function name(e) {
+        if (e.target != hamburger && e.target != navMenu) {
+            hamburger.classList.remove('hamburger-active');
+            navMenu.classList.add('hidden')
+        }
+        if (e.target != lang && e.target != navLang){
+            navLang.classList.add('hidden')
+        }
+    })
+
+    lang.addEventListener('click', function() {
+        navLang.classList.toggle('hidden');
+    })
+
+    const darkToggle = document.querySelector('#dark-toggle');
+    const dayToggle = document.querySelector('.toggle-day');
+    const circleToggle = document.querySelector('.toggle-circle');
+    const html = document.querySelector('html');
+    
+    darkToggle.addEventListener('click', function() {
+        if (darkToggle.checked) {
+            html.classList.add('dark');
+            localStorage.theme = 'dark';
+            
+        } else {
+            html.classList.remove('dark');
+            localStorage.theme = 'light';
+            
+        } 
+    });
+
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        darkToggle.checked = true;
+    } else {
+        darkToggle.checked = false;
+    }
+
+    
+</script>
+</body>
+</html>
