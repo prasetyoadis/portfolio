@@ -834,6 +834,9 @@
     .max-h-32 {
       max-height: calc(var(--spacing) * 32);
     }
+    .max-h-40 {
+      max-height: calc(var(--spacing) * 40);
+    }
     .max-h-44 {
       max-height: calc(var(--spacing) * 44);
     }
@@ -1969,6 +1972,9 @@
     .font-\[\'Montserrat\'\] {
       font-family: 'Montserrat';
     }
+    .font-mono {
+      font-family: var(--font-mono);
+    }
     .font-sans {
       font-family: var(--font-sans);
     }
@@ -2040,6 +2046,9 @@
     .font-semibold {
       --tw-font-weight: var(--font-weight-semibold);
       font-weight: var(--font-weight-semibold);
+    }
+    .wrap-break-word {
+      overflow-wrap: break-word;
     }
     .break-all {
       word-break: break-all;
@@ -3187,6 +3196,16 @@
     .active\:text-primary {
       &:active {
         color: var(--color-primary);
+      }
+    }
+    .disabled\:cursor-not-allowed {
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+    .disabled\:bg-gray-200 {
+      &:disabled {
+        background-color: var(--color-gray-200);
       }
     }
     .sm\:-ml-4 {
@@ -4502,6 +4521,13 @@
       &:where(.dark, .dark *) {
         &:active {
           color: var(--color-tertiary);
+        }
+      }
+    }
+    .dark\:disabled\:bg-gray-700 {
+      &:where(.dark, .dark *) {
+        &:disabled {
+          background-color: var(--color-gray-700);
         }
       }
     }
