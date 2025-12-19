@@ -1777,6 +1777,10 @@
       }
       --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
     }
+    .from-dark {
+      --tw-gradient-from: var(--color-dark);
+      --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+    }
     .from-light {
       --tw-gradient-from: var(--color-light);
       --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
@@ -1796,6 +1800,9 @@
       --tw-gradient-from: var(--color-white);
       --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
     }
+    .from-0\% {
+      --tw-gradient-from-position: 0%;
+    }
     .via-dark {
       --tw-gradient-via: var(--color-dark);
       --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
@@ -1810,12 +1817,6 @@
       --tw-gradient-via: var(--color-white);
       --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
       --tw-gradient-stops: var(--tw-gradient-via-stops);
-    }
-    .via-60\% {
-      --tw-gradient-via-position: 60%;
-    }
-    .via-80\% {
-      --tw-gradient-via-position: 80%;
     }
     .to-black {
       --tw-gradient-to: var(--color-black);
@@ -1844,14 +1845,14 @@
       --tw-gradient-to: var(--color-white);
       --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
     }
-    .to-80\% {
-      --tw-gradient-to-position: 80%;
+    .to-5\% {
+      --tw-gradient-to-position: 5%;
     }
-    .to-95\% {
-      --tw-gradient-to-position: 95%;
+    .to-10\% {
+      --tw-gradient-to-position: 10%;
     }
-    .to-100\% {
-      --tw-gradient-to-position: 100%;
+    .to-15\% {
+      --tw-gradient-to-position: 15%;
     }
     .bg-cover {
       background-size: cover;
