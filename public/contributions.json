@@ -1,5 +1,5 @@
 {
-  "totalContributions": 203,
+  "totalContributions": 186,
   "weeks": [
     {
       "contributionDays": [
@@ -1735,7 +1735,7 @@
           "date": "2025-12-02"
         },
         {
-          "color": "#30a14e",
+          "color": "#216e39",
           "contributionCount": 5,
           "date": "2025-12-03"
         },
@@ -1959,7 +1959,7 @@
           "date": "2026-01-11"
         },
         {
-          "color": "#30a14e",
+          "color": "#216e39",
           "contributionCount": 5,
           "date": "2026-01-12"
         },
@@ -2035,6 +2035,11 @@
           "color": "#ebedf0",
           "contributionCount": 0,
           "date": "2026-01-25"
+        },
+        {
+          "color": "#ebedf0",
+          "contributionCount": 0,
+          "date": "2026-01-26"
         }
       ]
     }
