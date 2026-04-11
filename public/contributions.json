@@ -6,45 +6,6 @@
         {
           "color": "#ebedf0",
           "contributionCount": 0,
-          "date": "2025-04-06"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2025-04-07"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2025-04-08"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2025-04-09"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2025-04-10"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2025-04-11"
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2025-04-12"
-        }
-      ]
-    },
-    {
-      "contributionDays": [
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
           "date": "2025-04-13"
         },
         {
@@ -2065,6 +2026,15 @@
           "color": "#ebedf0",
           "contributionCount": 0,
           "date": "2026-04-11"
+        }
+      ]
+    },
+    {
+      "contributionDays": [
+        {
+          "color": "#ebedf0",
+          "contributionCount": 0,
+          "date": "2026-04-12"
         }
       ]
     }
