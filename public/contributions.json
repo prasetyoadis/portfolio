@@ -214,22 +214,22 @@
           "date": "2025-12-02"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 5,
           "date": "2025-12-03"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2025-12-04"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2025-12-05"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2025-12-06"
         }
@@ -238,7 +238,7 @@
     {
       "contributionDays": [
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 7,
           "date": "2025-12-07"
         },
@@ -248,17 +248,17 @@
           "date": "2025-12-08"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 2,
           "date": "2025-12-09"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 1,
           "date": "2025-12-10"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 1,
           "date": "2025-12-11"
         },
@@ -287,7 +287,7 @@
           "date": "2025-12-15"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 2,
           "date": "2025-12-16"
         },
@@ -297,12 +297,12 @@
           "date": "2025-12-17"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 1,
           "date": "2025-12-18"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 1,
           "date": "2025-12-19"
         },
@@ -370,7 +370,7 @@
           "date": "2025-12-30"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2025-12-31"
         },
@@ -399,17 +399,17 @@
           "date": "2026-01-04"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-01-05"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 2,
           "date": "2026-01-06"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-01-07"
         },
@@ -419,7 +419,7 @@
           "date": "2026-01-08"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 2,
           "date": "2026-01-09"
         },
@@ -438,7 +438,7 @@
           "date": "2026-01-11"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 5,
           "date": "2026-01-12"
         },
@@ -463,7 +463,7 @@
           "date": "2026-01-16"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2026-01-17"
         }
@@ -482,12 +482,12 @@
           "date": "2026-01-19"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-01-20"
         },
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 8,
           "date": "2026-01-21"
         },
@@ -497,7 +497,7 @@
           "date": "2026-01-22"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-01-23"
         },
@@ -521,7 +521,7 @@
           "date": "2026-01-26"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 1,
           "date": "2026-01-27"
         },
@@ -531,12 +531,12 @@
           "date": "2026-01-28"
         },
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 7,
           "date": "2026-01-29"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 1,
           "date": "2026-01-30"
         },
@@ -555,7 +555,7 @@
           "date": "2026-02-01"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 2,
           "date": "2026-02-02"
         },
@@ -570,12 +570,12 @@
           "date": "2026-02-04"
         },
         {
-          "color": "#30a14e",
+          "color": "#fe9600",
           "contributionCount": 13,
           "date": "2026-02-05"
         },
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 9,
           "date": "2026-02-06"
         },
@@ -594,27 +594,27 @@
           "date": "2026-02-08"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 1,
           "date": "2026-02-09"
         },
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 12,
           "date": "2026-02-10"
         },
         {
-          "color": "#30a14e",
+          "color": "#fe9600",
           "contributionCount": 14,
           "date": "2026-02-11"
         },
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 8,
           "date": "2026-02-12"
         },
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 9,
           "date": "2026-02-13"
         },
@@ -633,7 +633,7 @@
           "date": "2026-02-15"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-02-16"
         },
@@ -643,7 +643,7 @@
           "date": "2026-02-17"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2026-02-18"
         },
@@ -653,12 +653,12 @@
           "date": "2026-02-19"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 6,
           "date": "2026-02-20"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 6,
           "date": "2026-02-21"
         }
@@ -667,32 +667,32 @@
     {
       "contributionDays": [
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-02-22"
         },
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 12,
           "date": "2026-02-23"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-02-24"
         },
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 8,
           "date": "2026-02-25"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-02-26"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 6,
           "date": "2026-02-27"
         },
@@ -711,12 +711,12 @@
           "date": "2026-03-01"
         },
         {
-          "color": "#216e39",
+          "color": "#03001c",
           "contributionCount": 20,
           "date": "2026-03-02"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 1,
           "date": "2026-03-03"
         },
@@ -750,27 +750,27 @@
           "date": "2026-03-08"
         },
         {
-          "color": "#30a14e",
+          "color": "#fe9600",
           "contributionCount": 15,
           "date": "2026-03-09"
         },
         {
-          "color": "#30a14e",
+          "color": "#fe9600",
           "contributionCount": 13,
           "date": "2026-03-10"
         },
         {
-          "color": "#216e39",
+          "color": "#03001c",
           "contributionCount": 24,
           "date": "2026-03-11"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-03-12"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2026-03-13"
         },
@@ -784,12 +784,12 @@
     {
       "contributionDays": [
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 5,
           "date": "2026-03-15"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 6,
           "date": "2026-03-16"
         },
@@ -838,7 +838,7 @@
           "date": "2026-03-24"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-03-25"
         },
@@ -848,7 +848,7 @@
           "date": "2026-03-26"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 6,
           "date": "2026-03-27"
         },
@@ -867,12 +867,12 @@
           "date": "2026-03-29"
         },
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 8,
           "date": "2026-03-30"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2026-03-31"
         },
@@ -901,17 +901,17 @@
     {
       "contributionDays": [
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 2,
           "date": "2026-04-05"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 2,
           "date": "2026-04-06"
         },
         {
-          "color": "#30a14e",
+          "color": "#fe9600",
           "contributionCount": 14,
           "date": "2026-04-07"
         },
@@ -960,12 +960,12 @@
           "date": "2026-04-15"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2026-04-16"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 5,
           "date": "2026-04-17"
         },
@@ -984,7 +984,7 @@
           "date": "2026-04-19"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 6,
           "date": "2026-04-20"
         },
@@ -994,22 +994,22 @@
           "date": "2026-04-21"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 5,
           "date": "2026-04-22"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 2,
           "date": "2026-04-23"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 2,
           "date": "2026-04-24"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2026-04-25"
         }
@@ -1018,12 +1018,12 @@
     {
       "contributionDays": [
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 8,
           "date": "2026-04-26"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-04-27"
         },
@@ -1033,22 +1033,22 @@
           "date": "2026-04-28"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 1,
           "date": "2026-04-29"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2026-04-30"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2026-05-01"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 2,
           "date": "2026-05-02"
         }
@@ -1062,27 +1062,27 @@
           "date": "2026-05-03"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 2,
           "date": "2026-05-04"
         },
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 8,
           "date": "2026-05-05"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2026-05-06"
         },
         {
-          "color": "#30a14e",
+          "color": "#fe9600",
           "contributionCount": 14,
           "date": "2026-05-07"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 6,
           "date": "2026-05-08"
         },
@@ -1106,7 +1106,7 @@
           "date": "2026-05-11"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-05-12"
         },
@@ -1140,7 +1140,7 @@
           "date": "2026-05-17"
         },
         {
-          "color": "#30a14e",
+          "color": "#fe9600",
           "contributionCount": 18,
           "date": "2026-05-18"
         },
@@ -1150,17 +1150,17 @@
           "date": "2026-05-19"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2026-05-20"
         },
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 12,
           "date": "2026-05-21"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-05-22"
         },
@@ -1179,7 +1179,7 @@
           "date": "2026-05-24"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2026-05-25"
         },
@@ -1223,22 +1223,22 @@
           "date": "2026-06-01"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 6,
           "date": "2026-06-02"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2026-06-03"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-06-04"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-06-05"
         },
@@ -1257,12 +1257,12 @@
           "date": "2026-06-07"
         },
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 9,
           "date": "2026-06-08"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-06-09"
         },
@@ -1296,7 +1296,7 @@
           "date": "2026-06-14"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-06-15"
         },
@@ -1306,17 +1306,17 @@
           "date": "2026-06-16"
         },
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 9,
           "date": "2026-06-17"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-06-18"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-06-19"
         },
@@ -1335,22 +1335,22 @@
           "date": "2026-06-21"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-06-22"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-06-23"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 4,
           "date": "2026-06-24"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-06-25"
         },
@@ -1374,7 +1374,7 @@
           "date": "2026-06-28"
         },
         {
-          "color": "#40c463",
+          "color": "#ffc501",
           "contributionCount": 10,
           "date": "2026-06-29"
         },
@@ -1384,17 +1384,17 @@
           "date": "2026-06-30"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-07-01"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-07-02"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-07-03"
         },
@@ -1413,7 +1413,7 @@
           "date": "2026-07-05"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-07-06"
         },
@@ -1428,7 +1428,7 @@
           "date": "2026-07-08"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-07-09"
         },
@@ -1462,7 +1462,7 @@
           "date": "2026-07-14"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-07-15"
         },
@@ -1501,7 +1501,7 @@
           "date": "2026-07-21"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-07-22"
         },
@@ -1530,7 +1530,7 @@
           "date": "2026-07-26"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-07-27"
         },
@@ -1540,7 +1540,7 @@
           "date": "2026-07-28"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-07-29"
         },
@@ -1579,12 +1579,12 @@
           "date": "2026-08-04"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-08-05"
         },
         {
-          "color": "#9be9a8",
+          "color": "#ffee4a",
           "contributionCount": 3,
           "date": "2026-08-06"
         },
@@ -2060,6 +2060,11 @@
           "color": "#ebedf0",
           "contributionCount": 0,
           "date": "2026-10-30"
+        },
+        {
+          "color": "#ebedf0",
+          "contributionCount": 0,
+          "date": "2026-10-31"
         }
       ]
     }
